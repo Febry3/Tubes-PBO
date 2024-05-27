@@ -10,5 +10,29 @@ package Model;
  * @author hafid
  */
 public class JadwalPraktek {
-    
+    //jadwalpraktekk
+    private String hari;
+    private String[] jam;
+
+    public JadwalPraktek(String hari, String[] jam) {
+        this.hari = hari;
+        this.jam = jam;
+    }
+
+    public String getHari() {
+        return hari;
+    }
+
+    public void setHari(String hari) {
+        this.hari = hari;
+    }
+
+    public String[] getJam() {
+        return jam;
+    }
+
+    public void setJam(String[] jam) {
+        this.jam = jam;
+    }
+ 
 }
