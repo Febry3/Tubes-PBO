@@ -10,5 +10,6 @@ package Model;
  * @author ASUS
  */
 public interface ScheduleUtiliy {
-    
+    public void searchSchedule();
+    public void viewSchedule();
 }
