@@ -14,8 +14,8 @@ public class Dokter extends Staff{
     private String spesialisasi;
     private JadwalPraktek[] jadwal_praktik;
 
-    public Dokter(String spesialisasi, JadwalPraktek[] jadwal_praktik, String department, String id_pengguna, String nama_pengguna, String no_telepon) {
-        super(department, id_pengguna, nama_pengguna, no_telepon);
+    public Dokter(String spesialisasi, JadwalPraktek[] jadwal_praktik, String department, String fullname, String nama_pengguna, String no_telepon, String password) {
+        super(department, fullname, nama_pengguna, no_telepon, password);
         this.spesialisasi = spesialisasi;
         this.jadwal_praktik = jadwal_praktik;
     }

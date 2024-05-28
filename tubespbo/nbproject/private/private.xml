@@ -3,19 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/PEMROGRAMAN%20BERBASIS%20OBJEK/Tubes-PBO/tubespbo/src/GUI/Admin.java</file>
-            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/PEMROGRAMAN%20BERBASIS%20OBJEK/Tubes-PBO/tubespbo/src/Model/ScheduleUtiliy.java</file>
-            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/PEMROGRAMAN%20BERBASIS%20OBJEK/Tubes-PBO/tubespbo/src/GUI/Dokter.java</file>
-            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/PEMROGRAMAN%20BERBASIS%20OBJEK/Tubes-PBO/tubespbo/src/Model/Pengguna.java</file>
-            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/PEMROGRAMAN%20BERBASIS%20OBJEK/Tubes-PBO/tubespbo/src/Model/Admin.java</file>
-            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/PEMROGRAMAN%20BERBASIS%20OBJEK/Tubes-PBO/tubespbo/src/Model/JadwalPraktek.java</file>
-            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/PEMROGRAMAN%20BERBASIS%20OBJEK/Tubes-PBO/tubespbo/src/Model/Dokter.java</file>
-            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/PEMROGRAMAN%20BERBASIS%20OBJEK/Tubes-PBO/tubespbo/src/Model/Pasien.java</file>
-            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/PEMROGRAMAN%20BERBASIS%20OBJEK/Tubes-PBO/tubespbo/src/Model/HasilPengecekan.java</file>
-            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/PEMROGRAMAN%20BERBASIS%20OBJEK/Tubes-PBO/tubespbo/src/GUI/LoginRegister.java</file>
-            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/PEMROGRAMAN%20BERBASIS%20OBJEK/Tubes-PBO/tubespbo/src/Model/Staff.java</file>
-            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/PEMROGRAMAN%20BERBASIS%20OBJEK/Tubes-PBO/tubespbo/src/Model/Obat.java</file>
-            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/PEMROGRAMAN%20BERBASIS%20OBJEK/Tubes-PBO/tubespbo/src/Helper/Database.java</file>
+            <file>file:/C:/Users/alfat/Documents/College/Java/Tubes-PBO/tubespbo/src/GUI/Pasien.java</file>
+            <file>file:/C:/Users/alfat/Documents/College/Java/Tubes-PBO/tubespbo/src/Helper/Database.java</file>
+            <file>file:/C:/Users/alfat/Documents/College/Java/Tubes-PBO/tubespbo/src/Model/Apoteker.java</file>
+            <file>file:/C:/Users/alfat/Documents/College/Java/Tubes-PBO/tubespbo/src/Model/Pengguna.java</file>
+            <file>file:/C:/Users/alfat/Documents/College/Java/Tubes-PBO/tubespbo/src/Model/HasilPengecekan.java</file>
+            <file>file:/C:/Users/alfat/Documents/College/Java/Tubes-PBO/tubespbo/src/Assets/Asset%202.png</file>
+            <file>file:/C:/Users/alfat/Documents/College/Java/Tubes-PBO/tubespbo/src/GUI/Dokter.java</file>
+            <file>file:/C:/Users/alfat/Documents/College/Java/Tubes-PBO/tubespbo/src/Model/Obat.java</file>
+            <file>file:/C:/Users/alfat/Documents/College/Java/Tubes-PBO/tubespbo/src/Model/JadwalPraktek.java</file>
+            <file>file:/C:/Users/alfat/Documents/College/Java/Tubes-PBO/tubespbo/src/GUI/LoginRegister.java</file>
+            <file>file:/C:/Users/alfat/Documents/College/Java/Tubes-PBO/tubespbo/src/Model/Pasien.java</file>
+            <file>file:/C:/Users/alfat/Documents/College/Java/Tubes-PBO/tubespbo/src/Model/Staff.java</file>
+            <file>file:/C:/Users/alfat/Documents/College/Java/Tubes-PBO/tubespbo/src/Model/Admin.java</file>
+            <file>file:/C:/Users/alfat/Documents/College/Java/Tubes-PBO/tubespbo/src/Model/ScheduleUtiliy.java</file>
+            <file>file:/C:/Users/alfat/Documents/College/Java/Tubes-PBO/tubespbo/src/GUI/Admin.java</file>
+            <file>file:/C:/Users/alfat/Documents/College/Java/Tubes-PBO/tubespbo/src/Model/Dokter.java</file>
+            <file>file:/C:/Users/alfat/Documents/College/Java/Tubes-PBO/tubespbo/src/Model/Schedule.java</file>
         </group>
     </open-files>
 </project-private>

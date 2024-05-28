@@ -16,6 +16,7 @@ public class Pasien extends javax.swing.JFrame {
      */
     public Pasien() {
         initComponents();
+        this.setTitle("Patient Page");
     }
 
     /**

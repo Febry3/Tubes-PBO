@@ -12,8 +12,8 @@ package Model;
 public class Apoteker extends Staff{
     private String shift;
 
-    public Apoteker(String shift, String department, String id_pengguna, String nama_pengguna, String no_telepon) {
-        super(department, id_pengguna, nama_pengguna, no_telepon);
+    public Apoteker(String shift, String department, String fullname, String nama_pengguna, String no_telepon, String password) {
+        super(department, fullname, nama_pengguna, no_telepon, password);
         this.shift = shift;
     }
 

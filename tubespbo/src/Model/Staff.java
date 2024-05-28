@@ -13,8 +13,8 @@ public class Staff extends Pengguna{
     //staff
     private String department;
 
-    public Staff(String department, String id_pengguna, String nama_pengguna, String no_telepon) {
-        super(id_pengguna, nama_pengguna, no_telepon);
+    public Staff(String department, String fullname, String nama_pengguna, String no_telepon, String password) {
+        super(fullname, nama_pengguna, no_telepon, password);
         this.department = department;
     }
 

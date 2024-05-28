@@ -56,7 +56,7 @@ public class Admin extends javax.swing.JFrame {
 
         jTextArea4.setColumns(20);
         jTextArea4.setRows(5);
-        jTextArea4.setText("Pasien");
+        jTextArea4.setText("\n");
         jScrollPane4.setViewportView(jTextArea4);
 
         jTextArea6.setColumns(20);

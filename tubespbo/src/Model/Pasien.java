@@ -13,8 +13,8 @@ public class Pasien extends Pengguna{
     private String alamat;
     private HasilPengecekan[] riwayat_pemeriksaan;
 
-    public Pasien(String alamat, HasilPengecekan[] riwayat_pemeriksaan, String id_pengguna, String nama_pengguna, String no_telepon) {
-        super(id_pengguna, nama_pengguna, no_telepon);
+    public Pasien(String alamat, HasilPengecekan[] riwayat_pemeriksaan, String fullname, String nama_pengguna, String no_telepon, String password) {
+        super(fullname, nama_pengguna, no_telepon, password);
         this.alamat = alamat;
         this.riwayat_pemeriksaan = riwayat_pemeriksaan;
     }
