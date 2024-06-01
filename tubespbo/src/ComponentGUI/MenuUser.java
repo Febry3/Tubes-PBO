@@ -9,9 +9,9 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import javax.swing.DefaultListModel;
 
-public class MenuAdmin extends javax.swing.JPanel {
+public class MenuUser extends javax.swing.JPanel {
 
-    public MenuAdmin() {
+    public MenuUser() {
         initComponents();
         setOpaque(false);
         adminListMenu1.setOpaque(false);
@@ -19,7 +19,7 @@ public class MenuAdmin extends javax.swing.JPanel {
     }
    
     private void init() {
-        adminListMenu1.addItem(new ModelMenu("", "ADMIN OPTION", ModelMenu.MenuType.TITLE));
+        adminListMenu1.addItem(new ModelMenu("", "USER OPTION", ModelMenu.MenuType.TITLE));
         adminListMenu1.addItem(new ModelMenu("1", "DashBoard", ModelMenu.MenuType.MENU));
         adminListMenu1.addItem(new ModelMenu("1", "tes", ModelMenu.MenuType.MENU));
         adminListMenu1.addItem(new ModelMenu("1", "tolol", ModelMenu.MenuType.MENU));
