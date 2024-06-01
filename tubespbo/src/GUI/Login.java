@@ -12,12 +12,12 @@ import java.awt.Insets;
  *
  * @author LENOVO
  */
-public class Register extends javax.swing.JFrame {
+public class Login extends javax.swing.JFrame {
 
     /**
      * Creates new form Register
      */
-    public Register() {
+    public Login() {
         initComponents();
         
     }
@@ -37,10 +37,9 @@ public class Register extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jTextFieldCustom1 = new ComponentGUI.JTextFieldCustom();
         jButton1 = new javax.swing.JButton();
-        jTextFieldCustom2 = new ComponentGUI.JTextFieldCustom();
         jTextFieldCustom3 = new ComponentGUI.JTextFieldCustom();
-        jTextFieldCustom4 = new ComponentGUI.JTextFieldCustom();
-        jTextFieldCustom5 = new ComponentGUI.JTextFieldCustom();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,7 +67,7 @@ public class Register extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(76, 184, 196));
-        jLabel1.setText("WELCOME");
+        jLabel1.setText("LOGIN");
 
         jTextFieldCustom1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(76, 184, 196), 2, true), " Username ", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
         jTextFieldCustom1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -80,16 +79,8 @@ public class Register extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        jButton1.setText("Daftar");
+        jButton1.setText("Login");
         jButton1.setBorder(null);
-
-        jTextFieldCustom2.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(76, 184, 196), 2, true), " No. HP ", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
-        jTextFieldCustom2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextFieldCustom2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCustom2ActionPerformed(evt);
-            }
-        });
 
         jTextFieldCustom3.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(76, 184, 196), 2, true), " Password ", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
         jTextFieldCustom3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -99,21 +90,16 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
-        jTextFieldCustom4.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(76, 184, 196), 2, true), " Name ", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
-        jTextFieldCustom4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextFieldCustom4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCustom4ActionPerformed(evt);
-            }
-        });
+        jRadioButton1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        jRadioButton1.setText("Dokter");
+        jRadioButton1.setBorder(null);
+        jRadioButton1.setIconTextGap(10);
+        jRadioButton1.setOpaque(false);
 
-        jTextFieldCustom5.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(76, 184, 196), 2, true), " Masukan ulang password ", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
-        jTextFieldCustom5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextFieldCustom5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCustom5ActionPerformed(evt);
-            }
-        });
+        jRadioButton2.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        jRadioButton2.setText("Pasien");
+        jRadioButton2.setIconTextGap(10);
+        jRadioButton2.setOpaque(false);
 
         javax.swing.GroupLayout panelBorder1Layout = new javax.swing.GroupLayout(panelBorder1);
         panelBorder1.setLayout(panelBorder1Layout);
@@ -129,16 +115,16 @@ public class Register extends javax.swing.JFrame {
                     .addGroup(panelBorder1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                         .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldCustom2, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldCustom1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldCustom3, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldCustom4, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldCustom5, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFieldCustom3, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(25, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(266, 266, 266))))
+                        .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(188, 188, 188))))
         );
         panelBorder1Layout.setVerticalGroup(
             panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,19 +132,17 @@ public class Register extends javax.swing.JFrame {
             .addGroup(panelBorder1Layout.createSequentialGroup()
                 .addGap(71, 71, 71)
                 .addComponent(jLabel1)
-                .addGap(78, 78, 78)
+                .addGap(119, 119, 119)
                 .addComponent(jTextFieldCustom1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jTextFieldCustom4, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(jTextFieldCustom2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(68, 68, 68)
                 .addComponent(jTextFieldCustom3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(jTextFieldCustom5, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
+                .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
+                .addGap(44, 44, 44))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -183,21 +167,9 @@ public class Register extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldCustom1ActionPerformed
 
-    private void jTextFieldCustom2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCustom2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCustom2ActionPerformed
-
     private void jTextFieldCustom3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCustom3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldCustom3ActionPerformed
-
-    private void jTextFieldCustom4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCustom4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCustom4ActionPerformed
-
-    private void jTextFieldCustom5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCustom5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCustom5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,20 +188,21 @@ public class Register extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Register().setVisible(true);
+                new Login().setVisible(true);
             }
         });
     }
@@ -238,11 +211,10 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
     private ComponentGUI.JTextFieldCustom jTextFieldCustom1;
-    private ComponentGUI.JTextFieldCustom jTextFieldCustom2;
     private ComponentGUI.JTextFieldCustom jTextFieldCustom3;
-    private ComponentGUI.JTextFieldCustom jTextFieldCustom4;
-    private ComponentGUI.JTextFieldCustom jTextFieldCustom5;
     private GUI.AuthPanel menuAdmin1;
     private GUI.PanelBorder panelBorder1;
     // End of variables declaration//GEN-END:variables

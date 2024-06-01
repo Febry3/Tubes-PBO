@@ -7,9 +7,9 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
-public class MenuAdmin extends javax.swing.JPanel {
+public class AuthPanel extends javax.swing.JPanel {
 
-    public MenuAdmin() {
+    public AuthPanel() {
         initComponents();
         setOpaque(false);
     }

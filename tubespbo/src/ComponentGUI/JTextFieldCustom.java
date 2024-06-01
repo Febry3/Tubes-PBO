@@ -16,7 +16,7 @@ public class JTextFieldCustom extends javax.swing.JTextField{
     public JTextFieldCustom() {
         Insets inset = getInsets();
         inset.left += 10;
-        setMargin(inset);
+        setMargin(new Insets(5,10,5,5));
     }
     
 }
