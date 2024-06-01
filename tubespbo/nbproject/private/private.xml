@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/PEMROGRAMAN%20BERBASIS%20OBJEK/Tubes-PBO/tubespbo/src/Model/Schedule.java</file>
             <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/PEMROGRAMAN%20BERBASIS%20OBJEK/Tubes-PBO/tubespbo/src/GUI/Admin.java</file>
             <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/PEMROGRAMAN%20BERBASIS%20OBJEK/Tubes-PBO/tubespbo/src/Model/ScheduleUtiliy.java</file>
@@ -20,6 +21,17 @@
             <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/PEMROGRAMAN%20BERBASIS%20OBJEK/Tubes-PBO/tubespbo/src/Model/Obat.java</file>
             <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/PEMROGRAMAN%20BERBASIS%20OBJEK/Tubes-PBO/tubespbo/src/Model/Apoteker.java</file>
             <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/PEMROGRAMAN%20BERBASIS%20OBJEK/Tubes-PBO/tubespbo/src/GUI/MainAdmin.java</file>
+=======
+            <file>file:/D:/Tel%20U/Semester%204/PBO/Tubes-PBO-master/tubespbo/src/GUI/MenuAdmin.java</file>
+            <file>file:/D:/Tel%20U/Semester%204/PBO/Tubes-PBO-master/tubespbo/src/GUI/Pasien.java</file>
+            <file>file:/D:/Tel%20U/Semester%204/PBO/Tubes-PBO-master/tubespbo/src/GUI/Admin.java</file>
+            <file>file:/D:/Tel%20U/Semester%204/PBO/Tubes-PBO-master/tubespbo/src/GUI/Register.java</file>
+            <file>file:/D:/Tel%20U/Semester%204/PBO/Tubes-PBO-master/tubespbo/src/GUI/PanelBorder.java</file>
+            <file>file:/D:/Tel%20U/Semester%204/PBO/Tubes-PBO-master/tubespbo/src/GUI/Dokter.java</file>
+            <file>file:/D:/Tel%20U/Semester%204/PBO/Tubes-PBO-master/tubespbo/src/Helper/Database.java</file>
+            <file>file:/D:/Tel%20U/Semester%204/PBO/Tubes-PBO-master/tubespbo/src/Assets/Asset%202.png</file>
+            <file>file:/D:/Tel%20U/Semester%204/PBO/Tubes-PBO-master/tubespbo/src/GUI/LoginRegister.java</file>
+>>>>>>> 1d19f253d8952ddde89e0c83ecf6b02b41d1302b
         </group>
     </open-files>
 </project-private>
