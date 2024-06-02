@@ -19,9 +19,9 @@ import javax.swing.JOptionPane;
  */
 public class Database {
 
-    static final String DB_URL = "jdbc:mysql://localhost/rumahsakit";
-    static final String DB_USER = "root";
-    static final String DB_PASS = "";
+    static final String DB_URL = "jdbc:mysql://103.161.184.223/ambahospital";
+    static final String DB_USER = "ambahospital";
+    static final String DB_PASS = "ambahospital";
     static Connection conn;
     static Statement stmt;
     static ResultSet rs;
