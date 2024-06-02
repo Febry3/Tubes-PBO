@@ -12,12 +12,23 @@ package Model;
  */
 public class JadwalPraktek {
     //jadwalpraktekk
+    private String ruangan;
     private String hari;
     private String[] jam;
 
-    public JadwalPraktek(String hari, String[] jam) {
+    public JadwalPraktek(String ruangan, String hari, String[] jam) {
+        this.ruangan = ruangan;
         this.hari = hari;
         this.jam = jam;
+    }
+
+    
+    public String getRuangan() {
+        return ruangan;
+    }
+
+    public void setRuangan(String ruangan) {
+        this.ruangan = ruangan;
     }
 
     public String getHari() {
@@ -35,5 +46,7 @@ public class JadwalPraktek {
     public void setJam(String[] jam) {
         this.jam = jam;
     }
+
+    
  
 }
