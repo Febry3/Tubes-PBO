@@ -27,17 +27,13 @@ public class MenuUser extends javax.swing.JPanel {
    
     private void init() {
         userListMenu.addItem(new ModelMenu("", "USER OPTION", ModelMenu.MenuType.TITLE));
-        userListMenu.addItem(new ModelMenu("1", "DashBoard", ModelMenu.MenuType.MENU));
-        userListMenu.addItem(new ModelMenu("1", "tes", ModelMenu.MenuType.MENU));
-        userListMenu.addItem(new ModelMenu("1", "tolol", ModelMenu.MenuType.MENU));
+        userListMenu.addItem(new ModelMenu("reservasi", "Buat Reservasi", ModelMenu.MenuType.MENU));
+        userListMenu.addItem(new ModelMenu("arsipIcon", "Arsip Kunjungan", ModelMenu.MenuType.MENU));
         userListMenu.addItem(new ModelMenu("","", ModelMenu.MenuType.EMPTY));
-        userListMenu.addItem(new ModelMenu("", "Pengajuan", ModelMenu.MenuType.TITLE));
-        userListMenu.addItem(new ModelMenu("1", "Dokter", ModelMenu.MenuType.MENU));
-        userListMenu.addItem(new ModelMenu("1", "Pasien", ModelMenu.MenuType.MENU));     
         userListMenu.addItem(new ModelMenu("","", ModelMenu.MenuType.EMPTY));
         userListMenu.addItem(new ModelMenu("", "Lainnya", ModelMenu.MenuType.TITLE));
-        userListMenu.addItem(new ModelMenu("1", "Ganti Password", ModelMenu.MenuType.MENU));
-        userListMenu.addItem(new ModelMenu("1", "Logout", ModelMenu.MenuType.MENU));
+        userListMenu.addItem(new ModelMenu("GantiPassword", "Ganti Password", ModelMenu.MenuType.MENU));
+        userListMenu.addItem(new ModelMenu("logoutIcon", "Logout", ModelMenu.MenuType.MENU));
     }
 
     @SuppressWarnings("unchecked")

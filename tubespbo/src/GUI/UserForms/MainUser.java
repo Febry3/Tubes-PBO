@@ -7,6 +7,7 @@ package GUI.UserForms;
 
 import MenuModel.SelectedMenu;
 import java.awt.Color;
+import javax.swing.JComponent;
 
 /**
  *
@@ -14,18 +15,40 @@ import java.awt.Color;
  */
 public class MainUser extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MainAdmin
-     */
+    private InitForm init;
+    private BuatReservasi br;
+    private ArsipKunjungan ak;
+    private GantiPassword gp;
     public MainUser() {
         initComponents();
+        init = new InitForm();
+        br = new BuatReservasi();
+        ak = new ArsipKunjungan();
+        gp = new GantiPassword();
+
          menuUser.addEventMenuSelected(new SelectedMenu(){
             @Override
             public void selected(int index) {
-                System.out.println("Selected index" + index);
+                if (index == 1) {
+                    setForm(br);
+                } else if (index == 2) {
+                    setForm(ak);
+                } else if (index == 6) {
+                    setForm(gp);
+                } else if (index == 7) {
+                    setForm(init);
+                }
             }
         });
+        setForm(init);
+
         //setBackground(new Color(0,0,0,0));
+    }
+    private void setForm(JComponent com) {
+        MainPanel.removeAll();  
+        MainPanel.add(com);
+        MainPanel.repaint();
+        MainPanel.revalidate();
     }
 
     /**
@@ -38,6 +61,7 @@ public class MainUser extends javax.swing.JFrame {
     private void initComponents() {
 
         panelBorder1 = new GUI.PanelBorder();
+        MainPanel = new javax.swing.JPanel();
         menuUser = new ComponentGUI.MenuUser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -45,16 +69,21 @@ public class MainUser extends javax.swing.JFrame {
         panelBorder1.setForeground(new java.awt.Color(255, 255, 255));
         panelBorder1.setPreferredSize(new java.awt.Dimension(1440, 810));
 
+        MainPanel.setOpaque(false);
+        MainPanel.setLayout(new java.awt.BorderLayout());
+
         javax.swing.GroupLayout panelBorder1Layout = new javax.swing.GroupLayout(panelBorder1);
         panelBorder1.setLayout(panelBorder1Layout);
         panelBorder1Layout.setHorizontalGroup(
             panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBorder1Layout.createSequentialGroup()
                 .addComponent(menuUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 974, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(MainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 985, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelBorder1Layout.setVerticalGroup(
             panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(MainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(menuUser, javax.swing.GroupLayout.DEFAULT_SIZE, 737, Short.MAX_VALUE)
         );
 
@@ -62,7 +91,7 @@ public class MainUser extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelBorder1, javax.swing.GroupLayout.DEFAULT_SIZE, 1261, Short.MAX_VALUE)
+            .addComponent(panelBorder1, javax.swing.GroupLayout.DEFAULT_SIZE, 1279, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,6 +139,7 @@ public class MainUser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel MainPanel;
     private ComponentGUI.MenuUser menuUser;
     private GUI.PanelBorder panelBorder1;
     // End of variables declaration//GEN-END:variables
