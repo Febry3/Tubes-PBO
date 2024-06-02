@@ -35,7 +35,7 @@ public class PasienRequestForm extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Ini Page Request Pasien");
+        jLabel1.setText("Ini Page Request Dokter");
         add(jLabel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 

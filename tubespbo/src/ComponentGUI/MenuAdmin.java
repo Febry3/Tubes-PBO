@@ -27,8 +27,8 @@ public class MenuAdmin extends javax.swing.JPanel {
     }
    
     private void init() {
-        //adminListMenu.addItem(new ModelMenu("", "ADMIN OPTION", ModelMenu.MenuType.TITLE));
-        adminListMenu.addItem(new ModelMenu("","", ModelMenu.MenuType.EMPTY));
+        adminListMenu.addItem(new ModelMenu("", "ADMIN OPTION", ModelMenu.MenuType.TITLE));
+        //adminListMenu.addItem(new ModelMenu("","", ModelMenu.MenuType.EMPTY));
         adminListMenu.addItem(new ModelMenu("", "Pengajuan", ModelMenu.MenuType.TITLE));
         adminListMenu.addItem(new ModelMenu("request", "Dokter", ModelMenu.MenuType.MENU));
         adminListMenu.addItem(new ModelMenu("request", "Pasien", ModelMenu.MenuType.MENU));     
