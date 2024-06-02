@@ -8,6 +8,8 @@ package Controller;
 import ComponentGUI.JTextFieldCustom;
 import GUI.DoctorForm.MainDoctor;
 import GUI.UserForms.MainUser;
+import Model.Dokter;
+import Model.Pasien;
 import Model.Pengguna;
 import Utility.Database;
 import java.awt.event.ActionEvent;
@@ -61,17 +63,15 @@ public class LoginController implements ActionListener {
     private void load_users(String username, String password) {
         try {
             Database db = new Database();
-            String sql = "select Pasien.nama_pasien as username "
-                    + "from `Pasien` "
-                    + "where"
-                    + " Pasien.nama_pasien = '" + username + "' "
-                    + " AND"
-                    + " Pasien.password = '" + password + "'"
-                    + " UNION"
-                    + " select Dokter.nama_dokter from Dokter "
-                    + " where"
-                    + " Dokter.nama_dokter = '" + username + "' ";
-            ResultSet rs = db.getData(sql);
+            ResultSet rs;
+            if (role.equals("Pasien")){
+                Pasien pasien = new Pasien(username, password);
+                rs = pasien.Login(username, password);
+            } else {
+                Dokter dokter = new Dokter(username, password);
+                rs = dokter.Login(username, password);
+            }
+      
             while (rs.next()) {
                 Pengguna user = new Pengguna(rs.getString("username"), "") {
                     @Override

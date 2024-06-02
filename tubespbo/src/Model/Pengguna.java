@@ -57,24 +57,11 @@ public abstract class Pengguna {
 
     }
 
-    public ResultSet Login(String username, String password) throws SQLException {
-        //SELECT Pasien.nama_pasien as username
-        //FROM Pasien
-        //UNION
-        //select Dokter.nama_dokter from Dokter;
-        Database db = new Database();
-        String sql = "select Pasien.nama_pasien as username "
-                + "from `Pasien`"
-                + "where "
-                + "Pasien.nama_pasien = '" + username + "' "
-                + " AND"
-                + "Pasien.password = '" + password + "'"
-                + "UNION"
-                + "select Dokter.nama_dokter "
-                + "where"
-                + "Dokter.nama_dokter = '" + username + "' ";
-        return db.getData(sql);
-    }
+    
+    //SELECT Pasien.nama_pasien as username
+    //FROM Pasien
+    //UNION
+    //select Dokter.nama_dokter from Dokter;
 
 //    public void Register() throws SQLException {
 //        Database db = new Database();

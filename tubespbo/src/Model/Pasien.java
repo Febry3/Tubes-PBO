@@ -6,6 +6,7 @@
 package Model;
 
 import Utility.Database;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -20,6 +21,10 @@ public class Pasien extends Pengguna {
     public Pasien(String alamat, String nama_pengguna, String no_telepon, String password) {
         super(nama_pengguna, no_telepon, password);
         this.alamat = alamat;
+    }
+    
+    public Pasien(String nama_pengguna, String password){
+        super(nama_pengguna, password);
     }
 
     public String getAlamat() {
@@ -74,7 +79,18 @@ public class Pasien extends Pengguna {
 
     @Override
     public void change_password() {
+    
+    }
 
+    public ResultSet Login(String username, String password) throws SQLException {
+        Database db = new Database();
+        String sql = "select nama_pasien as username "
+                + "from `Pasien`"
+                + " where "
+                + " nama_pasien = '" + username + "' "
+                + " AND"
+                + " password = '" + password + "'";
+        return db.getData(sql);
     }
 
 }

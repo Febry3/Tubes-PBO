@@ -5,6 +5,9 @@
  */
 package Model;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author hafid
@@ -16,6 +19,10 @@ public class Staff extends Pengguna{
     public Staff(String department, String fullname, String nama_pengguna, String no_telepon, String password) {
         super(nama_pengguna, no_telepon, password);
         this.department = department;
+    }
+    
+    public Staff(String username, String password){
+        super(username, password);
     }
 
     
