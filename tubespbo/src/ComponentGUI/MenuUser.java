@@ -30,7 +30,7 @@ public class MenuUser extends javax.swing.JPanel {
         userListMenu.addItem(new ModelMenu("reservasi", "Buat Reservasi", ModelMenu.MenuType.MENU));
         userListMenu.addItem(new ModelMenu("arsipIcon", "Arsip Kunjungan", ModelMenu.MenuType.MENU));
         userListMenu.addItem(new ModelMenu("","", ModelMenu.MenuType.EMPTY));
-        userListMenu.addItem(new ModelMenu("","", ModelMenu.MenuType.EMPTY));
+        //userListMenu.addItem(new ModelMenu("","", ModelMenu.MenuType.EMPTY));
         userListMenu.addItem(new ModelMenu("", "Lainnya", ModelMenu.MenuType.TITLE));
         userListMenu.addItem(new ModelMenu("GantiPassword", "Ganti Password", ModelMenu.MenuType.MENU));
         userListMenu.addItem(new ModelMenu("logoutIcon", "Logout", ModelMenu.MenuType.MENU));
