@@ -27,9 +27,9 @@ public class MainAdmin extends javax.swing.JFrame {
                     setForm(pr);
                 } else if (index == 3) {
                     setForm(dr);
-                } else if (index == 5) {
-                    setForm(cp);
                 } else if (index == 6) {
+                    setForm(cp);
+                } else if (index == 7) {
                     setForm(init);
                 }
             }

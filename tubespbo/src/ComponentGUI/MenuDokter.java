@@ -27,17 +27,16 @@ public class MenuDokter extends javax.swing.JPanel {
    
     private void init() {
         dokterListMenu.addItem(new ModelMenu("", "DOCTOR OPTION", ModelMenu.MenuType.TITLE));
-        dokterListMenu.addItem(new ModelMenu("1", "DashBoard", ModelMenu.MenuType.MENU));
-        dokterListMenu.addItem(new ModelMenu("1", "tes", ModelMenu.MenuType.MENU));
-        dokterListMenu.addItem(new ModelMenu("1", "tolol", ModelMenu.MenuType.MENU));
+        dokterListMenu.addItem(new ModelMenu("", "Jadwal", ModelMenu.MenuType.TITLE));
+        dokterListMenu.addItem(new ModelMenu("request", "Pengajuan Jadwal", ModelMenu.MenuType.MENU));
+        dokterListMenu.addItem(new ModelMenu("jadwal", "Jadwal Praktek", ModelMenu.MenuType.MENU));     
         dokterListMenu.addItem(new ModelMenu("","", ModelMenu.MenuType.EMPTY));
-        dokterListMenu.addItem(new ModelMenu("", "Pengajuan", ModelMenu.MenuType.TITLE));
-        dokterListMenu.addItem(new ModelMenu("1", "Dokter", ModelMenu.MenuType.MENU));
-        dokterListMenu.addItem(new ModelMenu("1", "Pasien", ModelMenu.MenuType.MENU));     
+        dokterListMenu.addItem(new ModelMenu("", "Laporan", ModelMenu.MenuType.TITLE));
+        dokterListMenu.addItem(new ModelMenu("buatLaporan", "Buat Laporan", ModelMenu.MenuType.MENU));  
         dokterListMenu.addItem(new ModelMenu("","", ModelMenu.MenuType.EMPTY));
         dokterListMenu.addItem(new ModelMenu("", "Lainnya", ModelMenu.MenuType.TITLE));
-        dokterListMenu.addItem(new ModelMenu("1", "Ganti Password", ModelMenu.MenuType.MENU));
-        dokterListMenu.addItem(new ModelMenu("1", "Logout", ModelMenu.MenuType.MENU));
+        dokterListMenu.addItem(new ModelMenu("GantiPassword", "Ganti Password", ModelMenu.MenuType.MENU));
+        dokterListMenu.addItem(new ModelMenu("logoutIcon", "Logout", ModelMenu.MenuType.MENU));
     }
 
     @SuppressWarnings("unchecked")
