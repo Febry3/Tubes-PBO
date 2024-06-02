@@ -1,6 +1,7 @@
-
+//GEN-LINE:variables
 package ComponentGUI;
 
+import Event.EventMenuUser;
 import MenuModel.ModelMenu;
 import java.awt.Color;
 import java.awt.GradientPaint;
@@ -11,6 +12,13 @@ import javax.swing.DefaultListModel;
 
 public class MenuUser extends javax.swing.JPanel {
 
+    private EventMenuUser event;
+    
+    public void addEventMenuUser(EventMenuUser event) {
+        this.event = event;
+        adminListMenu1.addEventMenuUser(event);
+    }
+    
     public MenuUser() {
         initComponents();
         setOpaque(false);
@@ -20,13 +28,9 @@ public class MenuUser extends javax.swing.JPanel {
    
     private void init() {
         adminListMenu1.addItem(new ModelMenu("", "USER OPTION", ModelMenu.MenuType.TITLE));
-        adminListMenu1.addItem(new ModelMenu("1", "DashBoard", ModelMenu.MenuType.MENU));
-        adminListMenu1.addItem(new ModelMenu("1", "tes", ModelMenu.MenuType.MENU));
-        adminListMenu1.addItem(new ModelMenu("1", "tolol", ModelMenu.MenuType.MENU));
+        adminListMenu1.addItem(new ModelMenu("1", "Buat Reservasi", ModelMenu.MenuType.MENU));
+        adminListMenu1.addItem(new ModelMenu("1", "Arsip Kunjungan", ModelMenu.MenuType.MENU));
         adminListMenu1.addItem(new ModelMenu("","", ModelMenu.MenuType.EMPTY));
-        adminListMenu1.addItem(new ModelMenu("", "Pengajuan", ModelMenu.MenuType.TITLE));
-        adminListMenu1.addItem(new ModelMenu("1", "Dokter", ModelMenu.MenuType.MENU));
-        adminListMenu1.addItem(new ModelMenu("1", "Pasien", ModelMenu.MenuType.MENU));     
         adminListMenu1.addItem(new ModelMenu("","", ModelMenu.MenuType.EMPTY));
         adminListMenu1.addItem(new ModelMenu("", "Lainnya", ModelMenu.MenuType.TITLE));
         adminListMenu1.addItem(new ModelMenu("1", "Ganti Password", ModelMenu.MenuType.MENU));
@@ -34,7 +38,7 @@ public class MenuUser extends javax.swing.JPanel {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
         AppNamePanel = new javax.swing.JPanel();
@@ -79,7 +83,7 @@ public class MenuUser extends javax.swing.JPanel {
                 .addComponent(AppNamePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>                        
 
     @Override
     protected void paintChildren(Graphics grphcs) {
@@ -91,9 +95,9 @@ public class MenuUser extends javax.swing.JPanel {
         g2.fillRect(getWidth()-20, 0, getWidth(), getHeight());
         super.paintChildren(grphcs);
     }        
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify                     
     private javax.swing.JPanel AppNamePanel;
     private MenuModel.ListMenu<String> adminListMenu1;
     private javax.swing.JLabel jLabel1;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration                   
 }

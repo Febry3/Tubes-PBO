@@ -2,6 +2,7 @@
 package MenuModel;
 
 import ComponentGUI.MenuItem;
+import Event.EventMenuUser;
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -16,6 +17,11 @@ public class ListMenu<E extends Object> extends JList<E>{
     
     private final DefaultListModel model;
     private int selectedIndex = -1;
+    private EventMenuUser event;
+    
+    public void addEventMenuUser (EventMenuUser event) {
+        this.event = event;
+    }
     public ListMenu() {
         model = new DefaultListModel();
         setModel(model);
@@ -29,6 +35,9 @@ public class ListMenu<E extends Object> extends JList<E>{
                         ModelMenu menu = (ModelMenu)o;
                         if (menu.getType() == ModelMenu.MenuType.MENU) {
                             selectedIndex = index;
+                            if (event != null) {
+                                event.selectedMenuUser(index);
+                            }
                         }
                     } else {
                         selectedIndex = index;
