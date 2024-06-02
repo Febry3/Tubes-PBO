@@ -12,11 +12,12 @@ import java.sql.SQLException;
  *
  * @author ASUS
  */
-public class Pasien extends Pengguna{
+public class Pasien extends Pengguna {
+
     private String alamat;
     private HasilPengecekan[] riwayat_pemeriksaan;
 
-    public Pasien(String alamat,String nama_pengguna, String no_telepon, String password) {
+    public Pasien(String alamat, String nama_pengguna, String no_telepon, String password) {
         super(nama_pengguna, no_telepon, password);
         this.alamat = alamat;
     }
@@ -36,42 +37,44 @@ public class Pasien extends Pengguna{
     public void setRiwayat_pemeriksaan(HasilPengecekan[] riwayat_pemeriksaan) {
         this.riwayat_pemeriksaan = riwayat_pemeriksaan;
     }
-    
+
     public void register_akun() throws SQLException {
         Database db = new Database();
         db.connect();
-        String sqlQuery = "insert into Pasien values (" + super.getId_pengguna() + ", '" + super.getNama_pengguna() + "', '" + super.getNo_telepon() + "', '" + alamat + "', '" + super.getPassword_pengguna() + "')";
+        String sqlQuery = "insert into Pasien (nama_pasien, no_telepon, alamat, password)"
+                + " values ('" + super.getNama_pengguna() + "', '" + super.getNo_telepon() + "', '" + alamat
+                + "', '" + super.getPassword_pengguna() + "')";
         System.out.println(sqlQuery);
         db.query(sqlQuery);
     }
-    
+
     public void create_reservation() {
-        
+
     }
-    
+
     public void check_up() {
-        
+
     }
-    
+
     public void view_check_up_history() {
-        
+
     }
-    
+
     public void search_schedule() {
         // fungsi atau procedure ?????
     }
-    
+
     public void view_schedule() {
-        
+
     }
-    
+
     public boolean is_med_available(Obat obat) {
         return true;
     }
-    
+
     @Override
     public void change_password() {
-        
+
     }
-    
+
 }

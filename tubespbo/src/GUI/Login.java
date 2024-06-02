@@ -1,25 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package GUI;
 
-import java.awt.Color;
-import java.awt.Insets;
+import Controller.LoginController;
 
-/**
- *
- * @author LENOVO
- */
 public class Login extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Register
-     */
     public Login() {
         initComponents();
-        
     }
 
     /**
@@ -31,15 +17,16 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        role = new javax.swing.ButtonGroup();
         panelBorder1 = new GUI.PanelBorder();
         menuAdmin1 = new GUI.AuthPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jTextFieldCustom1 = new ComponentGUI.JTextFieldCustom();
-        jButton1 = new javax.swing.JButton();
-        jTextFieldCustom3 = new ComponentGUI.JTextFieldCustom();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        username = new ComponentGUI.JTextFieldCustom();
+        loginButton = new javax.swing.JButton();
+        password = new ComponentGUI.JTextFieldCustom();
+        roleDokter = new javax.swing.JRadioButton();
+        rolePasien = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,37 +56,54 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(76, 184, 196));
         jLabel1.setText("LOGIN");
 
-        jTextFieldCustom1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(76, 184, 196), 2, true), " Username ", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
-        jTextFieldCustom1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextFieldCustom1.addActionListener(new java.awt.event.ActionListener() {
+        username.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(76, 184, 196), 2, true), " Username ", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
+        username.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCustom1ActionPerformed(evt);
+                usernameActionPerformed(evt);
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        jButton1.setText("Login");
-        jButton1.setBorder(null);
-
-        jTextFieldCustom3.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(76, 184, 196), 2, true), " Password ", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
-        jTextFieldCustom3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextFieldCustom3.addActionListener(new java.awt.event.ActionListener() {
+        loginButton.setBackground(new java.awt.Color(255, 255, 255));
+        loginButton.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        loginButton.setText("Login");
+        loginButton.setBorder(null);
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCustom3ActionPerformed(evt);
+                loginButtonActionPerformed(evt);
             }
         });
 
-        jRadioButton1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        jRadioButton1.setText("Dokter");
-        jRadioButton1.setBorder(null);
-        jRadioButton1.setIconTextGap(10);
-        jRadioButton1.setOpaque(false);
+        password.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(76, 184, 196), 2, true), " Password ", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
+        password.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordActionPerformed(evt);
+            }
+        });
 
-        jRadioButton2.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        jRadioButton2.setText("Pasien");
-        jRadioButton2.setIconTextGap(10);
-        jRadioButton2.setOpaque(false);
+        role.add(roleDokter);
+        roleDokter.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        roleDokter.setText("Dokter");
+        roleDokter.setBorder(null);
+        roleDokter.setIconTextGap(10);
+        roleDokter.setOpaque(false);
+        roleDokter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                roleDokterActionPerformed(evt);
+            }
+        });
+
+        role.add(rolePasien);
+        rolePasien.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        rolePasien.setText("Pasien");
+        rolePasien.setIconTextGap(10);
+        rolePasien.setOpaque(false);
+        rolePasien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rolePasienActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelBorder1Layout = new javax.swing.GroupLayout(panelBorder1);
         panelBorder1.setLayout(panelBorder1Layout);
@@ -115,15 +119,15 @@ public class Login extends javax.swing.JFrame {
                     .addGroup(panelBorder1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                         .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldCustom1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldCustom3, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(25, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(roleDokter, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rolePasien, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(188, 188, 188))))
         );
         panelBorder1Layout.setVerticalGroup(
@@ -133,15 +137,15 @@ public class Login extends javax.swing.JFrame {
                 .addGap(71, 71, 71)
                 .addComponent(jLabel1)
                 .addGap(119, 119, 119)
-                .addComponent(jTextFieldCustom1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(68, 68, 68)
-                .addComponent(jTextFieldCustom3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46)
-                .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(rolePasien, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(roleDokter, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44))
         );
 
@@ -163,13 +167,28 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldCustom1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCustom1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCustom1ActionPerformed
+    private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
 
-    private void jTextFieldCustom3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCustom3ActionPerformed
+    }//GEN-LAST:event_usernameActionPerformed
+
+    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCustom3ActionPerformed
+    }//GEN-LAST:event_passwordActionPerformed
+
+    private void rolePasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rolePasienActionPerformed
+        rolePasien.setActionCommand("Pasien");
+    }//GEN-LAST:event_rolePasienActionPerformed
+
+    private void roleDokterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roleDokterActionPerformed
+        roleDokter.setActionCommand("Dokter");
+    }//GEN-LAST:event_roleDokterActionPerformed
+
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+        String roleUser = role.getSelection().getActionCommand();
+        LoginController login = new LoginController(username, password,
+                roleUser, this);
+        loginButton.addActionListener(login);
+    }//GEN-LAST:event_loginButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,14 +227,15 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private ComponentGUI.JTextFieldCustom jTextFieldCustom1;
-    private ComponentGUI.JTextFieldCustom jTextFieldCustom3;
+    private javax.swing.JButton loginButton;
     private GUI.AuthPanel menuAdmin1;
     private GUI.PanelBorder panelBorder1;
+    private ComponentGUI.JTextFieldCustom password;
+    private javax.swing.ButtonGroup role;
+    private javax.swing.JRadioButton roleDokter;
+    private javax.swing.JRadioButton rolePasien;
+    private ComponentGUI.JTextFieldCustom username;
     // End of variables declaration//GEN-END:variables
 }

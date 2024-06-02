@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public abstract class Pengguna {
-    private static int id_pengguna = 0;
+    private static int id_pengguna;
     private String nama_pengguna;
     private String password_pengguna;
     private String no_telepon;
@@ -14,9 +14,13 @@ public abstract class Pengguna {
         this.nama_pengguna = nama_pengguna;
         this.password_pengguna = password_pengguna;
         this.no_telepon = no_telepon;
-        id_pengguna++;
     }
 
+    public Pengguna(String nama_pengguna, String password_pengguna) {
+        this.nama_pengguna = nama_pengguna;
+        this.password_pengguna = password_pengguna;
+    }
+    
     public String getPassword_pengguna() {
         return password_pengguna;
     }
@@ -54,13 +58,21 @@ public abstract class Pengguna {
     }
 
     public ResultSet Login(String username, String password) throws SQLException {
+        //SELECT Pasien.nama_pasien as username
+        //FROM Pasien
+        //UNION
+        //select Dokter.nama_dokter from Dokter;
         Database db = new Database();
-        String sql = "select * from `users`"
+        String sql = "select Pasien.nama_pasien as username "
+                + "from `Pasien`"
                 + "where "
-                + "nama_user = '" + username + "' "
+                + "Pasien.nama_pasien = '" + username + "' "
                 + " AND"
-                + " password_user = '" + password
-                + "'";
+                + "Pasien.password = '" + password + "'"
+                + "UNION"
+                + "select Dokter.nama_dokter "
+                + "where"
+                + "Dokter.nama_dokter = '" + username + "' ";
         return db.getData(sql);
     }
 

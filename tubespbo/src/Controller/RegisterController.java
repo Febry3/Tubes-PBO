@@ -6,18 +6,13 @@
 package Controller;
 
 import ComponentGUI.JTextFieldCustom;
-import GUI.PanelBorder;
-import GUI.Register;
 import GUI.UserForms.MainUser;
 import Model.Pasien;
-import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 
 /**
  *
@@ -60,6 +55,7 @@ public class RegisterController implements ActionListener {
                 System.out.println("Error Register: " + err.getMessage());
             }
         } else {
+            
             message.setText("Password konfirmasi tidak sama dengan password yang diinputkan");
         }
     }
