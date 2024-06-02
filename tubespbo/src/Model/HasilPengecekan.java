@@ -17,14 +17,18 @@ public class HasilPengecekan  {
     private String[] nama_penyakit;
     private Obat[] daftar_obat;
     private Date tanggal_pengecekan;
+    private String catatan;
 
-    public HasilPengecekan(String nama_pasien, String no_telepon, String[] nama_penyakit, Obat[] daftar_obat, Date tanggal_pengecekan) {
+    public HasilPengecekan(String nama_pasien, String no_telepon, String[] nama_penyakit, Obat[] daftar_obat, Date tanggal_pengecekan, String catatan) {
         this.nama_pasien = nama_pasien;
         this.no_telepon = no_telepon;
         this.nama_penyakit = nama_penyakit;
         this.daftar_obat = daftar_obat;
         this.tanggal_pengecekan = tanggal_pengecekan;
+        this.catatan = catatan;
     }
+    
+    
 
     public String getNama_pasien() {
         return nama_pasien;
@@ -65,6 +69,15 @@ public class HasilPengecekan  {
     public void setTanggal_pengecekan(Date tanggal_pengecekan) {
         this.tanggal_pengecekan = tanggal_pengecekan;
     }
-    
+
+    public String getCatatan() {
+        return catatan;
+    }
+
+    public void setCatatan(String catatan) {
+        this.catatan = catatan;
+    }
+
+  
     
 }
