@@ -9,13 +9,44 @@ import javax.swing.JComponent;
 
 public class MainPharmacist extends javax.swing.JFrame {
     
+    private InitForm init;
+    private ChangePasswordForm cp;
+    private ManageObatForm mo;
+    private TambahObatForm to;
+    
     public MainPharmacist() {
-
+        cp = new ChangePasswordForm();
+        init = new InitForm();
+        mo = new ManageObatForm();
+        to = new TambahObatForm();
+        
         initComponents();
-       
+        menuPharmacist.addEventMenuSelected(new SelectedMenu(){
+            @Override
+            public void selected(int index) {
+                System.out.println(index);
+                if (index == 2) {
+                    setForm(to);
+                } else if (index == 3) {
+                    setForm(mo);
+                } else if (index == 5) {
+                    setForm(cp);
+                } else if (index == 6) {
+                    setForm(init);
+                }
+            }
+        });   
+        
+        setForm(init);
         //setBackground(new Color(0,0,0,0));
     }
     
+     private void setForm(JComponent com) {
+        MainPanel.removeAll();  
+        MainPanel.add(com);
+        MainPanel.repaint();
+        MainPanel.revalidate();
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

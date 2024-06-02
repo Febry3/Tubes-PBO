@@ -28,17 +28,13 @@ public class MenuPharmacist extends javax.swing.JPanel {
    
     private void init() {
         pharmacistListMenu.addItem(new ModelMenu("", "PHARMACIST OPTION", ModelMenu.MenuType.TITLE));
-        pharmacistListMenu.addItem(new ModelMenu("1", "DashBoard", ModelMenu.MenuType.MENU));
-        pharmacistListMenu.addItem(new ModelMenu("1", "tes", ModelMenu.MenuType.MENU));
-        pharmacistListMenu.addItem(new ModelMenu("1", "tolol", ModelMenu.MenuType.MENU));
-        pharmacistListMenu.addItem(new ModelMenu("","", ModelMenu.MenuType.EMPTY));
-        pharmacistListMenu.addItem(new ModelMenu("", "Pengajuan", ModelMenu.MenuType.TITLE));
-        pharmacistListMenu.addItem(new ModelMenu("1", "Dokter", ModelMenu.MenuType.MENU));
-        pharmacistListMenu.addItem(new ModelMenu("1", "Pasien", ModelMenu.MenuType.MENU));     
-        pharmacistListMenu.addItem(new ModelMenu("","", ModelMenu.MenuType.EMPTY));
+        pharmacistListMenu.addItem(new ModelMenu("", "Inventory", ModelMenu.MenuType.TITLE));
+        pharmacistListMenu.addItem(new ModelMenu("addObat", "Tambah Obat", ModelMenu.MenuType.MENU));
+        pharmacistListMenu.addItem(new ModelMenu("ManageObat", "Manage Obat", ModelMenu.MenuType.MENU));
         pharmacistListMenu.addItem(new ModelMenu("", "Lainnya", ModelMenu.MenuType.TITLE));
-        pharmacistListMenu.addItem(new ModelMenu("1", "Ganti Password", ModelMenu.MenuType.MENU));
-        pharmacistListMenu.addItem(new ModelMenu("1", "Logout", ModelMenu.MenuType.MENU));
+        pharmacistListMenu.addItem(new ModelMenu("GantiPassword", "Change Password", ModelMenu.MenuType.MENU));
+        pharmacistListMenu.addItem(new ModelMenu("logoutIcon", "Pasien", ModelMenu.MenuType.MENU));     
+       
     }
 
     @SuppressWarnings("unchecked")
