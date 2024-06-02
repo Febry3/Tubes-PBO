@@ -5,8 +5,8 @@
  */
 package GUI;
 
-import java.awt.Color;
-import java.awt.Insets;
+import Controller.RegisterController;
+
 
 /**
  *
@@ -19,7 +19,8 @@ public class Register extends javax.swing.JFrame {
      */
     public Register() {
         initComponents();
-        
+        RegisterController controller = new RegisterController(namaTF, noHpTF, alamatTF, passwordTF, confirmPassTF, messageLabel, this);
+        daftarButton.addActionListener(controller);
     }
 
     /**
@@ -31,21 +32,22 @@ public class Register extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelBorder1 = new GUI.PanelBorder();
+        message = new GUI.PanelBorder();
         menuAdmin1 = new GUI.AuthPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jTextFieldCustom1 = new ComponentGUI.JTextFieldCustom();
-        jButton1 = new javax.swing.JButton();
-        jTextFieldCustom2 = new ComponentGUI.JTextFieldCustom();
-        jTextFieldCustom3 = new ComponentGUI.JTextFieldCustom();
-        jTextFieldCustom4 = new ComponentGUI.JTextFieldCustom();
-        jTextFieldCustom5 = new ComponentGUI.JTextFieldCustom();
+        alamatTF = new ComponentGUI.JTextFieldCustom();
+        daftarButton = new javax.swing.JButton();
+        noHpTF = new ComponentGUI.JTextFieldCustom();
+        passwordTF = new ComponentGUI.JTextFieldCustom();
+        namaTF = new ComponentGUI.JTextFieldCustom();
+        confirmPassTF = new ComponentGUI.JTextFieldCustom();
+        messageLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panelBorder1.setForeground(new java.awt.Color(255, 255, 255));
-        panelBorder1.setPreferredSize(new java.awt.Dimension(1440, 810));
+        message.setForeground(new java.awt.Color(255, 255, 255));
+        message.setPreferredSize(new java.awt.Dimension(1440, 810));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/HospitalLogo3.png"))); // NOI18N
 
@@ -54,9 +56,9 @@ public class Register extends javax.swing.JFrame {
         menuAdmin1Layout.setHorizontalGroup(
             menuAdmin1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuAdmin1Layout.createSequentialGroup()
-                .addGap(191, 191, 191)
+                .addGap(211, 211, 211)
                 .addComponent(jLabel3)
-                .addContainerGap(256, Short.MAX_VALUE))
+                .addContainerGap(236, Short.MAX_VALUE))
         );
         menuAdmin1Layout.setVerticalGroup(
             menuAdmin1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -70,134 +72,139 @@ public class Register extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(76, 184, 196));
         jLabel1.setText("WELCOME");
 
-        jTextFieldCustom1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(76, 184, 196), 2, true), " Username ", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
-        jTextFieldCustom1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextFieldCustom1.addActionListener(new java.awt.event.ActionListener() {
+        alamatTF.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(76, 184, 196), 2, true), "Alamat", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
+        alamatTF.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        alamatTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCustom1ActionPerformed(evt);
+                alamatTFActionPerformed(evt);
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        jButton1.setText("Daftar");
-        jButton1.setBorder(null);
+        daftarButton.setBackground(new java.awt.Color(255, 255, 255));
+        daftarButton.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        daftarButton.setText("Daftar");
+        daftarButton.setBorder(null);
 
-        jTextFieldCustom2.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(76, 184, 196), 2, true), " No. HP ", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
-        jTextFieldCustom2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextFieldCustom2.addActionListener(new java.awt.event.ActionListener() {
+        noHpTF.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(76, 184, 196), 2, true), " No. HP ", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
+        noHpTF.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        noHpTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCustom2ActionPerformed(evt);
+                noHpTFActionPerformed(evt);
             }
         });
 
-        jTextFieldCustom3.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(76, 184, 196), 2, true), " Password ", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
-        jTextFieldCustom3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextFieldCustom3.addActionListener(new java.awt.event.ActionListener() {
+        passwordTF.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(76, 184, 196), 2, true), " Password ", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
+        passwordTF.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        passwordTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCustom3ActionPerformed(evt);
+                passwordTFActionPerformed(evt);
             }
         });
 
-        jTextFieldCustom4.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(76, 184, 196), 2, true), " Name ", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
-        jTextFieldCustom4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextFieldCustom4.addActionListener(new java.awt.event.ActionListener() {
+        namaTF.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(76, 184, 196), 2, true), " Name ", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
+        namaTF.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        namaTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCustom4ActionPerformed(evt);
+                namaTFActionPerformed(evt);
             }
         });
 
-        jTextFieldCustom5.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(76, 184, 196), 2, true), " Masukan ulang password ", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
-        jTextFieldCustom5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextFieldCustom5.addActionListener(new java.awt.event.ActionListener() {
+        confirmPassTF.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(76, 184, 196), 2, true), " Masukkan Kembali Password ", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
+        confirmPassTF.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        confirmPassTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCustom5ActionPerformed(evt);
+                confirmPassTFActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout panelBorder1Layout = new javax.swing.GroupLayout(panelBorder1);
-        panelBorder1.setLayout(panelBorder1Layout);
-        panelBorder1Layout.setHorizontalGroup(
-            panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelBorder1Layout.createSequentialGroup()
+        javax.swing.GroupLayout messageLayout = new javax.swing.GroupLayout(message);
+        message.setLayout(messageLayout);
+        messageLayout.setHorizontalGroup(
+            messageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(messageLayout.createSequentialGroup()
                 .addComponent(menuAdmin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder1Layout.createSequentialGroup()
+                .addGroup(messageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(messageLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                        .addGroup(messageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(noHpTF, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(alamatTF, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(passwordTF, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(namaTF, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(confirmPassTF, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(messageLabel))
+                        .addContainerGap(25, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, messageLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(daftarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(267, 267, 267))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, messageLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1)
-                        .addGap(219, 219, 219))
-                    .addGroup(panelBorder1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                        .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldCustom2, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldCustom1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldCustom3, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldCustom4, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldCustom5, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(25, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(266, 266, 266))))
+                        .addGap(208, 208, 208))))
         );
-        panelBorder1Layout.setVerticalGroup(
-            panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        messageLayout.setVerticalGroup(
+            messageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(menuAdmin1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(panelBorder1Layout.createSequentialGroup()
-                .addGap(71, 71, 71)
+            .addGroup(messageLayout.createSequentialGroup()
+                .addGap(76, 76, 76)
                 .addComponent(jLabel1)
-                .addGap(78, 78, 78)
-                .addComponent(jTextFieldCustom1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jTextFieldCustom4, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(jTextFieldCustom2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jTextFieldCustom3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(106, 106, 106)
+                .addComponent(namaTF, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(noHpTF, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(alamatTF, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(passwordTF, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
-                .addComponent(jTextFieldCustom5, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(confirmPassTF, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(messageLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
+                .addComponent(daftarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(61, 61, 61))
         );
+
+        alamatTF.getAccessibleContext().setAccessibleName("Username");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(panelBorder1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(message, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(panelBorder1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(message, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldCustom1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCustom1ActionPerformed
+    private void alamatTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alamatTFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCustom1ActionPerformed
+    }//GEN-LAST:event_alamatTFActionPerformed
 
-    private void jTextFieldCustom2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCustom2ActionPerformed
+    private void noHpTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noHpTFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCustom2ActionPerformed
+    }//GEN-LAST:event_noHpTFActionPerformed
 
-    private void jTextFieldCustom3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCustom3ActionPerformed
+    private void passwordTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordTFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCustom3ActionPerformed
+    }//GEN-LAST:event_passwordTFActionPerformed
 
-    private void jTextFieldCustom4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCustom4ActionPerformed
+    private void namaTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaTFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCustom4ActionPerformed
+    }//GEN-LAST:event_namaTFActionPerformed
 
-    private void jTextFieldCustom5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCustom5ActionPerformed
+    private void confirmPassTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmPassTFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCustom5ActionPerformed
+    }//GEN-LAST:event_confirmPassTFActionPerformed
 
     /**
      * @param args the command line arguments
@@ -235,15 +242,16 @@ public class Register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private ComponentGUI.JTextFieldCustom alamatTF;
+    private ComponentGUI.JTextFieldCustom confirmPassTF;
+    private javax.swing.JButton daftarButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private ComponentGUI.JTextFieldCustom jTextFieldCustom1;
-    private ComponentGUI.JTextFieldCustom jTextFieldCustom2;
-    private ComponentGUI.JTextFieldCustom jTextFieldCustom3;
-    private ComponentGUI.JTextFieldCustom jTextFieldCustom4;
-    private ComponentGUI.JTextFieldCustom jTextFieldCustom5;
     private GUI.AuthPanel menuAdmin1;
-    private GUI.PanelBorder panelBorder1;
+    private GUI.PanelBorder message;
+    private javax.swing.JLabel messageLabel;
+    private ComponentGUI.JTextFieldCustom namaTF;
+    private ComponentGUI.JTextFieldCustom noHpTF;
+    private ComponentGUI.JTextFieldCustom passwordTF;
     // End of variables declaration//GEN-END:variables
 }

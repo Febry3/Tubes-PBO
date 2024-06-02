@@ -5,7 +5,7 @@
  */
 package GUI;
 
-import Helper.Database;
+import Utility.Database;
 import Model.Pengguna;
 import java.awt.Image;
 import java.sql.ResultSet;
@@ -299,21 +299,21 @@ public class LoginRegister extends javax.swing.JFrame {
     }//GEN-LAST:event_confirmPassActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-
-        String username = usernameField.getText();
-        String password = passwordField.getText();
-        load_users(username, password);
-        if (tabel_user.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Gagal");
-        } else {
-            JOptionPane.showMessageDialog(null, "Berhasil");
-            tabel_user.clear();
-            dispose();
-            Pasien p = new Pasien();
-            p.setVisible(true);
-        }
-        usernameField.setText("");
-        passwordField.setText("");
+//
+//        String username = usernameField.getText();
+//        String password = passwordField.getText();
+//        load_users(username, password);
+//        if (tabel_user.isEmpty()) {
+//            JOptionPane.showMessageDialog(null, "Gagal");
+//        } else {
+//            JOptionPane.showMessageDialog(null, "Berhasil");
+//            tabel_user.clear();
+//            dispose();
+//            PasienGUI p = new PasienGUI();
+//            p.setVisible(true);
+//        }
+//        usernameField.setText("");
+//        passwordField.setText("");
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void ClearRegis() {
@@ -326,58 +326,58 @@ public class LoginRegister extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
 
-        try {
-            String fullname = nameReg.getText();
-            String username = usernameReg.getText();
-            String telp = telpReg.getText();
-            String pass = passReg.getText();
-
-            if (pass == confirmPass.getText()) {
-                user = new Pengguna(fullname, username, telp, pass) {
-                    @Override
-                    public void change_password() {
-                    }
-                };
-                user.Register();
-                JOptionPane.showMessageDialog(null, "Berhasil Register");
-                ClearRegis();
-                authPane.setSelectedIndex(0);
-            } else {
-                JOptionPane.showMessageDialog(null, "Password tidak sesuai");
-                passReg.setText("");
-                confirmPass.setText("");
-            }
-
-        } catch (SQLException e) {
-            Logger.getLogger(LoginRegister.class.getName()).log(Level.SEVERE, null, e);
-
-        }
+//        try {
+//            String fullname = nameReg.getText();
+//            String username = usernameReg.getText();
+//            String telp = telpReg.getText();
+//            String pass = passReg.getText();
+//
+//            if (pass == confirmPass.getText()) {
+//                user = new Pengguna(fullname, username, telp, pass) {
+//                    @Override
+//                    public void change_password() {
+//                    }
+//                };
+//                user.Register();
+//                JOptionPane.showMessageDialog(null, "Berhasil Register");
+//                ClearRegis();
+//                authPane.setSelectedIndex(0);
+//            } else {
+//                JOptionPane.showMessageDialog(null, "Password tidak sesuai");
+//                passReg.setText("");
+//                confirmPass.setText("");
+//            }
+//
+//        } catch (SQLException e) {
+//            Logger.getLogger(LoginRegister.class.getName()).log(Level.SEVERE, null, e);
+//
+//        }
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void load_users(String username, String password) {
-        try {
-            Database db = new Database();
-            String sql = "select * from `users`"
-                    + "where "
-                    + "username = '" + username + "' "
-                    + " AND"
-                    + " password_user = '" + password
-                    + "'";
-            ResultSet rs = db.getData(sql);
-            while (rs.next()) {
-                Pengguna user = new Pengguna(rs.getString("fullname_user"), rs.getString("username"), rs.getString("telp_user"), rs.getString("password_user")) {
-                    @Override
-                    public void change_password() {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-                };
-                tabel_user.add(user);
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
+//    private void load_users(String username, String password) {
+//        try {
+//            Database db = new Database();
+//            String sql = "select * from `users`"
+//                    + "where "
+//                    + "username = '" + username + "' "
+//                    + " AND"
+//                    + " password_user = '" + password
+//                    + "'";
+//            ResultSet rs = db.getData(sql);
+//            while (rs.next()) {
+//                Pengguna user = new Pengguna(rs.getString("fullname_user"), rs.getString("username"), rs.getString("telp_user"), rs.getString("password_user")) {
+//                    @Override
+//                    public void change_password() {
+//                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//                    }
+//                };
+//                tabel_user.add(user);
+//            }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
+//    
     
 
     /**

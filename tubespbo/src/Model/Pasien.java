@@ -5,6 +5,9 @@
  */
 package Model;
 
+import Utility.Database;
+import java.sql.SQLException;
+
 /**
  *
  * @author ASUS
@@ -13,10 +16,9 @@ public class Pasien extends Pengguna{
     private String alamat;
     private HasilPengecekan[] riwayat_pemeriksaan;
 
-    public Pasien(String alamat, HasilPengecekan[] riwayat_pemeriksaan, String fullname, String nama_pengguna, String no_telepon, String password) {
-        super(fullname, nama_pengguna, no_telepon, password);
+    public Pasien(String alamat,String nama_pengguna, String no_telepon, String password) {
+        super(nama_pengguna, no_telepon, password);
         this.alamat = alamat;
-        this.riwayat_pemeriksaan = riwayat_pemeriksaan;
     }
 
     public String getAlamat() {
@@ -35,8 +37,12 @@ public class Pasien extends Pengguna{
         this.riwayat_pemeriksaan = riwayat_pemeriksaan;
     }
     
-    public void register_akun() {
-        
+    public void register_akun() throws SQLException {
+        Database db = new Database();
+        db.connect();
+        String sqlQuery = "insert into Pasien values (" + super.getId_pengguna() + ", '" + super.getNama_pengguna() + "', '" + super.getNo_telepon() + "', '" + alamat + "', '" + super.getPassword_pengguna() + "')";
+        System.out.println(sqlQuery);
+        db.query(sqlQuery);
     }
     
     public void create_reservation() {

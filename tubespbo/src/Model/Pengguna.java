@@ -1,22 +1,20 @@
 package Model;
 
-import Helper.Database;
+import Utility.Database;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public abstract class Pengguna {
-
-    private int id_pengguna;
-    private String fullname_pengguna;
+    private static int id_pengguna = 0;
     private String nama_pengguna;
     private String password_pengguna;
     private String no_telepon;
 
-    public Pengguna(String fullname_pengguna, String nama_pengguna, String no_telepon, String password_pengguna) {
-        this.fullname_pengguna = fullname_pengguna;
+    public Pengguna(String nama_pengguna, String no_telepon, String password_pengguna) {
         this.nama_pengguna = nama_pengguna;
         this.password_pengguna = password_pengguna;
         this.no_telepon = no_telepon;
+        id_pengguna++;
     }
 
     public String getPassword_pengguna() {
@@ -25,14 +23,6 @@ public abstract class Pengguna {
 
     public void setPassword_pengguna(String password_pengguna) {
         this.password_pengguna = password_pengguna;
-    }
-
-    public String getFullname_pengguna() {
-        return fullname_pengguna;
-    }
-
-    public void setFullname_pengguna(String fullname_pengguna) {
-        this.fullname_pengguna = fullname_pengguna;
     }
 
     public int getId_pengguna() {
@@ -74,13 +64,13 @@ public abstract class Pengguna {
         return db.getData(sql);
     }
 
-    public void Register() throws SQLException {
-        Database db = new Database();
-        String sql = "insert into users (fullname_user, username, telp_user, password_user)"
-                + "values ('" + this.getFullname_pengguna() + "','" + this.getNama_pengguna()
-                + "','" + this.getNo_telepon() + "','" + this.getPassword_pengguna() + "')";
-        db.query(sql);
-    }
+//    public void Register() throws SQLException {
+//        Database db = new Database();
+//        String sql = "insert into users (fullname_user, username, telp_user, password_user)"
+//                + "values ('" + this.getFullname_pengguna() + "','" + this.getNama_pengguna()
+//                + "','" + this.getNo_telepon() + "','" + this.getPassword_pengguna() + "')";
+//        db.query(sql);
+//    }
 
     public abstract void change_password();
 
