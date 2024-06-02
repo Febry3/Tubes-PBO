@@ -18,6 +18,11 @@ public class ListMenu<E extends Object> extends JList<E>{
     private final DefaultListModel model;
     private int selectedIndex = -1;
     private int overIndex = -1;
+    private SelectedMenu event;
+    
+    public void addEventMenuSelected(SelectedMenu event) {
+        this.event = event;
+    }
     
     public ListMenu() {
         model = new DefaultListModel();
@@ -32,6 +37,9 @@ public class ListMenu<E extends Object> extends JList<E>{
                         ModelMenu menu = (ModelMenu)o;
                         if (menu.getType() == ModelMenu.MenuType.MENU) {
                             selectedIndex = index;
+                            if (event != null)  {
+                                event.selected(index);
+                            }
                         }
                     } else {
                         selectedIndex = index;

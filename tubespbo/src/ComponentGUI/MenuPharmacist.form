@@ -42,7 +42,7 @@
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               </Group>
-              <Component id="adminListMenu1" alignment="1" max="32767" attributes="0"/>
+              <Component id="pharmacistListMenu" alignment="1" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -51,7 +51,7 @@
                   <EmptySpace pref="40" max="32767" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                  <Component id="adminListMenu1" min="-2" pref="560" max="-2" attributes="0"/>
+                  <Component id="pharmacistListMenu" min="-2" pref="560" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -71,7 +71,7 @@
             <Property name="text" type="java.lang.String" value="Amba Hospital"/>
           </Properties>
         </Component>
-        <Component class="MenuModel.ListMenu" name="adminListMenu1">
+        <Component class="MenuModel.ListMenu" name="pharmacistListMenu">
           <Properties>
             <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
               <StringArray count="0"/>

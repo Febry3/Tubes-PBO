@@ -2,6 +2,7 @@
 package ComponentGUI;
 
 import MenuModel.ModelMenu;
+import MenuModel.SelectedMenu;
 import java.awt.Color;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
@@ -10,27 +11,33 @@ import java.awt.RenderingHints;
 import javax.swing.DefaultListModel;
 
 public class MenuUser extends javax.swing.JPanel {
-
+    
+    private SelectedMenu event;
+    
+    public void addEventMenuSelected(SelectedMenu event) {
+        this.event = event;
+        userListMenu.addEventMenuSelected(event);
+    }
     public MenuUser() {
         initComponents();
         setOpaque(false);
-        adminListMenu1.setOpaque(false);
+        userListMenu.setOpaque(false);
         init();
     }
    
     private void init() {
-        adminListMenu1.addItem(new ModelMenu("", "USER OPTION", ModelMenu.MenuType.TITLE));
-        adminListMenu1.addItem(new ModelMenu("1", "DashBoard", ModelMenu.MenuType.MENU));
-        adminListMenu1.addItem(new ModelMenu("1", "tes", ModelMenu.MenuType.MENU));
-        adminListMenu1.addItem(new ModelMenu("1", "tolol", ModelMenu.MenuType.MENU));
-        adminListMenu1.addItem(new ModelMenu("","", ModelMenu.MenuType.EMPTY));
-        adminListMenu1.addItem(new ModelMenu("", "Pengajuan", ModelMenu.MenuType.TITLE));
-        adminListMenu1.addItem(new ModelMenu("1", "Dokter", ModelMenu.MenuType.MENU));
-        adminListMenu1.addItem(new ModelMenu("1", "Pasien", ModelMenu.MenuType.MENU));     
-        adminListMenu1.addItem(new ModelMenu("","", ModelMenu.MenuType.EMPTY));
-        adminListMenu1.addItem(new ModelMenu("", "Lainnya", ModelMenu.MenuType.TITLE));
-        adminListMenu1.addItem(new ModelMenu("1", "Ganti Password", ModelMenu.MenuType.MENU));
-        adminListMenu1.addItem(new ModelMenu("1", "Logout", ModelMenu.MenuType.MENU));
+        userListMenu.addItem(new ModelMenu("", "USER OPTION", ModelMenu.MenuType.TITLE));
+        userListMenu.addItem(new ModelMenu("1", "DashBoard", ModelMenu.MenuType.MENU));
+        userListMenu.addItem(new ModelMenu("1", "tes", ModelMenu.MenuType.MENU));
+        userListMenu.addItem(new ModelMenu("1", "tolol", ModelMenu.MenuType.MENU));
+        userListMenu.addItem(new ModelMenu("","", ModelMenu.MenuType.EMPTY));
+        userListMenu.addItem(new ModelMenu("", "Pengajuan", ModelMenu.MenuType.TITLE));
+        userListMenu.addItem(new ModelMenu("1", "Dokter", ModelMenu.MenuType.MENU));
+        userListMenu.addItem(new ModelMenu("1", "Pasien", ModelMenu.MenuType.MENU));     
+        userListMenu.addItem(new ModelMenu("","", ModelMenu.MenuType.EMPTY));
+        userListMenu.addItem(new ModelMenu("", "Lainnya", ModelMenu.MenuType.TITLE));
+        userListMenu.addItem(new ModelMenu("1", "Ganti Password", ModelMenu.MenuType.MENU));
+        userListMenu.addItem(new ModelMenu("1", "Logout", ModelMenu.MenuType.MENU));
     }
 
     @SuppressWarnings("unchecked")
@@ -39,7 +46,7 @@ public class MenuUser extends javax.swing.JPanel {
 
         AppNamePanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        adminListMenu1 = new MenuModel.ListMenu<>();
+        userListMenu = new MenuModel.ListMenu<>();
 
         AppNamePanel.setOpaque(false);
 
@@ -56,7 +63,7 @@ public class MenuUser extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(40, 40, 40))
-            .addComponent(adminListMenu1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(userListMenu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         AppNamePanelLayout.setVerticalGroup(
             AppNamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -64,7 +71,7 @@ public class MenuUser extends javax.swing.JPanel {
                 .addContainerGap(40, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(22, 22, 22)
-                .addComponent(adminListMenu1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(userListMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -93,7 +100,7 @@ public class MenuUser extends javax.swing.JPanel {
     }        
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AppNamePanel;
-    private MenuModel.ListMenu<String> adminListMenu1;
     private javax.swing.JLabel jLabel1;
+    private MenuModel.ListMenu<String> userListMenu;
     // End of variables declaration//GEN-END:variables
 }

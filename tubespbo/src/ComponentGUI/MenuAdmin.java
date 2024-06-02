@@ -2,6 +2,7 @@
 package ComponentGUI;
 
 import MenuModel.ModelMenu;
+import MenuModel.SelectedMenu;
 import java.awt.Color;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
@@ -11,26 +12,30 @@ import javax.swing.DefaultListModel;
 
 public class MenuAdmin extends javax.swing.JPanel {
 
+    private SelectedMenu event;
+    
+    public void addEventMenuSelected(SelectedMenu event) {
+        this.event = event;
+        adminListMenu.addEventMenuSelected(event);
+    }
+    
     public MenuAdmin() {
         initComponents();
         setOpaque(false);
-        adminListMenu1.setOpaque(false);
+        adminListMenu.setOpaque(false);
         init();
     }
    
     private void init() {
-        adminListMenu1.addItem(new ModelMenu("", "ADMIN OPTION", ModelMenu.MenuType.TITLE));
-        adminListMenu1.addItem(new ModelMenu("1", "DashBoard", ModelMenu.MenuType.MENU));
-        adminListMenu1.addItem(new ModelMenu("1", "tes", ModelMenu.MenuType.MENU));
-        adminListMenu1.addItem(new ModelMenu("1", "tolol", ModelMenu.MenuType.MENU));
-        adminListMenu1.addItem(new ModelMenu("","", ModelMenu.MenuType.EMPTY));
-        adminListMenu1.addItem(new ModelMenu("", "Pengajuan", ModelMenu.MenuType.TITLE));
-        adminListMenu1.addItem(new ModelMenu("1", "Dokter", ModelMenu.MenuType.MENU));
-        adminListMenu1.addItem(new ModelMenu("1", "Pasien", ModelMenu.MenuType.MENU));     
-        adminListMenu1.addItem(new ModelMenu("","", ModelMenu.MenuType.EMPTY));
-        adminListMenu1.addItem(new ModelMenu("", "Lainnya", ModelMenu.MenuType.TITLE));
-        adminListMenu1.addItem(new ModelMenu("1", "Ganti Password", ModelMenu.MenuType.MENU));
-        adminListMenu1.addItem(new ModelMenu("1", "Logout", ModelMenu.MenuType.MENU));
+        //adminListMenu.addItem(new ModelMenu("", "ADMIN OPTION", ModelMenu.MenuType.TITLE));
+        adminListMenu.addItem(new ModelMenu("","", ModelMenu.MenuType.EMPTY));
+        adminListMenu.addItem(new ModelMenu("", "Pengajuan", ModelMenu.MenuType.TITLE));
+        adminListMenu.addItem(new ModelMenu("request", "Dokter", ModelMenu.MenuType.MENU));
+        adminListMenu.addItem(new ModelMenu("request", "Pasien", ModelMenu.MenuType.MENU));     
+        //adminListMenu.addItem(new ModelMenu("","", ModelMenu.MenuType.EMPTY));
+        adminListMenu.addItem(new ModelMenu("", "Lainnya", ModelMenu.MenuType.TITLE));
+        adminListMenu.addItem(new ModelMenu("GantiPassword", "Ganti Password", ModelMenu.MenuType.MENU));
+        adminListMenu.addItem(new ModelMenu("logoutIcon", "Logout", ModelMenu.MenuType.MENU));
     }
 
     @SuppressWarnings("unchecked")
@@ -39,7 +44,7 @@ public class MenuAdmin extends javax.swing.JPanel {
 
         AppNamePanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        adminListMenu1 = new MenuModel.ListMenu<>();
+        adminListMenu = new MenuModel.ListMenu<>();
 
         AppNamePanel.setOpaque(false);
 
@@ -56,7 +61,7 @@ public class MenuAdmin extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(40, 40, 40))
-            .addComponent(adminListMenu1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(adminListMenu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         AppNamePanelLayout.setVerticalGroup(
             AppNamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -64,7 +69,7 @@ public class MenuAdmin extends javax.swing.JPanel {
                 .addContainerGap(40, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(22, 22, 22)
-                .addComponent(adminListMenu1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(adminListMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -93,7 +98,7 @@ public class MenuAdmin extends javax.swing.JPanel {
     }        
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AppNamePanel;
-    private MenuModel.ListMenu<String> adminListMenu1;
+    private MenuModel.ListMenu<String> adminListMenu;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
