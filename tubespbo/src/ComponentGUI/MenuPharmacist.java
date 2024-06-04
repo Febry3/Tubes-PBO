@@ -34,7 +34,7 @@ public class MenuPharmacist extends javax.swing.JPanel {
         pharmacistListMenu.addItem(new ModelMenu("","", ModelMenu.MenuType.EMPTY));
         pharmacistListMenu.addItem(new ModelMenu("", "Lainnya", ModelMenu.MenuType.TITLE));
         pharmacistListMenu.addItem(new ModelMenu("GantiPassword", "Change Password", ModelMenu.MenuType.MENU));
-        pharmacistListMenu.addItem(new ModelMenu("logoutIcon", "Pasien", ModelMenu.MenuType.MENU));     
+        pharmacistListMenu.addItem(new ModelMenu("logoutIcon", "Logout", ModelMenu.MenuType.MENU));     
        
     }
 
