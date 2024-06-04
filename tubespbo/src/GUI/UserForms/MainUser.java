@@ -42,6 +42,7 @@ public class MainUser extends javax.swing.JFrame {
             }
         });
         setForm(init);
+        
 
         //setBackground(new Color(0,0,0,0));
     }
