@@ -6,6 +6,7 @@
 package GUI.PharmacistForm;
 
 import GUI.AdminForms.*;
+import java.awt.Color;
 
 /**
  *
@@ -18,6 +19,8 @@ public class ManageObatForm extends javax.swing.JPanel {
      */
     public ManageObatForm() {
         initComponents();
+        TableScrollPanel.getVerticalScrollBar().setBackground(Color.WHITE);
+        TableScrollPanel.getViewport().setBackground(Color.WHITE);
     }
 
     /**
@@ -29,20 +32,125 @@ public class ManageObatForm extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jRadioButton1 = new javax.swing.JRadioButton();
+        PanelSearch = new GUI.PanelBorder();
+        PanelDaftarObat = new GUI.PanelBorder();
         jLabel1 = new javax.swing.JLabel();
+        TableScrollPanel = new javax.swing.JScrollPane();
+        TableObat = new ComponentGUI.Table();
+        panelBorder1 = new GUI.PanelBorder();
+        detailCard1 = new ComponentGUI.DetailCard();
+
+        jRadioButton1.setText("jRadioButton1");
 
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(984, 0));
-        setLayout(new java.awt.BorderLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Ini Page Manage Obat");
-        add(jLabel1, java.awt.BorderLayout.CENTER);
+        javax.swing.GroupLayout PanelSearchLayout = new javax.swing.GroupLayout(PanelSearch);
+        PanelSearch.setLayout(PanelSearchLayout);
+        PanelSearchLayout.setHorizontalGroup(
+            PanelSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        PanelSearchLayout.setVerticalGroup(
+            PanelSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 52, Short.MAX_VALUE)
+        );
+
+        PanelDaftarObat.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(127, 127, 127));
+        jLabel1.setText("Daftar Obat");
+
+        TableScrollPanel.setBorder(null);
+
+        TableObat.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Nama Obat", "No Registrasi", "Stok", "Harga"
+            }
+        ));
+        TableScrollPanel.setViewportView(TableObat);
+
+        javax.swing.GroupLayout PanelDaftarObatLayout = new javax.swing.GroupLayout(PanelDaftarObat);
+        PanelDaftarObat.setLayout(PanelDaftarObatLayout);
+        PanelDaftarObatLayout.setHorizontalGroup(
+            PanelDaftarObatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelDaftarObatLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(PanelDaftarObatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelDaftarObatLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelDaftarObatLayout.createSequentialGroup()
+                        .addComponent(TableScrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 944, Short.MAX_VALUE)
+                        .addGap(20, 20, 20))))
+        );
+        PanelDaftarObatLayout.setVerticalGroup(
+            PanelDaftarObatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelDaftarObatLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(TableScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelBorder1.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 15));
+        panelBorder1.setForeground(new java.awt.Color(255, 255, 255));
+        panelBorder1.setLayout(new java.awt.BorderLayout());
+        panelBorder1.add(detailCard1, java.awt.BorderLayout.CENTER);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(PanelSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PanelDaftarObat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelBorder1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(PanelSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(panelBorder1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PanelDaftarObat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(16, 16, 16))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private GUI.PanelBorder PanelDaftarObat;
+    private GUI.PanelBorder PanelSearch;
+    private ComponentGUI.Table TableObat;
+    private javax.swing.JScrollPane TableScrollPanel;
+    private ComponentGUI.DetailCard detailCard1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JRadioButton jRadioButton1;
+    private GUI.PanelBorder panelBorder1;
     // End of variables declaration//GEN-END:variables
 }
