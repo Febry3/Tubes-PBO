@@ -6,6 +6,16 @@
 package GUI.DoctorForm;
 
 import GUI.AdminForms.*;
+import Model.JadwalPraktek;
+import Utility.Database;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+import javax.swing.text.View;
 
 /**
  *
@@ -13,11 +23,19 @@ import GUI.AdminForms.*;
  */
 public class RequestJadwalForm extends javax.swing.JPanel {
 
-    /**
-     * Creates new form DoctorRequestForm
-     */
+    ArrayList<JadwalPraktek> tabel_JadwalPraktek;
+    ArrayList<String> ArrayJam;
+    DefaultListModel tabel_nama;
+    Model.JadwalPraktek jadwal;
+
     public RequestJadwalForm() {
         initComponents();
+        tabel_JadwalPraktek = new ArrayList();
+        ArrayJam = new ArrayList();
+        tabel_nama = new DefaultListModel();
+        buttonAjukan.setVisible(false);
+        showTable();
+
     }
 
     /**
@@ -33,7 +51,7 @@ public class RequestJadwalForm extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        buttonAjukan = new javax.swing.JButton();
 
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(984, 0));
@@ -48,14 +66,24 @@ public class RequestJadwalForm extends javax.swing.JPanel {
             public String getElementAt(int i) { return strings[i]; }
         });
         jList1.setSelectionBackground(new java.awt.Color(76, 184, 196));
+        jList1.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jList1ValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(jList1);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Jadwal Tersedia");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton1.setText("Ajukan");
+        buttonAjukan.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        buttonAjukan.setText("Ajukan");
+        buttonAjukan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAjukanActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -64,7 +92,7 @@ public class RequestJadwalForm extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
+                    .addComponent(buttonAjukan)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 882, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -80,14 +108,57 @@ public class RequestJadwalForm extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
-                .addComponent(jButton1)
-                .addContainerGap(217, Short.MAX_VALUE))
+                .addComponent(buttonAjukan)
+                .addContainerGap(75, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
+        buttonAjukan.setVisible(true);
+    }//GEN-LAST:event_jList1ValueChanged
+
+    private void buttonAjukanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAjukanActionPerformed
+        int indexJadwal = jList1.getSelectedIndex();
+        JadwalPraktek jadwal = new JadwalPraktek();
+
+        if ("available".equals(tabel_JadwalPraktek.get(indexJadwal).getStatus())) {
+
+            tabel_JadwalPraktek.get(indexJadwal).setStatus("pending");
+            JOptionPane.showMessageDialog(null, indexJadwal);
+            try {
+                jadwal.pengajuanJadwal(tabel_JadwalPraktek.get(indexJadwal).getStatus(), tabel_JadwalPraktek.get(indexJadwal).getId_jadwal_praktek());
+                JOptionPane.showMessageDialog(null, "Pengajuan jadwal berhasil");
+                tabel_nama.removeElementAt(indexJadwal);
+            } catch (SQLException ex) {
+                Logger.getLogger(RequestJadwalForm.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, "Status sudah pending");
+            }
+        }
+        while(!"pending".equals(tabel_JadwalPraktek.get(indexJadwal).getStatus())){
+            tabel_JadwalPraktek.clear();
+            tabel_nama.clear();
+            showTable();
+        }
+        
+    }//GEN-LAST:event_buttonAjukanActionPerformed
+    private void showTable() {
+        try {
+            Database db = new Database();
+            String sql = "select * from JadwalPraktek";
+            ResultSet resultset = db.getData(sql);
+            while (resultset.next()) {
+                JadwalPraktek jadwal = new JadwalPraktek(resultset.getString("ruangan"), resultset.getString("hari"), resultset.getString("jam"), resultset.getString("Status"), resultset.getInt("id_jadwal_praktek"));
+                tabel_JadwalPraktek.add(jadwal);
+                tabel_nama.addElement("Ruangan : " + jadwal.getRuangan() + " /Hari : " + jadwal.getHari() + " /Jam : " + jadwal.getJam() + " /Status : " + jadwal.getStatus());
+            }
+            jList1.setModel(tabel_nama);
+        } catch (SQLException e) {
+            Logger.getLogger(RequestJadwalForm.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton buttonAjukan;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JList<String> jList1;
