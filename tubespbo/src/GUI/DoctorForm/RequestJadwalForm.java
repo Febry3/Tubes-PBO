@@ -122,9 +122,7 @@ public class RequestJadwalForm extends javax.swing.JPanel {
         JadwalPraktek jadwal = new JadwalPraktek();
 
         if ("available".equals(tabel_JadwalPraktek.get(indexJadwal).getStatus())) {
-
             tabel_JadwalPraktek.get(indexJadwal).setStatus("pending");
-            JOptionPane.showMessageDialog(null, indexJadwal);
             try {
                 jadwal.pengajuanJadwal(tabel_JadwalPraktek.get(indexJadwal).getStatus(), tabel_JadwalPraktek.get(indexJadwal).getId_jadwal_praktek());
                 JOptionPane.showMessageDialog(null, "Pengajuan jadwal berhasil");
@@ -134,12 +132,12 @@ public class RequestJadwalForm extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Status sudah pending");
             }
         }
-        while(!"pending".equals(tabel_JadwalPraktek.get(indexJadwal).getStatus())){
+        while (!"pending".equals(tabel_JadwalPraktek.get(indexJadwal).getStatus())) {
             tabel_JadwalPraktek.clear();
             tabel_nama.clear();
             showTable();
         }
-        
+
     }//GEN-LAST:event_buttonAjukanActionPerformed
     private void showTable() {
         try {
@@ -149,7 +147,9 @@ public class RequestJadwalForm extends javax.swing.JPanel {
             while (resultset.next()) {
                 JadwalPraktek jadwal = new JadwalPraktek(resultset.getString("ruangan"), resultset.getString("hari"), resultset.getString("jam"), resultset.getString("Status"), resultset.getInt("id_jadwal_praktek"));
                 tabel_JadwalPraktek.add(jadwal);
-                tabel_nama.addElement("Ruangan : " + jadwal.getRuangan() + " /Hari : " + jadwal.getHari() + " /Jam : " + jadwal.getJam() + " /Status : " + jadwal.getStatus());
+                if (jadwal.getStatus().equals("available")) {
+                    tabel_nama.addElement("Ruangan : " + jadwal.getRuangan() + " /Hari : " + jadwal.getHari() + " /Jam : " + jadwal.getJam() + " /Status : " + jadwal.getStatus());
+                }
             }
             jList1.setModel(tabel_nama);
         } catch (SQLException e) {
