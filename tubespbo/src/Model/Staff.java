@@ -16,7 +16,7 @@ public class Staff extends Pengguna{
     //staff
     private String department;
 
-    public Staff(String department, String fullname, String nama_pengguna, String no_telepon, String password) {
+    public Staff(String department, String nama_pengguna, String no_telepon, String password) {
         super(nama_pengguna, no_telepon, password);
         this.department = department;
     }

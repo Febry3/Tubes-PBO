@@ -14,8 +14,8 @@ public class Admin extends Staff{
     //adminn
     private String shift;
 
-    public Admin(String shift, String department, String fullname, String nama_pengguna, String no_telepon, String password) {
-        super(department, fullname, nama_pengguna, no_telepon, password);
+    public Admin(String shift, String department, String nama_pengguna, String no_telepon, String password) {
+        super(department, nama_pengguna, no_telepon, password);
         this.shift = shift;
     }
 
