@@ -6,21 +6,25 @@
 package Controller;
 
 import ComponentGUI.Table;
-import Model.Dokter;
 import Utility.Database;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import javax.swing.JComboBox;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Lenovo
  */
-public class TableDokterController {
-    private final Table dokterTable;
-    public TableDokterController(Table dokterTable) {
+public class ReservasiController implements ActionListener{
+    private Table dokterTable;
+    private JComboBox listDokter;
+    
+    public ReservasiController(Table dokterTable, JComboBox listDokter) {
         this.dokterTable = dokterTable;
+        this.listDokter = listDokter;
     }
     
     public void loadData() {
@@ -36,9 +40,16 @@ public class TableDokterController {
             while (rs.next()) {
                 String data[] = {rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4)}; 
                 tableModel.addRow(data);
+                listDokter.addItem((String) rs.getString(1));
             }
         } catch (SQLException e) {
             System.out.println("Err Load Data Dokter: " + e.getMessage());
         }
+        db.disconnect();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        
     }
 }
