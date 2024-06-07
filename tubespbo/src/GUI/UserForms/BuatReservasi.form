@@ -99,7 +99,7 @@
                       <Component id="noHP" min="-2" pref="56" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="44" max="32767" attributes="0"/>
+              <EmptySpace pref="36" max="32767" attributes="0"/>
               <Component id="jButton1" min="-2" pref="77" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
           </Group>
@@ -171,10 +171,10 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="ComponentGUI.Table" name="table1">
+        <Component class="ComponentGUI.Table" name="TableDokterTersedia">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="4" rowCount="5">
+              <Table columnCount="4" rowCount="0">
                 <Column editable="false" title="Nama" type="java.lang.Object"/>
                 <Column editable="false" title="Spesialisasi" type="java.lang.Object"/>
                 <Column editable="false" title="Hari" type="java.lang.Object"/>

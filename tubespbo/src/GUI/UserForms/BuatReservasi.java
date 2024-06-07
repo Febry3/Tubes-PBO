@@ -5,6 +5,7 @@
  */
 package GUI.UserForms;
 
+import Controller.TableDokterController;
 import GUI.AdminForms.*;
 import java.awt.Color;
 
@@ -19,6 +20,8 @@ public class BuatReservasi extends javax.swing.JPanel {
      */
     public BuatReservasi() {
         initComponents();
+        TableDokterController tabDokter = new TableDokterController(TableDokterTersedia);
+        tabDokter.loadData();
     }
 
     /**
@@ -37,7 +40,7 @@ public class BuatReservasi extends javax.swing.JPanel {
         jComboBox3 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        table1 = new ComponentGUI.Table();
+        TableDokterTersedia = new ComponentGUI.Table();
         noHP = new ComponentGUI.JTextFieldCustom();
         namaDokter = new ComponentGUI.JTextFieldCustom();
         jComboBox4 = new javax.swing.JComboBox<>();
@@ -66,13 +69,9 @@ public class BuatReservasi extends javax.swing.JPanel {
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton1.setText("Reservasi");
 
-        table1.setModel(new javax.swing.table.DefaultTableModel(
+        TableDokterTersedia.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Nama", "Spesialisasi", "Hari", "Jam"
@@ -86,13 +85,13 @@ public class BuatReservasi extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        table1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(table1);
-        if (table1.getColumnModel().getColumnCount() > 0) {
-            table1.getColumnModel().getColumn(0).setResizable(false);
-            table1.getColumnModel().getColumn(1).setResizable(false);
-            table1.getColumnModel().getColumn(2).setResizable(false);
-            table1.getColumnModel().getColumn(3).setResizable(false);
+        TableDokterTersedia.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(TableDokterTersedia);
+        if (TableDokterTersedia.getColumnModel().getColumnCount() > 0) {
+            TableDokterTersedia.getColumnModel().getColumn(0).setResizable(false);
+            TableDokterTersedia.getColumnModel().getColumn(1).setResizable(false);
+            TableDokterTersedia.getColumnModel().getColumn(2).setResizable(false);
+            TableDokterTersedia.getColumnModel().getColumn(3).setResizable(false);
         }
 
         noHP.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(76, 184, 196), 2, true), " No. HP ", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
@@ -181,7 +180,7 @@ public class BuatReservasi extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(noHP, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
         );
@@ -197,6 +196,7 @@ public class BuatReservasi extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private ComponentGUI.Table TableDokterTersedia;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
@@ -209,6 +209,5 @@ public class BuatReservasi extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private ComponentGUI.JTextFieldCustom namaDokter;
     private ComponentGUI.JTextFieldCustom noHP;
-    private ComponentGUI.Table table1;
     // End of variables declaration//GEN-END:variables
 }
