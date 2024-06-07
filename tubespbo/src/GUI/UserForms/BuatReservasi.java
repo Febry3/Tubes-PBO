@@ -6,9 +6,13 @@
 package GUI.UserForms;
 
 import Controller.ListDokterController;
+import Controller.ListHariController;
 import Controller.ReservasiController;
 import GUI.AdminForms.*;
+import Utility.Database;
 import java.awt.Color;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -22,10 +26,12 @@ public class BuatReservasi extends javax.swing.JPanel {
     public BuatReservasi() {
         initComponents();
         ReservasiController tabDokterController = new ReservasiController(TableDokterTersedia, listDokter);
-        ListDokterController listDokterController = new ListDokterController(listDokter, listHari, listJam);
+        ListDokterController listDokterController = new ListDokterController(listDokter, listHari);
+        ListHariController listHariController = new ListHariController(listDokter, listHari, listJam);
         
         tabDokterController.loadData();
         listDokter.addActionListener(listDokterController);
+        listHari.addActionListener(listHariController);
     }
 
     /**
@@ -68,8 +74,6 @@ public class BuatReservasi extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel7.setText("Hari:");
 
-        listDokter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton1.setText("Reservasi");
 
@@ -111,6 +115,12 @@ public class BuatReservasi extends javax.swing.JPanel {
         namaDokter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 namaDokterActionPerformed(evt);
+            }
+        });
+
+        listHari.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listHariMouseClicked(evt);
             }
         });
 
@@ -182,7 +192,7 @@ public class BuatReservasi extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(noHP, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
         );
@@ -195,6 +205,10 @@ public class BuatReservasi extends javax.swing.JPanel {
     private void namaDokterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaDokterActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_namaDokterActionPerformed
+
+    private void listHariMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listHariMouseClicked
+
+    }//GEN-LAST:event_listHariMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

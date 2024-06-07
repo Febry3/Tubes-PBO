@@ -30,7 +30,7 @@ public class ReservasiController implements ActionListener{
     public void loadData() {
         Database db = new Database();
         db.connect();
-        String sqlQuery = "select nama_dokter, spesialisasi, hari, jam from Dokter join JadwalPraktek using (id_dokter)";
+        String sqlQuery = "select nama_dokter, spesialisasi, hari, jam from Dokter join JadwalPraktek using (id_dokter) where status = 'available'";
         System.out.println(sqlQuery);
         DefaultTableModel tableModel = (DefaultTableModel) dokterTable.getModel();
         
@@ -50,6 +50,6 @@ public class ReservasiController implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+     
     }
 }
