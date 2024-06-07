@@ -6,6 +6,10 @@
  */
 package Model;
 
+import Utility.Database;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author hafid
@@ -14,10 +18,15 @@ public class Admin extends Staff{
     //adminn
     private String shift;
 
-    public Admin(String shift, String department, String nama_pengguna, String no_telepon, String password) {
-        super(department, nama_pengguna, no_telepon, password);
+    public Admin(String shift, String department, String nama_pengguna, String no_telepon, String password, String role) {
+        super(department, nama_pengguna, no_telepon, password, role);
         this.shift = shift;
     }
+
+    public Admin(String username, String password) {
+        super(username, password);
+    }
+    
 
     public String getShift() {
         return shift;
@@ -46,5 +55,12 @@ public class Admin extends Staff{
     }
     public void manage_reservation(){
         
+    }
+    public ResultSet Login(String username, String password) throws SQLException {
+        Database db = new Database();
+        String sql = "select nama_admin as username from Admin"
+                + " where"
+                + " nama_admin = '" + username + "'";
+        return db.getData(sql);
     }
 }

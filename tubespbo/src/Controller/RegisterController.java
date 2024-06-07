@@ -41,7 +41,7 @@ public class RegisterController implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (confirmPassword.getText().equals(password.getText())) {
-            Pasien pasien = new Pasien(alamat.getText(), nama.getText(), noHp.getText(), password.getText());
+            Pasien pasien = new Pasien(alamat.getText(), nama.getText(), noHp.getText(), password.getText(), "Pasien");
             try {
                 pasien.register_akun();
                 resetText();

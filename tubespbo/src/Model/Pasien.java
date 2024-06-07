@@ -18,8 +18,8 @@ public class Pasien extends Pengguna {
     private String alamat;
     private HasilPengecekan[] riwayat_pemeriksaan;
 
-    public Pasien(String alamat, String nama_pengguna, String no_telepon, String password) {
-        super(nama_pengguna, no_telepon, password);
+    public Pasien(String alamat, String nama_pengguna, String no_telepon, String password, String role) {
+        super(nama_pengguna, no_telepon, password, role);
         this.alamat = alamat;
     }
     
@@ -77,11 +77,6 @@ public class Pasien extends Pengguna {
         return true;
     }
 
-    @Override
-    public void change_password() {
-    
-    }
-
     public ResultSet Login(String username, String password) throws SQLException {
         Database db = new Database();
         String sql = "select nama_pasien as username "
@@ -92,5 +87,12 @@ public class Pasien extends Pengguna {
                 + " password = '" + password + "'";
         return db.getData(sql);
     }
+
+    @Override
+    public void change_password(String oldPass, String newPass, String confirmNewPass) {
+        Database db = new Database();
+        String sql = "UPDATE TABLE ";
+    }
+
 
 }

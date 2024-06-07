@@ -5,6 +5,10 @@
  */
 package Model;
 
+import Utility.Database;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author ASUS
@@ -12,9 +16,13 @@ package Model;
 public class Apoteker extends Staff{
     private String shift;
 
-    public Apoteker(String shift, String department, String nama_pengguna, String no_telepon, String password) {
-        super(department, nama_pengguna, no_telepon, password);
+    public Apoteker(String shift, String department, String nama_pengguna, String no_telepon, String password, String role) {
+        super(department, nama_pengguna, no_telepon, password, role);
         this.shift = shift;
+    }
+
+    public Apoteker(String username, String password) {
+        super(username,password);
     }
 
     
@@ -44,5 +52,13 @@ public class Apoteker extends Staff{
     
     public void search_inventory() {
     
+    }
+    
+    public ResultSet Login(String username, String password) throws SQLException {
+        Database db = new Database();
+        String sql = "select nama_apoteker as username from Apoteker"
+                + " where"
+                + " nama_apoteker = '" + username + "'";
+        return db.getData(sql);
     }
 }

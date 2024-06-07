@@ -9,11 +9,13 @@ public abstract class Pengguna {
     private String nama_pengguna;
     private String password_pengguna;
     private String no_telepon;
+    private String role;
 
-    public Pengguna(String nama_pengguna, String no_telepon, String password_pengguna) {
+    public Pengguna(String nama_pengguna, String no_telepon, String password_pengguna,String role) {
         this.nama_pengguna = nama_pengguna;
         this.password_pengguna = password_pengguna;
         this.no_telepon = no_telepon;
+        this.role = role;
     }
 
     public Pengguna(String nama_pengguna, String password_pengguna) {
@@ -56,6 +58,7 @@ public abstract class Pengguna {
     public void Logout() {
 
     }
+    
 
     
     //SELECT Pasien.nama_pasien as username
@@ -71,6 +74,6 @@ public abstract class Pengguna {
 //        db.query(sql);
 //    }
 
-    public abstract void change_password();
+    public abstract void change_password(String oldPass, String newPass, String confirmNewPass);
 
 }

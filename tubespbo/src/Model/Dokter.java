@@ -20,8 +20,8 @@ public class Dokter extends Staff {
     private String spesialisasi;
     private JadwalPraktek[] jadwal_praktik;
 
-    public Dokter(String spesialisasi, String department, String nama_pengguna, String no_telepon, String password) {
-        super(department, nama_pengguna, no_telepon, password);
+    public Dokter(String spesialisasi, String department, String nama_pengguna, String no_telepon, String password, String role) {
+        super(department, nama_pengguna, no_telepon, password, role);
         this.spesialisasi = spesialisasi;
     }
     
@@ -69,4 +69,15 @@ public class Dokter extends Staff {
                 + " nama_dokter = '" + username + "'";
         return db.getData(sql);
     }
+
+    @Override
+    public void change_password(String oldPass, String newPass, String confirmNewPass) {
+        Database db = new Database();
+        String sql = "UPDATE TABLE ";
+    }
+
+    
+
+    
+    
 }
