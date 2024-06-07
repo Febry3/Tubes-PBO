@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/PEMROGRAMAN%20BERBASIS%20OBJEK/Tubes-PBO/tubespbo/src/Model/ScheduleUtiliy.java</file>
             <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/PEMROGRAMAN%20BERBASIS%20OBJEK/Tubes-PBO/tubespbo/src/GUI/PharmacistForm/ChangePasswordForm.java</file>
             <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/PEMROGRAMAN%20BERBASIS%20OBJEK/Tubes-PBO/tubespbo/src/Controller/ChangePasswordController.java</file>
@@ -62,6 +63,53 @@
             <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/PEMROGRAMAN%20BERBASIS%20OBJEK/Tubes-PBO/tubespbo/src/ComponentGUI/DetailCard.java</file>
             <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/PEMROGRAMAN%20BERBASIS%20OBJEK/Tubes-PBO/tubespbo/src/GUI/AdminForms/MainAdmin.java</file>
             <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/PEMROGRAMAN%20BERBASIS%20OBJEK/Tubes-PBO/tubespbo/src/GUI/DoctorForm/RequestJadwalForm.java</file>
+=======
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/GUI/LoginRegister.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/GUI/AdminForms/DoctorRequestForm.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/Model/JadwalPraktek.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/GUI/PharmacistForm/InitForm.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/Controller/ReservasiController.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/GUI/UserForms/MainUser.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/GUI/PanelBorder.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/GUI/AdminForms/InitForm.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/Model/Pengguna.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/GUI/PasienGUI.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/Model/Apoteker.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/GUI/PharmacistForm/ChangePasswordForm.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/nbproject/private/private.properties</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/GUI/AuthPanel.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/ComponentGUI/JTextFieldCustom.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/GUI/DoctorForm/BuatLaporanForm.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/GUI/DoctorForm/ListJadwalForm.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/GUI/DoctorForm/MainDoctor.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/Utility/Database.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/GUI/AdminForms/MainAdmin.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/GUI/DoctorForm/ChangePasswordForm.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/GUI/DoctorForm/RequestJadwalForm.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/Model/Staff.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/GUI/PharmacistForm/MainPharmacist.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/Controller/RegisterController.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/GUI/AdminForms/ChangePasswordForm.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/GUI/PharmacistForm/TambahObatForm.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/GUI/Dokter.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/nbproject/private/private.xml</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/Model/Admin.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/Model/Dokter.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/GUI/UserForms/InitForm.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/GUI/DoctorForm/InitForm.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/GUI/UserForms/BuatReservasi.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/GUI/UserForms/ArsipKunjungan.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/GUI/UserForms/GantiPassword.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/GUI/PharmacistForm/ManageObatForm.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/GUI/AdminForms/PasienRequestForm.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/Model/Pasien.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/Controller/LoginController.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/MenuModel/ListMenu.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/ComponentGUI/MenuPharmacist.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/GUI/Login.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/Controller/ListDokterController.java</file>
+            <file>file:/D:/Koleah/Semester%204/OOP/Tubes/tubespbo/src/GUI/Register.java</file>
+>>>>>>> 4c45077593ab7efa2573d03f3fdec0ef563962d1
         </group>
     </open-files>
 </project-private>

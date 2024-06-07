@@ -19,24 +19,22 @@ import javax.swing.JComboBox;
 public class ListDokterController implements ActionListener{
     private JComboBox listDokter;
     private JComboBox listHari;
-    private JComboBox listJam;
+
     
-    
-    public ListDokterController(JComboBox listDokter, JComboBox listHari, JComboBox listJam){
+    public ListDokterController(JComboBox listDokter, JComboBox listHari){
         this.listDokter = listDokter;
         this.listHari = listHari;
-        this.listJam = listJam;
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
         Database db = new Database();
         String namaDokter = (String) listDokter.getSelectedItem();
-        String sqlQuery = "select hari from Dokter join JadwalPraktek using (id_dokter) where nama_dokter = '" + namaDokter + "'";
+        String sqlQuery = "select hari from Dokter join JadwalPraktek using (id_dokter) where nama_dokter = '" + namaDokter + "' and status = 'available'";
         System.out.println(sqlQuery);
         
         db.connect();
-        
+        listHari.removeAllItems();
         try {
             ResultSet rs = db.getData(sqlQuery);
         
@@ -49,5 +47,7 @@ public class ListDokterController implements ActionListener{
         db.disconnect();
       
     }
+    
+    
     
 }

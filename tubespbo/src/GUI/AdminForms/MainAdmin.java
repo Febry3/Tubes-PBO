@@ -24,9 +24,9 @@ public class MainAdmin extends javax.swing.JFrame {
             @Override
             public void selected(int index) {
                 if (index == 2) {
-                    setForm(pr);
-                } else if (index == 3) {
                     setForm(dr);
+                } else if (index == 3) {
+                    setForm(pr);
                 } else if (index == 6) {
                     setForm(cp);
                 } else if (index == 7) {

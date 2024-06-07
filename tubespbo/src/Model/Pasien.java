@@ -91,9 +91,9 @@ public class Pasien extends Pengguna {
     @Override
     public void change_password(String oldPass, String newPass, String confirmNewPass) {
         Database db = new Database();
-        String sql = "update JadwalPraktek set Status  ='" + 
-                + "'where id_jadwal_praktek ='" + idJadwal + "'";
-        db.query(sql);
+//        String sql = "update JadwalPraktek set Status  ='" + 
+//                + "'where id_jadwal_praktek ='" + idJadwal + "'";
+//        db.query(sql);
     }
 
 

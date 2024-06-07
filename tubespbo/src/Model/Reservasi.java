@@ -1,4 +1,4 @@
-/*
+        /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -15,15 +15,15 @@ public class Reservasi {
     private String nama_pasien;
     private String nama_dokter;
     private String nomor_telepon;
-    private Date tannggal_reservasi;
+    private Date tanggal_reservasi;
     private Date waktu_reservasi;
     private String status;
 
-    public Reservasi(String nama_pasien, String nama_dokter, String nomor_telepon, Date tannggal_reservasi, Date waktu_reservasi, String status) {
+    public Reservasi(String nama_pasien, String nama_dokter, String nomor_telepon, Date tanggal_reservasi, Date waktu_reservasi, String status) {
         this.nama_pasien = nama_pasien;
         this.nama_dokter = nama_dokter;
         this.nomor_telepon = nomor_telepon;
-        this.tannggal_reservasi = tannggal_reservasi;
+        this.tanggal_reservasi = tanggal_reservasi;
         this.waktu_reservasi = waktu_reservasi;
         this.status = status;
     }
@@ -53,11 +53,11 @@ public class Reservasi {
     }
 
     public Date getTannggal_reservasi() {
-        return tannggal_reservasi;
+        return tanggal_reservasi;
     }
 
     public void setTannggal_reservasi(Date tannggal_reservasi) {
-        this.tannggal_reservasi = tannggal_reservasi;
+        this.tanggal_reservasi = tannggal_reservasi;
     }
 
     public Date getWaktu_reservasi() {
