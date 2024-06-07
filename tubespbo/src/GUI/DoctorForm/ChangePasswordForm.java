@@ -5,7 +5,12 @@
  */
 package GUI.DoctorForm;
 
+import Controller.ChangePasswordController;
+import static Controller.CurrentUser.getCurrentRole;
+import static Controller.CurrentUser.getCurrentUsername;
+import Controller.LoginController;
 import GUI.AdminForms.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,9 +18,7 @@ import GUI.AdminForms.*;
  */
 public class ChangePasswordForm extends javax.swing.JPanel {
 
-    /**
-     * Creates new form DoctorRequestForm
-     */
+    
     public ChangePasswordForm() {
         initComponents();
     }
@@ -46,8 +49,18 @@ public class ChangePasswordForm extends javax.swing.JPanel {
         jLabel1.setText("Ganti Password");
 
         ConfirmNewPasswordField.setOpaque(false);
+        ConfirmNewPasswordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConfirmNewPasswordFieldActionPerformed(evt);
+            }
+        });
 
         NewPasswordField.setOpaque(false);
+        NewPasswordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NewPasswordFieldActionPerformed(evt);
+            }
+        });
 
         ButtonSubmitChange.setText("Submit");
         ButtonSubmitChange.addActionListener(new java.awt.event.ActionListener() {
@@ -108,7 +121,7 @@ public class ChangePasswordForm extends javax.swing.JPanel {
                 .addComponent(ConfirmNewPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48)
                 .addComponent(ButtonSubmitChange, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addContainerGap(169, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -117,8 +130,19 @@ public class ChangePasswordForm extends javax.swing.JPanel {
     }//GEN-LAST:event_OldPasswordFieldActionPerformed
 
     private void ButtonSubmitChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSubmitChangeActionPerformed
-        // TODO add your handling code here:
+        //JOptionPane.showMessageDialog(null, getCurrentUsername());
+        ChangePasswordController cp = new ChangePasswordController(OldPasswordField,NewPasswordField, ConfirmNewPasswordField, getCurrentRole());
+        ButtonSubmitChange.addActionListener(cp);
+       
     }//GEN-LAST:event_ButtonSubmitChangeActionPerformed
+
+    private void NewPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewPasswordFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NewPasswordFieldActionPerformed
+
+    private void ConfirmNewPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmNewPasswordFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ConfirmNewPasswordFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

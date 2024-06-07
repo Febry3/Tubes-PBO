@@ -6,6 +6,9 @@
 package Controller;
 
 import ComponentGUI.JTextFieldCustom;
+import static Controller.CurrentUser.getCurrentUsername;
+import Model.Admin;
+import Model.Apoteker;
 import Model.Dokter;
 import Model.Pasien;
 import Model.Pengguna;
@@ -14,8 +17,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.text.View;
 
 /**
@@ -27,34 +32,32 @@ public class ChangePasswordController implements ActionListener {
     private JTextFieldCustom oldPass = new JTextFieldCustom();
     private JTextFieldCustom newPass = new JTextFieldCustom();
     private JTextFieldCustom confirmNewPass = new JTextFieldCustom();
+    private String role;
+
+    public ChangePasswordController(JTextFieldCustom oldPass, JTextFieldCustom newPass, JTextFieldCustom confirmNewPass, String role) {
+        this.oldPass = oldPass;
+        this.newPass = newPass;
+        this.confirmNewPass = confirmNewPass;
+        this.role = role;
+    }
+
+    public ChangePasswordController() {
+    }
+    
+    
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            if (role.equals("Dokter")) {
+                Dokter dokter = new Dokter();
+                dokter.change_password(getCurrentUsername(), newPass.getText());
+                JOptionPane.showMessageDialog(null, "Password Berhasil Diganti");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ChangePasswordController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
     
-//    private void load_users(String username, String password) {
-//        try {
-//            Database db = new Database();
-//            ResultSet rs;
-//            if (role.equals("Pasien")){
-//                Pasien pasien = new Pasien(username, password);
-//                rs = pasien.Login(username, password);
-//            } else {
-//                Dokter dokter = new Dokter(username, password);
-//                rs = dokter.Login(username, password);
-//            }
-//      
-//            while (rs.next()) {
-//                Pengguna user = new Pengguna(rs.getString("username"), "") {
-//                    @Override
-//                    public void change_password() {
-//                    }
-//                };
-//                tabel_user.add(user);
-//            }
-//        } catch (SQLException ex) {
-//            Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
 }

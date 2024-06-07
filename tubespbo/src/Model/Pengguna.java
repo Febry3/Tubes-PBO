@@ -22,6 +22,12 @@ public abstract class Pengguna {
         this.nama_pengguna = nama_pengguna;
         this.password_pengguna = password_pengguna;
     }
+
+    public Pengguna() {
+    }
+    
+    
+    
     
     public String getPassword_pengguna() {
         return password_pengguna;
@@ -55,6 +61,16 @@ public abstract class Pengguna {
         this.no_telepon = no_telepon;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    
+    
     public void Logout() {
 
     }
@@ -74,6 +90,6 @@ public abstract class Pengguna {
 //        db.query(sql);
 //    }
 
-    public abstract void change_password(String oldPass, String newPass, String confirmNewPass);
+    public abstract void change_password(String username, String newPass) throws SQLException;
 
 }

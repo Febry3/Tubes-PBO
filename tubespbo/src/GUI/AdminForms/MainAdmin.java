@@ -2,9 +2,11 @@ package GUI.AdminForms;
 
 
 import ComponentGUI.MenuAdmin;
+import static Controller.CurrentUser.getCurrentUsername;
 import MenuModel.SelectedMenu;
 import java.awt.Color;
 import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 
 public class MainAdmin extends javax.swing.JFrame {
 

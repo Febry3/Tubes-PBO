@@ -10,7 +10,7 @@ package GUI;
  * @author LENOVO
  */
 public class PasienGUI extends javax.swing.JFrame {
-
+    String currentRole = "Pasien";
     /**
      * Creates new form Home
      */

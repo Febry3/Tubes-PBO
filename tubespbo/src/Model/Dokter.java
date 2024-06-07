@@ -6,6 +6,7 @@
  */
 package Model;
 
+import static Controller.CurrentUser.getCurrentRole;
 import Utility.Database;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -29,6 +30,11 @@ public class Dokter extends Staff {
     public Dokter(String username, String password){
         super(username, password);
     }
+
+    public Dokter() {
+    }
+    
+    
 
     public String getSpesialisasi() {
         return spesialisasi;
@@ -68,16 +74,14 @@ public class Dokter extends Staff {
                 + " where"
                 + " nama_dokter = '" + username + "'";
         return db.getData(sql);
-    }
+    } 
 
     @Override
-    public void change_password(String oldPass, String newPass, String confirmNewPass) {
+    public void change_password(String username, String newPass) throws SQLException {
         Database db = new Database();
-        String sql = "UPDATE TABLE ";
-    }
-
-    
-
-    
-    
+        String sql = "update " + getCurrentRole() 
+                + " set password  = '" + newPass + "' "
+                + " where nama_dokter = '" + username + "';";
+        db.query(sql);
+    } 
 }

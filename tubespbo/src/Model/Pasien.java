@@ -27,6 +27,11 @@ public class Pasien extends Pengguna {
         super(nama_pengguna, password);
     }
 
+    public Pasien() {
+    }
+    
+    
+
     public String getAlamat() {
         return alamat;
     }
@@ -89,11 +94,12 @@ public class Pasien extends Pengguna {
     }
 
     @Override
-    public void change_password(String oldPass, String newPass, String confirmNewPass) {
+    public void change_password(String username, String newPass) throws SQLException {
         Database db = new Database();
-//        String sql = "update JadwalPraktek set Status  ='" + 
-//                + "'where id_jadwal_praktek ='" + idJadwal + "'";
-//        db.query(sql);
+        String sql = "update " + super.getRole() 
+                + " set password  = '" + newPass + "' "
+                + " where password = '" + username + "';";
+        db.query(sql);
     }
 
 
