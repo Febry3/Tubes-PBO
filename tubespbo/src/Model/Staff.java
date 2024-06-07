@@ -5,6 +5,7 @@
  */
 package Model;
 
+import Utility.Database;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -16,8 +17,8 @@ public class Staff extends Pengguna{
     //staff
     private String department;
 
-    public Staff(String department, String nama_pengguna, String no_telepon, String password) {
-        super(nama_pengguna, no_telepon, password);
+    public Staff(String department, String nama_pengguna, String no_telepon, String password, String role) {
+        super(nama_pengguna, no_telepon, password, role);
         this.department = department;
     }
     
@@ -36,10 +37,12 @@ public class Staff extends Pengguna{
     public void viewSchedule(){
         
     }
+
     @Override
-    public void change_password() {
-       
-    }
+    public void change_password(String oldPass, String newPass, String confirmNewPass) {
+        Database db = new Database();
+        String sql = "UPDATE TABLE ";
+    }   
     
     
 }

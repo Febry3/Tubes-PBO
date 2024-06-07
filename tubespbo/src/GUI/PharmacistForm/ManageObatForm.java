@@ -101,7 +101,7 @@ public class ManageObatForm extends javax.swing.JPanel {
                         .addComponent(jLabel1)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelDaftarObatLayout.createSequentialGroup()
-                        .addComponent(TableScrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 944, Short.MAX_VALUE)
+                        .addComponent(TableScrollPanel)
                         .addGap(20, 20, 20))))
         );
         PanelDaftarObatLayout.setVerticalGroup(
@@ -110,10 +110,11 @@ public class ManageObatForm extends javax.swing.JPanel {
                 .addGap(20, 20, 20)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TableScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(TableScrollPanel)
+                .addContainerGap())
         );
 
+        panelBorder1.setBackground(new java.awt.Color(204, 204, 204));
         panelBorder1.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 15));
         panelBorder1.setForeground(new java.awt.Color(255, 255, 255));
         panelBorder1.setLayout(new java.awt.BorderLayout());
@@ -138,7 +139,7 @@ public class ManageObatForm extends javax.swing.JPanel {
                 .addComponent(panelBorder1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PanelDaftarObat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(16, 16, 16))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 

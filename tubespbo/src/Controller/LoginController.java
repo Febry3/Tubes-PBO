@@ -6,11 +6,16 @@
 package Controller;
 
 import ComponentGUI.JTextFieldCustom;
+import GUI.AdminForms.MainAdmin;
 import GUI.DoctorForm.MainDoctor;
+import GUI.PharmacistForm.MainPharmacist;
 import GUI.UserForms.MainUser;
+import Model.Admin;
+import Model.Apoteker;
 import Model.Dokter;
 import Model.Pasien;
 import Model.Pengguna;
+import Model.Staff;
 import Utility.Database;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -39,6 +44,13 @@ public class LoginController implements ActionListener {
         this.loginPage = loginPage;
     }
 
+    public LoginController(JTextFieldCustom username, JTextFieldCustom password, JFrame loginPage) {
+        this.username = username;
+        this.password = password;
+        this.loginPage = loginPage;
+        role = "";
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         load_users(username.getText(), password.getText());
@@ -51,9 +63,15 @@ public class LoginController implements ActionListener {
             if (role.equals("Dokter")) {
                 MainDoctor main = new MainDoctor();
                 main.setVisible(true);
-            } else {
+            } else if (role.equals("Pasien")) {
                 MainUser mainUser = new MainUser();
                 mainUser.setVisible(true);
+            } else if (role.equals("Admin")) {
+                MainAdmin mainAdmin = new MainAdmin();
+                mainAdmin.setVisible(true);
+            } else if (role.equals("Apoteker")) {
+                MainPharmacist mainApoteker = new MainPharmacist();
+                mainApoteker.setVisible(true);
             }
 
         }
@@ -62,21 +80,37 @@ public class LoginController implements ActionListener {
 
     private void load_users(String username, String password) {
         try {
+            Admin admin = new Admin(username, password);
+            Apoteker apoteker = new Apoteker(username, password);
             Database db = new Database();
-            ResultSet rs;
-            if (role.equals("Pasien")){
+            ResultSet rs = null;
+            if (role.equals("Pasien")) {
                 Pasien pasien = new Pasien(username, password);
                 rs = pasien.Login(username, password);
-            } else {
+            } else if (role.equals("Dokter")) {
                 Dokter dokter = new Dokter(username, password);
                 rs = dokter.Login(username, password);
+            } else if (role.equalsIgnoreCase("Apoteker")) {
+                rs = apoteker.Login(username, password);
+            } else {
+
+                if (apoteker.Login(username, password).next()) {
+                    this.role = "Apoteker";
+                    rs = apoteker.Login(username, password);
+
+                } else {
+                    this.role = "Admin";
+                    rs = admin.Login(username, password);
+                }
             }
-      
+
             while (rs.next()) {
                 Pengguna user = new Pengguna(rs.getString("username"), "") {
                     @Override
-                    public void change_password() {
+                    public void change_password(String oldPass, String newPass, String confirmNewPass) {
+
                     }
+
                 };
                 tabel_user.add(user);
             }
