@@ -46,6 +46,8 @@ public class ManageObatForm extends javax.swing.JPanel {
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(984, 0));
 
+        PanelSearch.setForeground(new java.awt.Color(76, 184, 196));
+
         javax.swing.GroupLayout PanelSearchLayout = new javax.swing.GroupLayout(PanelSearch);
         PanelSearch.setLayout(PanelSearchLayout);
         PanelSearchLayout.setHorizontalGroup(
@@ -110,7 +112,7 @@ public class ManageObatForm extends javax.swing.JPanel {
                 .addGap(20, 20, 20)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TableScrollPanel)
+                .addComponent(TableScrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
