@@ -56,10 +56,23 @@ public class Pasien extends Pengguna {
                 + "', '" + super.getPassword_pengguna() + "')";
         System.out.println(sqlQuery);
         db.query(sqlQuery);
+        db.disconnect();
     }
 
-    public void create_reservation() {
-
+    public static void create_reservation(Reservasi reservasi) throws SQLException {
+        String namaPasien = reservasi.getNama_pasien();
+        String namaDokter = reservasi.getNama_dokter();
+        String tanggalReservasi = reservasi.getTanggal_reservasi();
+        String hariReservasi = reservasi.getHari_reservasi();
+        String jamReservasi = reservasi.getJam_reservasi();
+        String status = reservasi.getStatus();
+        
+        String sqlString = "INSERT INTO Reservasi(`id_dokter`, `hari_reservasi`, `jam_reservasi`, `status`, `id_pasien`, `tanggal_reservasi`) VALUES ((select id_dokter from Dokter where nama_dokter = '" + namaDokter + "'), '" + hariReservasi + "', '" + jamReservasi + "', '" + status + "', (select id_pasien from Pasien where nama_pasien = '" + namaPasien + "'), '" + tanggalReservasi + "')";
+        System.out.println(sqlString);
+        Database db = new Database();
+        db.connect();
+        db.query(sqlString);
+        db.disconnect();
     }
 
     public void check_up() {

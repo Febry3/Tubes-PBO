@@ -29,8 +29,8 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="noHP" min="-2" pref="459" max="-2" attributes="0"/>
-                                  <Component id="namaDokter" alignment="0" min="-2" pref="459" max="-2" attributes="0"/>
+                                  <Component id="noHp" min="-2" pref="459" max="-2" attributes="0"/>
+                                  <Component id="namaPasien" alignment="0" min="-2" pref="459" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -56,7 +56,7 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="403" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="174" max="-2" attributes="0"/>
+                      <Component id="reservasiButton" min="-2" pref="174" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
@@ -79,7 +79,7 @@
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="listDokter" min="-2" pref="50" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="namaDokter" min="-2" pref="56" max="-2" attributes="0"/>
+                  <Component id="namaPasien" min="-2" pref="56" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -96,11 +96,11 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="noHP" min="-2" pref="56" max="-2" attributes="0"/>
+                      <Component id="noHp" min="-2" pref="56" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="61" max="32767" attributes="0"/>
-              <Component id="jButton1" min="-2" pref="77" max="-2" attributes="0"/>
+              <EmptySpace pref="86" max="32767" attributes="0"/>
+              <Component id="reservasiButton" min="-2" pref="77" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -151,7 +151,7 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="reservasiButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="18" style="1"/>
@@ -169,11 +169,12 @@
         <Component class="ComponentGUI.Table" name="TableDokterTersedia">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="4" rowCount="0">
-                <Column editable="false" title="Nama" type="java.lang.Object"/>
-                <Column editable="false" title="Spesialisasi" type="java.lang.Object"/>
-                <Column editable="false" title="Hari" type="java.lang.Object"/>
-                <Column editable="false" title="Jam" type="java.lang.Object"/>
+              <Table columnCount="5" rowCount="0">
+                <Column editable="false" title="Nama" type="java.lang.String"/>
+                <Column editable="false" title="Spesialisasi" type="java.lang.String"/>
+                <Column editable="false" title="Hari" type="java.lang.String"/>
+                <Column editable="false" title="Jam" type="java.lang.String"/>
+                <Column editable="false" title="Ruangan" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -198,7 +199,15 @@
                   <Editor/>
                   <Renderer/>
                 </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
               </TableColumnModel>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="18" style="0"/>
             </Property>
             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
               <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
@@ -207,7 +216,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="ComponentGUI.JTextFieldCustom" name="noHP">
+    <Component class="ComponentGUI.JTextFieldCustom" name="noHp">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -226,10 +235,10 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="noHPActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="noHpActionPerformed"/>
       </Events>
     </Component>
-    <Component class="ComponentGUI.JTextFieldCustom" name="namaDokter">
+    <Component class="ComponentGUI.JTextFieldCustom" name="namaPasien">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -248,7 +257,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="namaDokterActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="namaPasienActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="listHari">
