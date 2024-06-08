@@ -5,6 +5,7 @@
  */
 package Model;
 
+import Utility.DateUtilities;
 import java.sql.Date;
 
 /**
@@ -16,17 +17,18 @@ public class Reservasi {
     private String nama_pasien;
     private String nama_dokter;
     private String nomor_telepon;
-    private Date tanggal_reservasi;
-    private Date waktu_reservasi;
-    private String status;
+    private String tanggal_reservasi;
+    private String hari_reservasi;
+    private String jam_reservasi;
+    private String status = "Pending";
 
-    public Reservasi(String nama_pasien, String nama_dokter, String nomor_telepon, Date tanggal_reservasi, Date waktu_reservasi, String status) {
+    public Reservasi(String nama_pasien, String nama_dokter, String nomor_telepon, String hari_reservasi, String jam_reservasi) {
         this.nama_pasien = nama_pasien;
         this.nama_dokter = nama_dokter;
         this.nomor_telepon = nomor_telepon;
-        this.tanggal_reservasi = tanggal_reservasi;
-        this.waktu_reservasi = waktu_reservasi;
-        this.status = status;
+        this.hari_reservasi = hari_reservasi;
+        this.jam_reservasi = jam_reservasi;
+        this.tanggal_reservasi = DateUtilities.dateAdditionFromNow(hari_reservasi);
     }
     
     public Reservasi(int id){
@@ -61,21 +63,30 @@ public class Reservasi {
         this.nomor_telepon = nomor_telepon;
     }
 
-    public Date getTannggal_reservasi() {
+    public String getTanggal_reservasi() {
         return tanggal_reservasi;
     }
 
-    public void setTannggal_reservasi(Date tannggal_reservasi) {
-        this.tanggal_reservasi = tannggal_reservasi;
+    public void setTanggal_reservasi(String tanggal_reservasi) {
+        this.tanggal_reservasi = tanggal_reservasi;
     }
 
-    public Date getWaktu_reservasi() {
-        return waktu_reservasi;
+    public String getHari_reservasi() {
+        return hari_reservasi;
     }
 
-    public void setWaktu_reservasi(Date waktu_reservasi) {
-        this.waktu_reservasi = waktu_reservasi;
+    public void setHari_reservasi(String hari_reservasi) {
+        this.hari_reservasi = hari_reservasi;
     }
+
+    public String getJam_reservasi() {
+        return jam_reservasi;
+    }
+
+    public void setJam_reservasi(String jam_reservasi) {
+        this.jam_reservasi = jam_reservasi;
+    }
+   
 
     public String getStatus() {
         return status;

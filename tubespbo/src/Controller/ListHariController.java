@@ -29,24 +29,26 @@ public class ListHariController implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        Database db = new Database();
-        db.connect();
+
         String nama = (String) listDokter.getSelectedItem();
         String hari = (String) listHari.getSelectedItem();
         String sqlQuery = "select jam from Dokter join JadwalPraktek using (id_dokter) where nama_dokter = '" + nama + "' and hari = '" + hari + "'";
         System.out.println(sqlQuery);
         listJam.removeAllItems();
         try {
+            Database db = new Database();
+            db.connect();
             ResultSet rs = db.getData(sqlQuery);
 
             while (rs.next()) {
                 System.out.println(rs.getString(1));
                 listJam.addItem(rs.getString(1));
             }
+            db.disconnect();
         } catch  (SQLException er){
             System.out.println("Err Load List Jam: " + er.getMessage());
         }
-        db.disconnect();
+        
     }
     
 }

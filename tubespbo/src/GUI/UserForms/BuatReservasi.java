@@ -8,11 +8,6 @@ package GUI.UserForms;
 import Controller.ListDokterController;
 import Controller.ListHariController;
 import Controller.ReservasiController;
-import GUI.AdminForms.*;
-import Utility.Database;
-import java.awt.Color;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 /**
  *
@@ -25,13 +20,15 @@ public class BuatReservasi extends javax.swing.JPanel {
      */
     public BuatReservasi() {
         initComponents();
-        ReservasiController tabDokterController = new ReservasiController(TableDokterTersedia, listDokter);
+        ReservasiController reservasiController = new ReservasiController(TableDokterTersedia, listDokter, listHari, listJam, namaPasien, noHp);
         ListDokterController listDokterController = new ListDokterController(listDokter, listHari);
         ListHariController listHariController = new ListHariController(listDokter, listHari, listJam);
         
-        tabDokterController.loadData();
+        reservasiController.loadData();
+        reservasiButton.addActionListener(reservasiController);
         listDokter.addActionListener(listDokterController);
         listHari.addActionListener(listHariController);
+        
     }
 
     /**
@@ -48,11 +45,11 @@ public class BuatReservasi extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         listDokter = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        reservasiButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TableDokterTersedia = new ComponentGUI.Table();
-        noHP = new ComponentGUI.JTextFieldCustom();
-        namaDokter = new ComponentGUI.JTextFieldCustom();
+        noHp = new ComponentGUI.JTextFieldCustom();
+        namaPasien = new ComponentGUI.JTextFieldCustom();
         listHari = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         listJam = new javax.swing.JComboBox<>();
@@ -74,25 +71,33 @@ public class BuatReservasi extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel7.setText("Hari:");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton1.setText("Reservasi");
+        reservasiButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        reservasiButton.setText("Reservasi");
 
         TableDokterTersedia.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Nama", "Spesialisasi", "Hari", "Jam"
+                "Nama", "Spesialisasi", "Hari", "Jam", "Ruangan"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        TableDokterTersedia.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         TableDokterTersedia.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(TableDokterTersedia);
         if (TableDokterTersedia.getColumnModel().getColumnCount() > 0) {
@@ -100,21 +105,22 @@ public class BuatReservasi extends javax.swing.JPanel {
             TableDokterTersedia.getColumnModel().getColumn(1).setResizable(false);
             TableDokterTersedia.getColumnModel().getColumn(2).setResizable(false);
             TableDokterTersedia.getColumnModel().getColumn(3).setResizable(false);
+            TableDokterTersedia.getColumnModel().getColumn(4).setResizable(false);
         }
 
-        noHP.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(76, 184, 196), 2, true), " No. HP ", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
-        noHP.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        noHP.addActionListener(new java.awt.event.ActionListener() {
+        noHp.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(76, 184, 196), 2, true), " No. HP ", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
+        noHp.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        noHp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                noHPActionPerformed(evt);
+                noHpActionPerformed(evt);
             }
         });
 
-        namaDokter.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(76, 184, 196), 2, true), "Nama", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
-        namaDokter.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        namaDokter.addActionListener(new java.awt.event.ActionListener() {
+        namaPasien.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(76, 184, 196), 2, true), "Nama", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
+        namaPasien.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        namaPasien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                namaDokterActionPerformed(evt);
+                namaPasienActionPerformed(evt);
             }
         });
 
@@ -140,8 +146,8 @@ public class BuatReservasi extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(noHP, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(namaDokter, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(noHp, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(namaPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(51, 51, 51)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel6)
@@ -159,7 +165,7 @@ public class BuatReservasi extends javax.swing.JPanel {
                             .addComponent(jLabel3)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(403, 403, 403)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(reservasiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(12, 12, 12))
         );
         layout.setVerticalGroup(
@@ -177,7 +183,7 @@ public class BuatReservasi extends javax.swing.JPanel {
                         .addComponent(jLabel6)
                         .addGap(0, 0, 0)
                         .addComponent(listDokter, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(namaDokter, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(namaPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
@@ -191,20 +197,20 @@ public class BuatReservasi extends javax.swing.JPanel {
                         .addComponent(listHari, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(noHP, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(noHp, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                .addComponent(reservasiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void noHPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noHPActionPerformed
+    private void noHpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noHpActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_noHPActionPerformed
+    }//GEN-LAST:event_noHpActionPerformed
 
-    private void namaDokterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaDokterActionPerformed
+    private void namaPasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaPasienActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_namaDokterActionPerformed
+    }//GEN-LAST:event_namaPasienActionPerformed
 
     private void listHariMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listHariMouseClicked
 
@@ -213,7 +219,6 @@ public class BuatReservasi extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private ComponentGUI.Table TableDokterTersedia;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
@@ -223,7 +228,8 @@ public class BuatReservasi extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> listDokter;
     private javax.swing.JComboBox<String> listHari;
     private javax.swing.JComboBox<String> listJam;
-    private ComponentGUI.JTextFieldCustom namaDokter;
-    private ComponentGUI.JTextFieldCustom noHP;
+    private ComponentGUI.JTextFieldCustom namaPasien;
+    private ComponentGUI.JTextFieldCustom noHp;
+    private javax.swing.JButton reservasiButton;
     // End of variables declaration//GEN-END:variables
 }
