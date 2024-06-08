@@ -7,15 +7,15 @@ package Controller;
 
 /**
  *
- * @author ASUS
+ * @author hafid
  */
 public class CurrentUser {
     static String username = "";
-    static String role = "";
+    static String role;
     
-    public CurrentUser(String user, String role) {
+    public CurrentUser(String user,String role) {
         this.username = user;
-        this.role = role;
+        this.role =role;
     }
 
     public static String getCurrentUsername() {
@@ -25,6 +25,5 @@ public class CurrentUser {
     public static String getCurrentRole() {
         return role;
     }
-    
     
 }

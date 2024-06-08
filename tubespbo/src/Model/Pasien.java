@@ -8,13 +8,14 @@ package Model;
 import Utility.Database;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
  * @author ASUS
  */
 public class Pasien extends Pengguna {
-
+    private int id_pasien;
     private String alamat;
     private HasilPengecekan[] riwayat_pemeriksaan;
 
@@ -26,12 +27,12 @@ public class Pasien extends Pengguna {
     public Pasien(String nama_pengguna, String password){
         super(nama_pengguna, password);
     }
-
-    public Pasien() {
+    public Pasien( String nama_pasien){
+        super(nama_pasien);
     }
-    
-    
-
+    public Pasien(){
+        super();
+    }
     public String getAlamat() {
         return alamat;
     }
@@ -90,11 +91,9 @@ public class Pasien extends Pengguna {
     public void view_schedule() {
 
     }
-
     public boolean is_med_available(Obat obat) {
         return true;
     }
-
     public ResultSet Login(String username, String password) throws SQLException {
         Database db = new Database();
         String sql = "select nama_pasien as username "
@@ -105,7 +104,17 @@ public class Pasien extends Pengguna {
                 + " password = '" + password + "'";
         return db.getData(sql);
     }
-
+    public ResultSet showPasienBerdasarkanIdDokter(String nama,String namaDokter) throws SQLException {
+        Database db = new Database();
+        String sql = "select nama_pasien "
+                + "from HasilPengecekan" 
+                + " join Pasien using (id_pasien)"
+                + " where "
+                + "nama_pasien = '" + nama  + "' "
+                + " AND"
+                + " nama_dokter = '" + namaDokter + "' ";
+        return db.getData(sql);
+    }
     @Override
     public void change_password(String username, String newPass) throws SQLException {
         Database db = new Database();

@@ -35,7 +35,6 @@ public class RequestJadwalForm extends javax.swing.JPanel {
         tabel_nama = new DefaultListModel();
         buttonAjukan.setVisible(false);
         showTable();
-
     }
 
     /**
@@ -109,7 +108,7 @@ public class RequestJadwalForm extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
                 .addComponent(buttonAjukan)
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

@@ -13,6 +13,7 @@ import java.sql.Date;
  * @author hafid
  */
 public class Reservasi {
+    private int id_reservasi;
     private String nama_pasien;
     private String nama_dokter;
     private String nomor_telepon;
@@ -28,6 +29,14 @@ public class Reservasi {
         this.hari_reservasi = hari_reservasi;
         this.jam_reservasi = jam_reservasi;
         this.tanggal_reservasi = DateUtilities.dateAdditionFromNow(hari_reservasi);
+    }
+    
+    public Reservasi(int id){
+        this.id_reservasi = id;
+    }
+    
+    public Reservasi(){
+        
     }
 
     public String getNama_pasien() {
@@ -86,4 +95,14 @@ public class Reservasi {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public int getId_reservasi() {
+        return id_reservasi;
+    }
+
+    public void setId_reservasi(int id_reservasi) {
+        this.id_reservasi = id_reservasi;
+    }
+    
+    
 }
