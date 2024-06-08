@@ -22,7 +22,10 @@ public abstract class Pengguna {
         this.nama_pengguna = nama_pengguna;
         this.password_pengguna = password_pengguna;
     }
-    
+    public Pengguna(String nama_pengguna) {
+        this.nama_pengguna = nama_pengguna;
+    }
+    public Pengguna(){ }
     public String getPassword_pengguna() {
         return password_pengguna;
     }

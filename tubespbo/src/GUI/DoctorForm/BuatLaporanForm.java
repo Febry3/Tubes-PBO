@@ -5,6 +5,7 @@
  */
 package GUI.DoctorForm;
 
+import Controller.LaporanController;
 import GUI.AdminForms.*;
 
 /**
@@ -32,9 +33,9 @@ public class BuatLaporanForm extends javax.swing.JPanel {
         panelBorder1 = new GUI.PanelBorder();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        textPenyakit = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        textCatatan = new javax.swing.JTextArea();
         jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -43,10 +44,12 @@ public class BuatLaporanForm extends javax.swing.JPanel {
         panelBorder3 = new GUI.PanelBorder();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
+        textObat = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         panelBorder4 = new GUI.PanelBorder();
         jLabel1 = new javax.swing.JLabel();
+        textNama = new ComponentGUI.JTextFieldCustom();
+        textTanggal = new ComponentGUI.JTextFieldCustom();
 
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(984, 0));
@@ -58,13 +61,13 @@ public class BuatLaporanForm extends javax.swing.JPanel {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Penyakit");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        textPenyakit.setColumns(20);
+        textPenyakit.setRows(5);
+        jScrollPane1.setViewportView(textPenyakit);
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        textCatatan.setColumns(20);
+        textCatatan.setRows(5);
+        jScrollPane2.setViewportView(textCatatan);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -77,7 +80,7 @@ public class BuatLaporanForm extends javax.swing.JPanel {
             .addGroup(panelBorder1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
                     .addGroup(panelBorder1Layout.createSequentialGroup()
                         .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
@@ -97,7 +100,7 @@ public class BuatLaporanForm extends javax.swing.JPanel {
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -119,9 +122,9 @@ public class BuatLaporanForm extends javax.swing.JPanel {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Daftar obat");
 
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jScrollPane3.setViewportView(jTextArea3);
+        textObat.setColumns(20);
+        textObat.setRows(5);
+        jScrollPane3.setViewportView(textObat);
 
         javax.swing.GroupLayout panelBorder3Layout = new javax.swing.GroupLayout(panelBorder3);
         panelBorder3.setLayout(panelBorder3Layout);
@@ -133,7 +136,7 @@ public class BuatLaporanForm extends javax.swing.JPanel {
                     .addGroup(panelBorder3Layout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panelBorder3Layout.setVerticalGroup(
@@ -143,13 +146,18 @@ public class BuatLaporanForm extends javax.swing.JPanel {
                 .addComponent(jLabel8)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(166, Short.MAX_VALUE))
+                .addContainerGap(169, Short.MAX_VALUE))
         );
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jButton1.setText("Submit");
         jButton1.setBorder(null);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         panelBorder4.setForeground(new java.awt.Color(76, 184, 196));
         panelBorder4.setPreferredSize(new java.awt.Dimension(300, 300));
@@ -172,9 +180,15 @@ public class BuatLaporanForm extends javax.swing.JPanel {
             panelBorder4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBorder4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
                 .addContainerGap())
         );
+
+        textNama.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(76, 184, 196), 1, true));
+        textNama.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        textTanggal.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(76, 184, 196), 1, true));
+        textTanggal.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -191,15 +205,18 @@ public class BuatLaporanForm extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(textTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(textNama, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(panelBorder1, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(77, 77, 77)
                         .addComponent(panelBorder3, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -214,24 +231,31 @@ public class BuatLaporanForm extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(8, 8, 8)
-                .addComponent(panelBorder4, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
-                .addGap(45, 45, 45)
+                .addComponent(panelBorder4, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
+                .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel4))
+                    .addComponent(jLabel4)
+                    .addComponent(textNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel5))
-                .addGap(58, 58, 58)
+                    .addComponent(jLabel5)
+                    .addComponent(textTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelBorder1, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panelBorder3, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        LaporanController laporan = new LaporanController(textNama,textTanggal,textPenyakit,textCatatan,textObat);
+        jButton1.addActionListener(laporan);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -247,11 +271,13 @@ public class BuatLaporanForm extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
     private GUI.PanelBorder panelBorder1;
     private GUI.PanelBorder panelBorder3;
     private GUI.PanelBorder panelBorder4;
+    private javax.swing.JTextArea textCatatan;
+    private ComponentGUI.JTextFieldCustom textNama;
+    private javax.swing.JTextArea textObat;
+    private javax.swing.JTextArea textPenyakit;
+    private ComponentGUI.JTextFieldCustom textTanggal;
     // End of variables declaration//GEN-END:variables
 }

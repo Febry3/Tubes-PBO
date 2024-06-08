@@ -226,7 +226,7 @@ public class ArsipKunjungan extends javax.swing.JPanel {
                         .addComponent(jLabel13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel14)))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

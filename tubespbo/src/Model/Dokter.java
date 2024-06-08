@@ -61,7 +61,7 @@ public class Dokter extends Staff {
     public void cek_pasien() {
 
     }
-
+    
     public ResultSet Login(String username, String password) throws SQLException {
         Database db = new Database();
         String sql = "select nama_dokter as username from Dokter"

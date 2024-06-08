@@ -51,9 +51,12 @@ public class LoginController implements ActionListener {
         role = "";
     }
 
+    public LoginController() { }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         load_users(username.getText(), password.getText());
+        
         if (tabel_user.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Gagal");
         } else {
@@ -77,6 +80,16 @@ public class LoginController implements ActionListener {
         }
         resetText();
     }
+
+    public ArrayList<Pengguna> getTabel_user() {
+        return tabel_user;
+    }
+
+    public void setTabel_user(ArrayList<Pengguna> tabel_user) {
+        this.tabel_user = tabel_user;
+    }
+    
+    
 
     private void load_users(String username, String password) {
         try {
@@ -103,14 +116,13 @@ public class LoginController implements ActionListener {
                     rs = admin.Login(username, password);
                 }
             }
-
+            CurrentUser cu = new CurrentUser(username,this.role);
             while (rs.next()) {
                 Pengguna user = new Pengguna(rs.getString("username"), "") {
                     @Override
                     public void change_password(String oldPass, String newPass, String confirmNewPass) {
 
                     }
-
                 };
                 tabel_user.add(user);
             }
