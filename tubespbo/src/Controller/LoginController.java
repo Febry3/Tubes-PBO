@@ -52,18 +52,18 @@ public class LoginController implements ActionListener {
         role = "";
     }
 
-    public LoginController() {
-    }
-    
-    
+
+    public LoginController() { }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         load_users(username.getText(), password.getText());
+        
         if (tabel_user.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Gagal");
         } else {
             JOptionPane.showMessageDialog(null, "Berhasil");
+            tabel_user.clear();
             loginPage.dispose();
             if (role.equals("Dokter")) {
                 MainDoctor main = new MainDoctor(getCurrentUsername());
@@ -82,6 +82,16 @@ public class LoginController implements ActionListener {
         }
         resetText();
     }
+
+    public ArrayList<Pengguna> getTabel_user() {
+        return tabel_user;
+    }
+
+    public void setTabel_user(ArrayList<Pengguna> tabel_user) {
+        this.tabel_user = tabel_user;
+    }
+    
+    
 
     private void load_users(String username, String password) {
         try {
@@ -122,7 +132,6 @@ public class LoginController implements ActionListener {
                         ResultSet rs = null;
                         return rs;
                     }
-
                 };
                 tabel_user.add(user);
             }
@@ -130,19 +139,7 @@ public class LoginController implements ActionListener {
             Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-    public ArrayList<Pengguna> getTabel_user() {
-        return tabel_user;
-    }
-
-    public void setTabel_user(ArrayList<Pengguna> tabel_user) {
-        this.tabel_user = tabel_user;
-    }
-
- 
     
-   
-
     public void resetText() {
         username.setText("");
         password.setText("");
