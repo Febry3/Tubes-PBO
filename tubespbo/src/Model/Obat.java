@@ -5,13 +5,16 @@
  */
 package Model;
 
+import Utility.Database;
 import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
  * @author ASUS
  */
-public class Obat {
+public class Obat  {
     private String nama_obat;
     private String dosis;
     private String[] kegunaan;
@@ -23,6 +26,10 @@ public class Obat {
     private int harga;
     private int stock;
 
+    
+    public Obat(){ 
+       
+    }
     public String getNama_obat() {
         return nama_obat;
     }
@@ -102,6 +109,13 @@ public class Obat {
     public void setStock(int stock) {
         this.stock = stock;
     }
-    
+     public ResultSet showObat(String obat) throws SQLException {
+        Database db = new Database();
+        String sql = "select nama_obat "
+                + "from Obat" 
+                + " where "
+                + " namaObat = '" + obat + "' ";
+        return db.getData(sql);
+    }
     
 }

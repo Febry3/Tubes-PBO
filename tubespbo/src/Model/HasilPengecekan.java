@@ -5,19 +5,23 @@
  */
 package Model;
 
+import Utility.Database;
 import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-/**
- *
- * @author ASUS
- */
-public class HasilPengecekan  {
+
+public class HasilPengecekan extends Reservasi {
+
     private String nama_pasien;
     private String no_telepon;
     private String[] nama_penyakit;
+    private String penyakit;
     private Obat[] daftar_obat;
     private Date tanggal_pengecekan;
     private String catatan;
+    private int id_pasien;
+    private int id_dokter;
 
     public HasilPengecekan(String nama_pasien, String no_telepon, String[] nama_penyakit, Obat[] daftar_obat, Date tanggal_pengecekan, String catatan) {
         this.nama_pasien = nama_pasien;
@@ -26,6 +30,25 @@ public class HasilPengecekan  {
         this.daftar_obat = daftar_obat;
         this.tanggal_pengecekan = tanggal_pengecekan;
         this.catatan = catatan;
+    }
+    
+    public HasilPengecekan(String namaPasien, String penyakit, String catatan, int id_reservasi, int id_pasien, int id_dokter){
+        super(id_reservasi);
+        this.nama_pasien = namaPasien;
+        this.penyakit = penyakit;
+        this.catatan = catatan;
+        this.id_dokter = id_dokter;
+        this.id_pasien = id_pasien;
+    }
+
+    public HasilPengecekan(int id_reservasi, int id_pasien, int id_dokter) {
+        super(id_reservasi);
+        this.id_dokter = id_dokter;
+        this.id_pasien = id_pasien;
+    }
+    
+    public HasilPengecekan(){
+        
     }
     
     
@@ -78,6 +101,38 @@ public class HasilPengecekan  {
         this.catatan = catatan;
     }
 
-  
+    public int getId_pasien() {
+        return id_pasien;
+    }
+
+    public int getId_dokter() {
+        return id_dokter;
+    }
     
+    
+
+    public void input_checkUp(String nama_penyakit, String catatan, int idPasien, int idDokter, int idReservasi) throws SQLException {
+        Database db = new Database();
+        String sql = "insert into HasilPengecekan (nama_penyakit, catatan,id_pasien, id_dokter, id_reservasi) "
+                + " values ('" + nama_penyakit + "', '" + catatan + "'," + idPasien + "," + idDokter + "," + idReservasi + ")";
+        db.query(sql);
+    }
+
+    public ResultSet showCheckUp(String nama, String tanggal, String nama_dokter) throws SQLException {
+        Database db = new Database();
+        String sql = "select id_reservasi, id_pasien, id_dokter"
+                + " from Reservasi"
+                + " join Pasien using (id_pasien)"
+                + " join Dokter using (id_dokter)"
+                + " where"
+                + " nama_pasien = '" + nama + "' "
+                + " AND"
+                + " nama_dokter = '" + nama_dokter + "' "
+                + " AND"
+                + " hari_reservasi = '" + tanggal + "' ";
+
+        return db.getData(sql);
+
+    }
+
 }

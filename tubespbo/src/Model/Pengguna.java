@@ -23,12 +23,11 @@ public abstract class Pengguna {
         this.password_pengguna = password_pengguna;
     }
 
-    public Pengguna() {
+    public Pengguna(String nama_pengguna) {
+        this.nama_pengguna = nama_pengguna;
     }
-    
-    
-    
-    
+    public Pengguna(){ }
+
     public String getPassword_pengguna() {
         return password_pengguna;
     }
@@ -91,5 +90,6 @@ public abstract class Pengguna {
 //    }
 
     public abstract void change_password(String username, String newPass) throws SQLException;
+    public abstract ResultSet checkOldPassword(String username, String newPass) throws SQLException;
 
 }

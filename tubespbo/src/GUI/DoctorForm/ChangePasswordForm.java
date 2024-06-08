@@ -18,9 +18,11 @@ import javax.swing.JOptionPane;
  */
 public class ChangePasswordForm extends javax.swing.JPanel {
 
-    
+    private ChangePasswordController cp;
     public ChangePasswordForm() {
         initComponents();
+        cp = new ChangePasswordController(OldPasswordField,NewPasswordField, ConfirmNewPasswordField, getCurrentRole());
+        ButtonSubmitChange.addActionListener(cp);
     }
 
     /**
@@ -121,7 +123,7 @@ public class ChangePasswordForm extends javax.swing.JPanel {
                 .addComponent(ConfirmNewPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48)
                 .addComponent(ButtonSubmitChange, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -131,8 +133,6 @@ public class ChangePasswordForm extends javax.swing.JPanel {
 
     private void ButtonSubmitChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSubmitChangeActionPerformed
         //JOptionPane.showMessageDialog(null, getCurrentUsername());
-        ChangePasswordController cp = new ChangePasswordController(OldPasswordField,NewPasswordField, ConfirmNewPasswordField, getCurrentRole());
-        ButtonSubmitChange.addActionListener(cp);
        
     }//GEN-LAST:event_ButtonSubmitChangeActionPerformed
 
