@@ -76,6 +76,17 @@ public class Admin extends Staff{
                 + " where password = '" + username + "';";
         db.query(sql);
     }
+
+    @Override
+    public ResultSet checkOldPassword(String username, String newPass) throws SQLException {
+        Database db = new Database();
+        String sql = "select password as password from Admin"
+                + " where"
+                + " nama_admin = '" + username + "';";
+        return db.getData(sql);
+    }
+    
+    
     
     
 }

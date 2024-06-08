@@ -79,9 +79,23 @@ public class Dokter extends Staff {
     @Override
     public void change_password(String username, String newPass) throws SQLException {
         Database db = new Database();
+        db.connect();
         String sql = "update " + getCurrentRole() 
                 + " set password  = '" + newPass + "' "
                 + " where nama_dokter = '" + username + "';";
+        System.out.println(sql);
         db.query(sql);
+        db.disconnect();
     } 
+
+    @Override
+    public ResultSet checkOldPassword(String username, String newPass) throws SQLException {
+        Database db = new Database();
+        String sql = "select password as password from Dokter"
+                + " where"
+                + " nama_dokter = '" + username + "';";
+        return db.getData(sql);
+    }
+    
+    
 }

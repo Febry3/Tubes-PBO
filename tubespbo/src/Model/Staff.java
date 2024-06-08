@@ -48,6 +48,14 @@ public class Staff extends Pengguna{
         
     }
 
+    @Override
+    public ResultSet checkOldPassword(String username, String newPass) throws SQLException {
+        ResultSet rs = null;
+        return rs;
+    }
+
+
+
    
     
 }

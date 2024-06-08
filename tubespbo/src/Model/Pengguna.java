@@ -91,5 +91,6 @@ public abstract class Pengguna {
 //    }
 
     public abstract void change_password(String username, String newPass) throws SQLException;
+    public abstract ResultSet checkOldPassword(String username, String newPass) throws SQLException;
 
 }

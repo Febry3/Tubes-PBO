@@ -102,5 +102,15 @@ public class Pasien extends Pengguna {
         db.query(sql);
     }
 
+    @Override
+    public ResultSet checkOldPassword(String username, String newPass) throws SQLException {
+        Database db = new Database();
+        String sql = "select password as password from Pasien"
+                + " where"
+                + " nama_pasien = '" + username + "';";
+        return db.getData(sql);
+    }
+
+
 
 }

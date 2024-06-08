@@ -117,6 +117,12 @@ public class LoginController implements ActionListener {
 
                     }
 
+                    @Override
+                    public ResultSet checkOldPassword(String username, String newPass) throws SQLException {
+                        ResultSet rs = null;
+                        return rs;
+                    }
+
                 };
                 tabel_user.add(user);
             }
