@@ -4,6 +4,7 @@ package GUI.DoctorForm;
 import MenuModel.SelectedMenu;
 import java.awt.Color;
 import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 
 public class MainDoctor extends javax.swing.JFrame {
 
@@ -12,13 +13,15 @@ public class MainDoctor extends javax.swing.JFrame {
     private InitForm init;
     private ListJadwalForm lj;
     private RequestJadwalForm rj;
+    static String currentUsername;
     
-    public MainDoctor() {
+    public MainDoctor(String currentUsername) {
         bl = new BuatLaporanForm();
         cp = new ChangePasswordForm();
         init = new InitForm();
         lj = new ListJadwalForm();
         rj = new RequestJadwalForm();
+        this.currentUsername = currentUsername;
         
         initComponents();
          menuDokter.addEventMenuSelected(new SelectedMenu(){
@@ -128,7 +131,7 @@ public class MainDoctor extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainDoctor().setVisible(true);
+                new MainDoctor(currentUsername).setVisible(true);
             }
         });
     }

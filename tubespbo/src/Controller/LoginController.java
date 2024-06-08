@@ -6,6 +6,7 @@
 package Controller;
 
 import ComponentGUI.JTextFieldCustom;
+import static Controller.CurrentUser.getCurrentUsername;
 import GUI.AdminForms.MainAdmin;
 import GUI.DoctorForm.MainDoctor;
 import GUI.PharmacistForm.MainPharmacist;
@@ -51,8 +52,9 @@ public class LoginController implements ActionListener {
         role = "";
     }
 
+
     public LoginController() { }
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
         load_users(username.getText(), password.getText());
@@ -64,7 +66,7 @@ public class LoginController implements ActionListener {
             tabel_user.clear();
             loginPage.dispose();
             if (role.equals("Dokter")) {
-                MainDoctor main = new MainDoctor();
+                MainDoctor main = new MainDoctor(getCurrentUsername());
                 main.setVisible(true);
             } else if (role.equals("Pasien")) {
                 MainUser mainUser = new MainUser();
@@ -117,11 +119,18 @@ public class LoginController implements ActionListener {
                 }
             }
             CurrentUser cu = new CurrentUser(username,this.role);
+
             while (rs.next()) {
                 Pengguna user = new Pengguna(rs.getString("username"), "") {
                     @Override
-                    public void change_password(String oldPass, String newPass, String confirmNewPass) {
+                    public void change_password(String oldPass, String newPass) {
 
+                    }
+
+                    @Override
+                    public ResultSet checkOldPassword(String username, String newPass) throws SQLException {
+                        ResultSet rs = null;
+                        return rs;
                     }
                 };
                 tabel_user.add(user);
@@ -130,7 +139,7 @@ public class LoginController implements ActionListener {
             Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    
     public void resetText() {
         username.setText("");
         password.setText("");

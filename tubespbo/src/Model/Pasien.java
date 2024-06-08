@@ -33,7 +33,6 @@ public class Pasien extends Pengguna {
     public Pasien(){
         super();
     }
-
     public String getAlamat() {
         return alamat;
     }
@@ -104,10 +103,23 @@ public class Pasien extends Pengguna {
         return db.getData(sql);
     }
     @Override
-    public void change_password(String oldPass, String newPass, String confirmNewPass) {
+    public void change_password(String username, String newPass) throws SQLException {
         Database db = new Database();
-        String sql = "UPDATE TABLE ";
+        String sql = "update " + super.getRole() 
+                + " set password  = '" + newPass + "' "
+                + " where password = '" + username + "';";
+        db.query(sql);
     }
+
+    @Override
+    public ResultSet checkOldPassword(String username, String newPass) throws SQLException {
+        Database db = new Database();
+        String sql = "select password as password from Pasien"
+                + " where"
+                + " nama_pasien = '" + username + "';";
+        return db.getData(sql);
+    }
+
 
 
 }

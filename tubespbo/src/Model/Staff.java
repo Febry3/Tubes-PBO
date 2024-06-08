@@ -26,6 +26,11 @@ public class Staff extends Pengguna{
         super(username, password);
     }
 
+    public Staff() {
+    }
+    
+    
+    
     
     public String getDepartment() {
         return department;
@@ -39,10 +44,18 @@ public class Staff extends Pengguna{
     }
 
     @Override
-    public void change_password(String oldPass, String newPass, String confirmNewPass) {
-        Database db = new Database();
-        String sql = "UPDATE TABLE ";
-    }   
-    
+    public void change_password(String username, String newPass) throws SQLException {
+        
+    }
+
+    @Override
+    public ResultSet checkOldPassword(String username, String newPass) throws SQLException {
+        ResultSet rs = null;
+        return rs;
+    }
+
+
+
+   
     
 }

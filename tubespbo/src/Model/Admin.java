@@ -26,8 +26,12 @@ public class Admin extends Staff{
     public Admin(String username, String password) {
         super(username, password);
     }
-    
 
+    public Admin() {
+    }
+    
+    
+    
     public String getShift() {
         return shift;
     }
@@ -63,4 +67,26 @@ public class Admin extends Staff{
                 + " nama_admin = '" + username + "'";
         return db.getData(sql);
     }
+
+    @Override
+    public void change_password(String username, String newPass) throws SQLException {
+        Database db = new Database();
+        String sql = "update " + super.getRole() 
+                + " set password  = '" + newPass + "' "
+                + " where password = '" + username + "';";
+        db.query(sql);
+    }
+
+    @Override
+    public ResultSet checkOldPassword(String username, String newPass) throws SQLException {
+        Database db = new Database();
+        String sql = "select password as password from Admin"
+                + " where"
+                + " nama_admin = '" + username + "';";
+        return db.getData(sql);
+    }
+    
+    
+    
+    
 }

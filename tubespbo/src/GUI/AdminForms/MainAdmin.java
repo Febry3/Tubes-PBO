@@ -2,9 +2,11 @@ package GUI.AdminForms;
 
 
 import ComponentGUI.MenuAdmin;
+import static Controller.CurrentUser.getCurrentUsername;
 import MenuModel.SelectedMenu;
 import java.awt.Color;
 import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 
 public class MainAdmin extends javax.swing.JFrame {
 
@@ -24,9 +26,9 @@ public class MainAdmin extends javax.swing.JFrame {
             @Override
             public void selected(int index) {
                 if (index == 2) {
-                    setForm(pr);
-                } else if (index == 3) {
                     setForm(dr);
+                } else if (index == 3) {
+                    setForm(pr);
                 } else if (index == 6) {
                     setForm(cp);
                 } else if (index == 7) {

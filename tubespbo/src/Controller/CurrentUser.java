@@ -22,7 +22,7 @@ public class CurrentUser {
         return username;
     }
 
-    public static String getRole() {
+    public static String getCurrentRole() {
         return role;
     }
     
