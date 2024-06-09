@@ -97,8 +97,8 @@ public class Pasien extends Pengguna {
     }
     public ResultSet Login(String username, String password) throws SQLException {
         Database db = new Database();
-        String sql = "select nama_pasien as username "
-                + "from `Pasien`"
+        String sql = "select nama_pasien as username, password as password "
+                + " from `Pasien`"
                 + " where "
                 + " nama_pasien = '" + username + "' "
                 + " AND"

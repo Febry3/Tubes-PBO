@@ -63,9 +63,12 @@ public class Admin extends Staff{
     }
     public ResultSet Login(String username, String password) throws SQLException {
         Database db = new Database();
-        String sql = "select nama_admin as username from Admin"
-                + " where"
-                + " nama_admin = '" + username + "'";
+        String sql = "select nama_admin as username, password as password"
+                + " from `Admin`"
+                + " where "
+                + " nama_admin = '" + username + "' "
+                + " AND"
+                + " password = '" + password + "'";
         return db.getData(sql);
     }
 

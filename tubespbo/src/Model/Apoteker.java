@@ -62,9 +62,12 @@ public class Apoteker extends Staff{
     
     public ResultSet Login(String username, String password) throws SQLException {
         Database db = new Database();
-        String sql = "select nama_apoteker as username from Apoteker"
-                + " where"
-                + " nama_apoteker = '" + username + "'";
+         String sql = "select nama_apoteker as username, password as password"
+                + " from `Apoteker`"
+                + " where "
+                + " nama_apoteker = '" + username + "' "
+                + " AND"
+                + " password = '" + password + "'";
         return db.getData(sql);
     }
 

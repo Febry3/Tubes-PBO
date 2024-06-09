@@ -70,9 +70,12 @@ public class Dokter extends Staff {
     
     public ResultSet Login(String username, String password) throws SQLException {
         Database db = new Database();
-        String sql = "select nama_dokter as username from Dokter"
-                + " where"
-                + " nama_dokter = '" + username + "'";
+         String sql = "select nama_dokter as username, password as password"
+                + " from `Dokter`"
+                + " where "
+                + " nama_dokter = '" + username + "' "
+                + " AND"
+                + " password = '" + password + "'";
         return db.getData(sql);
     } 
 
