@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/alfat/Documents/College/Java/Tubes-PBO/tubespbo/src/GUI/Login.java</file>
             <file>file:/C:/Users/alfat/Documents/College/Java/Tubes-PBO/tubespbo/src/Utility/DateUtilities.java</file>
             <file>file:/C:/Users/alfat/Documents/College/Java/Tubes-PBO/tubespbo/src/Model/HasilPengecekan.java</file>
@@ -55,6 +56,41 @@
             <file>file:/C:/Users/alfat/Documents/College/Java/Tubes-PBO/tubespbo/src/Model/ScheduleUtiliy.java</file>
             <file>file:/C:/Users/alfat/Documents/College/Java/Tubes-PBO/tubespbo/src/Model/Dokter.java</file>
             <file>file:/C:/Users/alfat/Documents/College/Java/Tubes-PBO/tubespbo/src/ComponentGUI/MenuDokter.java</file>
+=======
+            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/TUBES/Tubes-PBO/tubespbo/src/Controller/ReservasiController.java</file>
+            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/TUBES/Tubes-PBO/tubespbo/src/Controller/DeleteObatController.java</file>
+            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/TUBES/Tubes-PBO/tubespbo/src/Controller/ListHariController.java</file>
+            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/TUBES/Tubes-PBO/tubespbo/src/GUI/AdminForms/DoctorRequestForm.java</file>
+            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/TUBES/Tubes-PBO/tubespbo/src/GUI/DoctorForm/ChangePasswordForm.java</file>
+            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/TUBES/Tubes-PBO/tubespbo/src/GUI/PharmacistForm/TambahObatForm.java</file>
+            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/TUBES/Tubes-PBO/tubespbo/src/ComponentGUI/Table.java</file>
+            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/TUBES/Tubes-PBO/tubespbo/src/GUI/PharmacistForm/ManageObatForm.java</file>
+            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/TUBES/Tubes-PBO/tubespbo/src/Controller/AdminRequest.java</file>
+            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/TUBES/Tubes-PBO/tubespbo/src/Controller/RefreshObatController.java</file>
+            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/TUBES/Tubes-PBO/tubespbo/src/Model/Dokter.java</file>
+            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/TUBES/Tubes-PBO/tubespbo/src/Controller/ChangePasswordController.java</file>
+            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/TUBES/Tubes-PBO/tubespbo/src/Controller/RegisterController.java</file>
+            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/TUBES/Tubes-PBO/tubespbo/src/GUI/DoctorForm/MainDoctor.java</file>
+            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/TUBES/Tubes-PBO/tubespbo/src/Controller/LaporanController.java</file>
+            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/TUBES/Tubes-PBO/tubespbo/src/GUI/PharmacistForm/ChangePasswordForm.java</file>
+            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/TUBES/Tubes-PBO/tubespbo/src/GUI/AdminForms/MainAdmin.java</file>
+            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/TUBES/Tubes-PBO/tubespbo/src/GUI/UserForms/ChangePasswordForm.java</file>
+            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/TUBES/Tubes-PBO/tubespbo/src/Controller/TambahObatController.java</file>
+            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/TUBES/Tubes-PBO/tubespbo/src/GUI/Login.java</file>
+            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/TUBES/Tubes-PBO/tubespbo/src/Model/Admin.java</file>
+            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/TUBES/Tubes-PBO/tubespbo/src/Model/Obat.java</file>
+            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/TUBES/Tubes-PBO/tubespbo/src/Controller/CurrentUser.java</file>
+            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/TUBES/Tubes-PBO/tubespbo/src/GUI/AdminForms/ChangePasswordForm.java</file>
+            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/TUBES/Tubes-PBO/tubespbo/src/Model/Apoteker.java</file>
+            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/TUBES/Tubes-PBO/tubespbo/src/Model/HasilPengecekan.java</file>
+            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/TUBES/Tubes-PBO/tubespbo/src/Controller/ListDokterController.java</file>
+            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/TUBES/Tubes-PBO/tubespbo/src/ComponentGUI/DetailCard.java</file>
+            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/TUBES/Tubes-PBO/tubespbo/src/ComponentGUI/PanelJadwalPraktek.java</file>
+            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/TUBES/Tubes-PBO/tubespbo/src/Model/Pasien.java</file>
+            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/TUBES/Tubes-PBO/tubespbo/src/Controller/ManageObatController.java</file>
+            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/TUBES/Tubes-PBO/tubespbo/src/GUI/PharmacistForm/MainPharmacist.java</file>
+            <file>file:/D:/REVAN/MATERI%20KULIAH/SEMESTER%204/TUBES/Tubes-PBO/tubespbo/src/Controller/LoginController.java</file>
+>>>>>>> 874a91825c813609ced14ba7efa8e8a244abf5cb
         </group>
     </open-files>
 </project-private>
