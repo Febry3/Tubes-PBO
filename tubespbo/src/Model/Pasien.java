@@ -5,6 +5,7 @@
  */
 package Model;
 
+import static Controller.CurrentUser.getCurrentRole;
 import Utility.Database;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -106,8 +107,8 @@ public class Pasien extends Pengguna {
     }
     public ResultSet Login(String username, String password) throws SQLException {
         Database db = new Database();
-        String sql = "select nama_pasien as username "
-                + "from `Pasien`"
+        String sql = "select nama_pasien as username, password as password "
+                + " from `Pasien`"
                 + " where "
                 + " nama_pasien = '" + username + "' "
                 + " AND"
@@ -128,10 +129,13 @@ public class Pasien extends Pengguna {
     @Override
     public void change_password(String username, String newPass) throws SQLException {
         Database db = new Database();
-        String sql = "update " + super.getRole() 
+        db.connect();
+        String sql = "update " + getCurrentRole() 
                 + " set password  = '" + newPass + "' "
-                + " where password = '" + username + "';";
+                + " where nama_pasien = '" + username + "';";
+        System.out.println(sql);
         db.query(sql);
+        db.disconnect();
     }
 
     @Override

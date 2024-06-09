@@ -6,6 +6,7 @@
  */
 package Model;
 
+import static Controller.CurrentUser.getCurrentRole;
 import Utility.Database;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -62,19 +63,25 @@ public class Admin extends Staff{
     }
     public ResultSet Login(String username, String password) throws SQLException {
         Database db = new Database();
-        String sql = "select nama_admin as username from Admin"
-                + " where"
-                + " nama_admin = '" + username + "'";
+        String sql = "select nama_admin as username, password as password"
+                + " from `Admin`"
+                + " where "
+                + " nama_admin = '" + username + "' "
+                + " AND"
+                + " password = '" + password + "'";
         return db.getData(sql);
     }
 
     @Override
     public void change_password(String username, String newPass) throws SQLException {
         Database db = new Database();
-        String sql = "update " + super.getRole() 
+        db.connect();
+        String sql = "update " + getCurrentRole() 
                 + " set password  = '" + newPass + "' "
-                + " where password = '" + username + "';";
+                + " where nama_admin = '" + username + "';";
+        System.out.println(sql);
         db.query(sql);
+        db.disconnect();
     }
 
     @Override

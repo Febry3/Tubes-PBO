@@ -5,6 +5,9 @@
  */
 package GUI.AdminForms;
 
+import Controller.ChangePasswordController;
+import static Controller.CurrentUser.getCurrentRole;
+
 /**
  *
  * @author ASUS
@@ -14,8 +17,11 @@ public class ChangePasswordForm extends javax.swing.JPanel {
     /**
      * Creates new form DoctorRequestForm
      */
+    ChangePasswordController cp;
     public ChangePasswordForm() {
         initComponents();
+        cp = new ChangePasswordController(OldPasswordField,NewPasswordField, ConfirmNewPasswordField, getCurrentRole());
+        ButtonSubmitChange.addActionListener(cp);
     }
 
     /**
