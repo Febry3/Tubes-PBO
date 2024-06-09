@@ -5,6 +5,8 @@
  */
 package GUI.PharmacistForm;
 
+import Controller.ChangePasswordController;
+import static Controller.CurrentUser.getCurrentRole;
 import GUI.AdminForms.*;
 
 /**
@@ -16,8 +18,11 @@ public class ChangePasswordForm extends javax.swing.JPanel {
     /**
      * Creates new form DoctorRequestForm
      */
+    ChangePasswordController cp;
     public ChangePasswordForm() {
         initComponents();
+        cp = new ChangePasswordController(OldPasswordField,NewPasswordField, ConfirmNewPasswordField, getCurrentRole());
+        ButtonSubmitChange.addActionListener(cp);
     }
 
     /**

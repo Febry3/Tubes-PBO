@@ -34,7 +34,6 @@ public class ChangePasswordController implements ActionListener {
     private JTextFieldCustom newPass = new JTextFieldCustom();
     private JTextFieldCustom confirmNewPass = new JTextFieldCustom();
     private String role;
-    private ArrayList<Pengguna> tabel_user = new ArrayList();
 
     public ChangePasswordController(JTextFieldCustom oldPass, JTextFieldCustom newPass, JTextFieldCustom confirmNewPass, String role) {
         this.oldPass = oldPass;
@@ -52,50 +51,65 @@ public class ChangePasswordController implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (blankInput(oldPass.getText(), newPass.getText(), confirmNewPass.getText())) {
             JOptionPane.showMessageDialog(null, "Input tidak boleh kosong");
-        } else if (newPassConfirmed(newPass.getText(),confirmNewPass.getText()) && oldPassConfirmed(oldPass.getText())) {  
+        } else if (newPassConfirmed(newPass.getText(), confirmNewPass.getText()) && oldPassConfirmed(oldPass.getText())) {
             try {
                 if (role.equals("Dokter")) {
-                Dokter dokter = new Dokter();
-                dokter.change_password(getCurrentUsername(), newPass.getText());
-                JOptionPane.showMessageDialog(null, "Password Berhasil Diganti");
-                resetAll();
-            }
+                    Dokter dokter = new Dokter();
+                    dokter.change_password(getCurrentUsername(), newPass.getText());
+                    JOptionPane.showMessageDialog(null, "Password Berhasil Diganti");
+                    resetAll();
+                } else if (role.equals("Pasien")) {
+                    Pasien pasien = new Pasien();
+                    pasien.change_password(getCurrentUsername(), newPass.getText());
+                    JOptionPane.showMessageDialog(null, "Password Berhasil Diganti");
+                    resetAll();
+                } else if (role.equals("Admin")) {
+                    Admin admin = new Admin();
+                    admin.change_password(getCurrentUsername(), newPass.getText());
+                    JOptionPane.showMessageDialog(null, "Password Berhasil Diganti");
+                    resetAll();
+                } else {
+                    Apoteker apoteker = new Apoteker();
+                    apoteker.change_password(getCurrentUsername(), newPass.getText());
+                    JOptionPane.showMessageDialog(null, "Password Berhasil Diganti");
+                    resetAll();
+                }
             } catch (SQLException ex) {
                 Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
-            }  
-        } else if (!oldPassConfirmed(oldPass.getText())){
+            }
+        } else if (!oldPassConfirmed(oldPass.getText())) {
             JOptionPane.showMessageDialog(null, "Password salah");
             resetAll();
         } else {
             JOptionPane.showMessageDialog(null, "Silahkan konfirmasi kembali password baru anda");
             confirmPassReset();
         }
-        
+
     }
-    
+
     public boolean newPassConfirmed(String newPass, String confirmNewPass) {
         return (newPass.equals(confirmNewPass) && !newPass.isEmpty() && !confirmNewPass.isEmpty());
     }
-    
+
     public boolean blankInput(String oldPass, String newPass, String confirmNewPass) {
         return (oldPass.isEmpty() && newPass.isEmpty() && confirmNewPass.isEmpty());
     }
-    
+
     public boolean passwordBlankInput(String newPass, String confirmNewPass) {
         return (newPass.isEmpty() && confirmNewPass.isEmpty());
     }
-    
+
     public void confirmPassReset() {
         newPass.setText("");
         confirmNewPass.setText("");
     }
-    
+
     public void resetAll() {
         oldPass.setText("");
         newPass.setText("");
         confirmNewPass.setText("");
     }
-    
+
     public boolean oldPassConfirmed(String oldPassword) {
         boolean hasil = true;
         try {
@@ -122,8 +136,8 @@ public class ChangePasswordController implements ActionListener {
                     rs = admin.checkOldPassword(getCurrentUsername(), oldPass.getText());;
                 }
             }
-            while (rs.next()) {
-                Pengguna user = new Pengguna("",rs.getString("password")) {
+            if (rs.next()) {
+                Pengguna user = new Pengguna("", rs.getString("password")) {
                     @Override
                     public void change_password(String oldPass, String newPass) {
 
@@ -136,22 +150,13 @@ public class ChangePasswordController implements ActionListener {
                     }
 
                 };
-                tabel_user.add(user);
-                System.out.println("tbl user nama pengguna : " + tabel_user.get(0).getNama_pengguna());
-                System.out.println("tbl user pass pengguna : " + tabel_user.get(0).getPassword_pengguna());
                 System.out.println(getCurrentUsername());
                 System.out.println("pass db : " + user.getPassword_pengguna());
-                String sql = "select password as password from Dokter"
-                + " where"
-                + " nama_dokter = '" + "tes" + "';";
-                System.out.println(sql);
+                if (!user.getPassword_pengguna().equals(oldPassword)) {
+                    hasil = false;
+                }
             }
-            
-            if (!tabel_user.get(0).getPassword_pengguna().equals(oldPassword)) {
-                hasil = false;
-            }
-           
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
         }

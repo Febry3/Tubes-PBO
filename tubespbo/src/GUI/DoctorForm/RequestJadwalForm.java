@@ -5,7 +5,6 @@
  */
 package GUI.DoctorForm;
 
-import GUI.AdminForms.*;
 import Model.JadwalPraktek;
 import Utility.Database;
 import java.sql.ResultSet;
@@ -15,7 +14,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
-import javax.swing.text.View;
 
 /**
  *
@@ -120,22 +118,20 @@ public class RequestJadwalForm extends javax.swing.JPanel {
         int indexJadwal = jList1.getSelectedIndex();
         JadwalPraktek jadwal = new JadwalPraktek();
 
-        if ("available".equals(tabel_JadwalPraktek.get(indexJadwal).getStatus())) {
-            tabel_JadwalPraktek.get(indexJadwal).setStatus("pending");
-            try {
-                jadwal.pengajuanJadwal(tabel_JadwalPraktek.get(indexJadwal).getStatus(), tabel_JadwalPraktek.get(indexJadwal).getId_jadwal_praktek());
+        try {
+            if (tabel_JadwalPraktek.get(indexJadwal).getStatus().equals("available")) {
+                jadwal.pengajuanJadwal("pending", tabel_JadwalPraktek.get(indexJadwal).getId_jadwal_praktek());
                 JOptionPane.showMessageDialog(null, "Pengajuan jadwal berhasil");
-                tabel_nama.removeElementAt(indexJadwal);
-            } catch (SQLException ex) {
-                Logger.getLogger(RequestJadwalForm.class.getName()).log(Level.SEVERE, null, ex);
+            } else {
                 JOptionPane.showMessageDialog(null, "Status sudah pending");
             }
+        } catch (SQLException ex) {
+            Logger.getLogger(RequestJadwalForm.class.getName()).log(Level.SEVERE, null, ex);
         }
-        while (!"pending".equals(tabel_JadwalPraktek.get(indexJadwal).getStatus())) {
-            tabel_JadwalPraktek.clear();
-            tabel_nama.clear();
-            showTable();
-        }
+        tabel_JadwalPraktek.clear();
+        tabel_nama.clear();
+        showTable();
+
 
     }//GEN-LAST:event_buttonAjukanActionPerformed
     private void showTable() {
@@ -145,8 +141,8 @@ public class RequestJadwalForm extends javax.swing.JPanel {
             ResultSet resultset = db.getData(sql);
             while (resultset.next()) {
                 JadwalPraktek jadwal = new JadwalPraktek(resultset.getString("ruangan"), resultset.getString("hari"), resultset.getString("jam"), resultset.getString("Status"), resultset.getInt("id_jadwal_praktek"));
-                tabel_JadwalPraktek.add(jadwal);
                 if (jadwal.getStatus().equals("available")) {
+                    tabel_JadwalPraktek.add(jadwal);
                     tabel_nama.addElement("Ruangan : " + jadwal.getRuangan() + " /Hari : " + jadwal.getHari() + " /Jam : " + jadwal.getJam() + " /Status : " + jadwal.getStatus());
                 }
             }

@@ -5,6 +5,7 @@
  */
 package Model;
 
+import static Controller.CurrentUser.getCurrentRole;
 import Utility.Database;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,6 +24,7 @@ public class Pasien extends Pengguna {
         super(nama_pengguna, no_telepon, password, role);
         this.alamat = alamat;
     }
+    
     
     public Pasien(String nama_pengguna, String password){
         super(nama_pengguna, password);
@@ -60,7 +62,7 @@ public class Pasien extends Pengguna {
         db.disconnect();
     }
 
-    public static void create_reservation(Reservasi reservasi) throws SQLException {
+    public void create_reservation(Reservasi reservasi) throws SQLException {
         String namaPasien = reservasi.getNama_pasien();
         String namaDokter = reservasi.getNama_dokter();
         String tanggalReservasi = reservasi.getTanggal_reservasi();
@@ -68,7 +70,17 @@ public class Pasien extends Pengguna {
         String jamReservasi = reservasi.getJam_reservasi();
         String status = reservasi.getStatus();
         
-        String sqlString = "INSERT INTO Reservasi(`id_dokter`, `hari_reservasi`, `jam_reservasi`, `status`, `id_pasien`, `tanggal_reservasi`) VALUES ((select id_dokter from Dokter where nama_dokter = '" + namaDokter + "'), '" + hariReservasi + "', '" + jamReservasi + "', '" + status + "', (select id_pasien from Pasien where nama_pasien = '" + namaPasien + "'), '" + tanggalReservasi + "')";
+        String sqlString = "INSERT INTO Reservasi"
+                + "(`id_dokter`, `hari_reservasi`, "
+                + "`jam_reservasi`, `status`, `id_pasien`, "
+                + "`tanggal_reservasi`) "
+                + "VALUES ((select id_dokter from Dokter "
+                + "where nama_dokter = '" + namaDokter + "'), "
+                + "'" + hariReservasi + "', '" + jamReservasi 
+                + "', '" + status + "', "
+                + "(select id_pasien from Pasien "
+                + "where nama_pasien = '" + namaPasien + "'), "
+                + "'" + tanggalReservasi + "')";
         System.out.println(sqlString);
         Database db = new Database();
         db.connect();
@@ -96,8 +108,8 @@ public class Pasien extends Pengguna {
     }
     public ResultSet Login(String username, String password) throws SQLException {
         Database db = new Database();
-        String sql = "select nama_pasien as username "
-                + "from `Pasien`"
+        String sql = "select nama_pasien as username, password as password "
+                + " from `Pasien`"
                 + " where "
                 + " nama_pasien = '" + username + "' "
                 + " AND"
@@ -118,10 +130,13 @@ public class Pasien extends Pengguna {
     @Override
     public void change_password(String username, String newPass) throws SQLException {
         Database db = new Database();
-        String sql = "update " + super.getRole() 
+        db.connect();
+        String sql = "update " + getCurrentRole() 
                 + " set password  = '" + newPass + "' "
-                + " where password = '" + username + "';";
+                + " where nama_pasien = '" + username + "';";
+        System.out.println(sql);
         db.query(sql);
+        db.disconnect();
     }
 
     @Override

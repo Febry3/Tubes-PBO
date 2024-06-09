@@ -18,18 +18,18 @@ public class MainUser extends javax.swing.JFrame {
     private InitForm init;
     private BuatReservasi br;
     private ArsipKunjungan ak;
-    private GantiPassword gp;
+    private ChangePasswordForm gp;
     public MainUser() {
         initComponents();
         init = new InitForm();
         br = new BuatReservasi();
         ak = new ArsipKunjungan();
-        gp = new GantiPassword();
+        gp = new ChangePasswordForm();
 
          menuUser.addEventMenuSelected(new SelectedMenu(){
             @Override
             public void selected(int index) {
-                System.out.println(index);
+                
                 if (index == 1) {
                     setForm(br);
                 } else if (index == 2) {

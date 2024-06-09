@@ -6,6 +6,7 @@
 package Controller;
 
 import ComponentGUI.JTextFieldCustom;
+import static Controller.CurrentUser.getCurrentRole;
 import static Controller.CurrentUser.getCurrentUsername;
 import GUI.AdminForms.MainAdmin;
 import GUI.DoctorForm.MainDoctor;
@@ -57,16 +58,16 @@ public class LoginController implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        load_users(username.getText(), password.getText());
+        boolean check = load_users(username.getText(), password.getText());
         
-        if (tabel_user.isEmpty()) {
+        if (!check) {
             JOptionPane.showMessageDialog(null, "Gagal");
         } else {
             JOptionPane.showMessageDialog(null, "Berhasil");
             tabel_user.clear();
             loginPage.dispose();
             if (role.equals("Dokter")) {
-                MainDoctor main = new MainDoctor(getCurrentUsername());
+                MainDoctor main = new MainDoctor();
                 main.setVisible(true);
             } else if (role.equals("Pasien")) {
                 MainUser mainUser = new MainUser();
@@ -93,7 +94,9 @@ public class LoginController implements ActionListener {
     
     
 
-    private void load_users(String username, String password) {
+    private boolean load_users(String username, String password) {
+        boolean hasil = false;
+
         try {
             Admin admin = new Admin(username, password);
             Apoteker apoteker = new Apoteker(username, password);
@@ -118,10 +121,11 @@ public class LoginController implements ActionListener {
                     rs = admin.Login(username, password);
                 }
             }
+            
             CurrentUser cu = new CurrentUser(username,this.role);
-
-            while (rs.next()) {
-                Pengguna user = new Pengguna(rs.getString("username"), "") {
+            
+            if (rs.next()) {
+                Pengguna user = new Pengguna(rs.getString("username"), rs.getString("password")) {
                     @Override
                     public void change_password(String oldPass, String newPass) {
 
@@ -133,11 +137,19 @@ public class LoginController implements ActionListener {
                         return rs;
                     }
                 };
-                tabel_user.add(user);
-            }
+                if (user.getNama_pengguna().equals(username) && user.getPassword_pengguna().equals(password)) {
+                    hasil = true;
+                }
+                System.out.println("user db : " + user.getNama_pengguna());
+                System.out.println("user field : " + username);
+                System.out.println("pass db : " + user.getPassword_pengguna());
+                System.out.println("pass field : " + user.getPassword_pengguna());
+            } 
+            
         } catch (SQLException ex) {
             Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return hasil;
     }
     
     public void resetText() {
