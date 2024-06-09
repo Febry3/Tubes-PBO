@@ -72,11 +72,12 @@ public class ReservasiController implements ActionListener{
         String jam = (String) listJam.getSelectedItem();
         String hari = (String) listHari.getSelectedItem();
         String namaDokter = (String) listDokter.getSelectedItem();
+        Pasien pasien = new Pasien(CurrentUser.username);
         
         Reservasi reservasi = new Reservasi(namaPasien, namaDokter, noHpPasien, hari, jam);
         try {
             if (CurrentUser.username.equals(namaPasien)) {
-                Pasien.create_reservation(reservasi);
+                pasien.create_reservation(reservasi);
                 resetText();
                 JOptionPane.showMessageDialog(null, "Reservasi berhasil Diajukan");
             } else {

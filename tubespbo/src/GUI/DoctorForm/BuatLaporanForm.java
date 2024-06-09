@@ -180,7 +180,7 @@ public class BuatLaporanForm extends javax.swing.JPanel {
             panelBorder4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBorder4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -231,7 +231,7 @@ public class BuatLaporanForm extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(8, 8, 8)
-                .addComponent(panelBorder4, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
+                .addComponent(panelBorder4, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
