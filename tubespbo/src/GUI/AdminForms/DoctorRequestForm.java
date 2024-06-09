@@ -1,7 +1,7 @@
 
 package GUI.AdminForms;
 
-import Controller.AdminRequest;
+import Controller.DokterRequest;
 
 /**
  *
@@ -13,7 +13,7 @@ public class DoctorRequestForm extends javax.swing.JPanel {
         initComponents();
         terimaRB.setActionCommand("accepted");
         tolakRB.setActionCommand("rejected");
-        AdminRequest adminRequest = new AdminRequest(requestList, listJadwal,
+        DokterRequest adminRequest = new DokterRequest(requestList, listJadwal,
                 namaDokter, jadwalDokter, submitButton, acceptGroup);
     }
 
@@ -56,6 +56,11 @@ public class DoctorRequestForm extends javax.swing.JPanel {
         jSeparator1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(76, 184, 196), 3));
         jSeparator1.setPreferredSize(new java.awt.Dimension(5, 0));
 
+        requestList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "List Kosong" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
         requestList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 requestListValueChanged(evt);

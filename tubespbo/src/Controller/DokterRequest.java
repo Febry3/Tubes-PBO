@@ -15,7 +15,7 @@ import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-public class AdminRequest implements ListSelectionListener, ActionListener {
+public class DokterRequest implements ListSelectionListener, ActionListener {
 
     private JList requestList;
     private JList listJadwal;
@@ -29,7 +29,7 @@ public class AdminRequest implements ListSelectionListener, ActionListener {
     private DefaultListModel tabel_nama = new DefaultListModel();
     private DefaultListModel listModelJadwal = new DefaultListModel();
 
-    public AdminRequest(JList requestList, JList listJadwal, JLabel namaDokter, JLabel jadwalDokter, JButton submit, ButtonGroup status) {
+    public DokterRequest(JList requestList, JList listJadwal, JLabel namaDokter, JLabel jadwalDokter, JButton submit, ButtonGroup status) {
         this.requestList = requestList;
         this.statusGroup = status;
         this.namaDokter = namaDokter;

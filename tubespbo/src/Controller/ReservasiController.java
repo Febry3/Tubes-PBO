@@ -41,7 +41,7 @@ public class ReservasiController implements ActionListener{
     
     public void loadData() {
 
-        String sqlQueryTableDokter = "select nama_dokter, spesialisasi, hari, jam, ruangan from Dokter join JadwalPraktek using (id_dokter) where status = 'available'";
+        String sqlQueryTableDokter = "select nama_dokter, spesialisasi, hari, jam, ruangan from Dokter join JadwalPraktek using (id_dokter) where status = 'accepted'";
         String sqlQueryListDokter = "select nama_dokter from Dokter";
      
         DefaultTableModel tableModel = (DefaultTableModel) dokterTable.getModel();

@@ -5,6 +5,9 @@
  */
 package GUI.AdminForms;
 
+import Controller.DokterRequest;
+import Controller.PasienRequest;
+
 /**
  *
  * @author ASUS
@@ -16,6 +19,10 @@ public class PasienRequestForm extends javax.swing.JPanel {
      */
     public PasienRequestForm() {
         initComponents();
+        terimaRB.setActionCommand("accepted");
+        tolakRB.setActionCommand("rejected");
+        PasienRequest pasienRequest = new PasienRequest(requestList, reservedList,
+                namaDokter, tanggal, jumlahPasien, submitButton, acceptGroup);
     }
 
     /**
@@ -27,23 +34,24 @@ public class PasienRequestForm extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        acceptGroup = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        requestList = new javax.swing.JList<>();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        reservedList = new javax.swing.JList<>();
+        namaDokter = new javax.swing.JLabel();
+        tanggal = new javax.swing.JLabel();
+        jumlahPasien = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
+        terimaRB = new javax.swing.JRadioButton();
+        tolakRB = new javax.swing.JRadioButton();
+        submitButton = new javax.swing.JButton();
 
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(1440, 810));
@@ -57,32 +65,37 @@ public class PasienRequestForm extends javax.swing.JPanel {
         jSeparator1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(76, 184, 196), 3));
         jSeparator1.setPreferredSize(new java.awt.Dimension(5, 0));
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+        requestList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "List Kosong" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(requestList);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Detail");
 
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+        reservedList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "List Kosong" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane2.setViewportView(jList2);
+        reservedList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                reservedListValueChanged(evt);
+            }
+        });
+        jScrollPane2.setViewportView(reservedList);
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setText("Dr yg menangani");
+        namaDokter.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        namaDokter.setText("Nama Dokter :");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel4.setText("Tanggal");
+        tanggal.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        tanggal.setText("Tanggal : ");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel5.setText("Pasien Yang di handle");
+        jumlahPasien.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jumlahPasien.setText("Jumlah Pasien :");
 
         jSeparator3.setForeground(new java.awt.Color(76, 184, 196));
         jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -97,23 +110,25 @@ public class PasienRequestForm extends javax.swing.JPanel {
         jTextArea1.setRows(5);
         jScrollPane3.setViewportView(jTextArea1);
 
-        jRadioButton1.setText("Terima");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        acceptGroup.add(terimaRB);
+        terimaRB.setText("Terima");
+        terimaRB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                terimaRBActionPerformed(evt);
             }
         });
 
-        jRadioButton2.setText("Tolak");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        acceptGroup.add(tolakRB);
+        tolakRB.setText("Tolak");
+        tolakRB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                tolakRBActionPerformed(evt);
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton1.setText("Submit");
+        submitButton.setBackground(new java.awt.Color(255, 255, 255));
+        submitButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        submitButton.setText("Submit");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -130,9 +145,9 @@ public class PasienRequestForm extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel5)
+                            .addComponent(tanggal)
+                            .addComponent(namaDokter)
+                            .addComponent(jumlahPasien)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(166, 166, 166)
@@ -142,15 +157,15 @@ public class PasienRequestForm extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(99, 99, 99)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(64, 64, 64)
-                        .addComponent(jRadioButton1)
+                        .addComponent(terimaRB)
                         .addGap(27, 27, 27)
-                        .addComponent(jRadioButton2))
+                        .addComponent(tolakRB))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(100, 100, 100)
                         .addComponent(jLabel6)))
@@ -167,10 +182,10 @@ public class PasienRequestForm extends javax.swing.JPanel {
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jRadioButton2)
-                            .addComponent(jRadioButton1))
+                            .addComponent(tolakRB)
+                            .addComponent(terimaRB))
                         .addGap(34, 34, 34)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jSeparator3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -183,11 +198,11 @@ public class PasienRequestForm extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(40, 40, 40)
-                        .addComponent(jLabel3)
+                        .addComponent(namaDokter)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel4)
+                        .addComponent(tanggal)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel5)
+                        .addComponent(jumlahPasien)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane2)
                         .addGap(112, 112, 112))
@@ -197,32 +212,37 @@ public class PasienRequestForm extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void terimaRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terimaRBActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_terimaRBActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void tolakRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tolakRBActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_tolakRBActionPerformed
+
+    private void reservedListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_reservedListValueChanged
+        
+    }//GEN-LAST:event_reservedListValueChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.ButtonGroup acceptGroup;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel jumlahPasien;
+    private javax.swing.JLabel namaDokter;
+    private javax.swing.JList<String> requestList;
+    private javax.swing.JList<String> reservedList;
+    private javax.swing.JButton submitButton;
+    private javax.swing.JLabel tanggal;
+    private javax.swing.JRadioButton terimaRB;
+    private javax.swing.JRadioButton tolakRB;
     // End of variables declaration//GEN-END:variables
 }
