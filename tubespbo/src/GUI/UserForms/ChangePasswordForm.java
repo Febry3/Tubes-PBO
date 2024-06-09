@@ -5,19 +5,24 @@
  */
 package GUI.UserForms;
 
+import Controller.ChangePasswordController;
+import static Controller.CurrentUser.getCurrentRole;
 import GUI.AdminForms.*;
 
 /**
  *
  * @author ASUS
  */
-public class GantiPassword extends javax.swing.JPanel {
+public class ChangePasswordForm extends javax.swing.JPanel {
 
     /**
      * Creates new form DoctorRequestForm
      */
-    public GantiPassword() {
+    ChangePasswordController cp;
+    public ChangePasswordForm() {
         initComponents();
+        cp = new ChangePasswordController(OldPasswordField,NewPasswordField, ConfirmNewPasswordField, getCurrentRole());
+        ButtonSubmitChange.addActionListener(cp);
     }
 
     /**

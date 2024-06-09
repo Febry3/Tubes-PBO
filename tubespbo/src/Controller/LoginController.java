@@ -66,7 +66,7 @@ public class LoginController implements ActionListener {
             tabel_user.clear();
             loginPage.dispose();
             if (role.equals("Dokter")) {
-                MainDoctor main = new MainDoctor(getCurrentUsername());
+                MainDoctor main = new MainDoctor();
                 main.setVisible(true);
             } else if (role.equals("Pasien")) {
                 MainUser mainUser = new MainUser();

@@ -13,15 +13,15 @@ public class MainDoctor extends javax.swing.JFrame {
     private InitForm init;
     private ListJadwalForm lj;
     private RequestJadwalForm rj;
-    static String currentUsername;
+
     
-    public MainDoctor(String currentUsername) {
+    public MainDoctor() {
         bl = new BuatLaporanForm();
         cp = new ChangePasswordForm();
         init = new InitForm();
         lj = new ListJadwalForm();
         rj = new RequestJadwalForm();
-        this.currentUsername = currentUsername;
+
         
         initComponents();
          menuDokter.addEventMenuSelected(new SelectedMenu(){
@@ -131,7 +131,7 @@ public class MainDoctor extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainDoctor(currentUsername).setVisible(true);
+                new MainDoctor().setVisible(true);
             }
         });
     }

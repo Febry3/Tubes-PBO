@@ -5,6 +5,7 @@
  */
 package Model;
 
+import static Controller.CurrentUser.getCurrentRole;
 import Utility.Database;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -69,11 +70,14 @@ public class Apoteker extends Staff{
 
     @Override
     public void change_password(String username, String newPass) throws SQLException {
-        Database db = new Database();
-        String sql = "update " + super.getRole() 
+       Database db = new Database();
+        db.connect();
+        String sql = "update " + getCurrentRole() 
                 + " set password  = '" + newPass + "' "
-                + " where password = '" + username + "';";
+                + " where nama_apoteker = '" + username + "';";
+        System.out.println(sql);
         db.query(sql);
+        db.disconnect();
     }
 
     @Override
