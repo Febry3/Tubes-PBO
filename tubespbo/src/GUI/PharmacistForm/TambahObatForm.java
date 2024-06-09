@@ -19,6 +19,8 @@ public class TambahObatForm extends javax.swing.JPanel {
      */
     public TambahObatForm() {
         initComponents();
+        TambahObatController controller = new TambahObatController(namaObatTF, dosisTF, kegunaanTF, komposisiTF, registrasiTF, kadaluarsaTF, aturanPakaiTF, penyimpananTF, hargaTF, stokTF);
+        buttonTambah.addActionListener(controller);
     }
 
     /**
@@ -442,8 +444,7 @@ public class TambahObatForm extends javax.swing.JPanel {
     }//GEN-LAST:event_stokTFActionPerformed
 
     private void buttonTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahActionPerformed
-        TambahObatController controller = new TambahObatController(namaObatTF, dosisTF, kegunaanTF, komposisiTF, registrasiTF, kadaluarsaTF, aturanPakaiTF, penyimpananTF, hargaTF, stokTF);
-        buttonTambah.addActionListener(controller);
+        
     }//GEN-LAST:event_buttonTambahActionPerformed
 
 

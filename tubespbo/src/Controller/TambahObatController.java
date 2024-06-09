@@ -35,11 +35,7 @@ public class TambahObatController implements ActionListener {
     private JTextFieldCustom petunjukPenyimpananField = new JTextFieldCustom();
     private JTextFieldCustom hargaField = new JTextFieldCustom();
     private JTextFieldCustom stockField = new JTextFieldCustom();
-    private Table TableObat;
-
-    public TambahObatController(Table TableObat) {
-        this.TableObat = TableObat;
-    }
+    
 
    
     public TambahObatController(JTextFieldCustom namaObatField, JTextFieldCustom dosisField, JTextFieldCustom kegunaanField, JTextFieldCustom komposisiField, JTextFieldCustom noRegistrasiField, JTextFieldCustom kadaluarsaField, JTextFieldCustom aturanPakaiField, JTextFieldCustom petunjukPenyimpananField, JTextFieldCustom hargaField, JTextFieldCustom stockField) {
@@ -85,25 +81,7 @@ public class TambahObatController implements ActionListener {
         }
     }
 
-    public void loadData() {
-        String sql = "select nama_obat, no_registrasi, stock, harga from Obat";
-        DefaultTableModel table = (DefaultTableModel) TableObat.getModel();
-
-        try {
-            Database db = new Database();
-            db.connect();
-            ResultSet rs = db.getData(sql);
-            table.setRowCount(0);
-
-            while (rs.next()) {
-                Object[] rowData = {rs.getString("nama_obat"), rs.getString("no_registrasi"), rs.getInt("stock"), rs.getInt("harga")};
-                table.addRow(rowData);
-            }
-        } catch (SQLException ex) {
-            System.out.println("Err Load Data Obat: " + ex.getMessage());
-        }
-
-    }
+   
 
     private void resetText() {
         namaObatField.setText("");

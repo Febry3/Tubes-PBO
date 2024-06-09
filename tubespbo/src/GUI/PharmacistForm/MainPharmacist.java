@@ -33,8 +33,6 @@ public class MainPharmacist extends javax.swing.JFrame {
                 if (index == 2) {
                     setForm(to);
                 } else if (index == 3) {
-                    TambahObatController tambah = new TambahObatController(table);
-                    tambah.loadData();
                     setForm(mo);
                 } else if (index == 6) {
                     setForm(cp);

@@ -7,6 +7,7 @@ package GUI.PharmacistForm;
 
 import ComponentGUI.DetailCard;
 import ComponentGUI.Table;
+import Controller.RefreshObatController;
 import Controller.TambahObatController;
 import Model.Obat;
 import Utility.Database;
@@ -35,13 +36,9 @@ public class ManageObatForm extends javax.swing.JPanel {
         TableScrollPanel.getViewport().setBackground(Color.WHITE);
         detailCard = new DetailCard();
 
-//        JPanel panel = new JPanel();
-//        panel.add(detailCard);
-//        add(panel);
-//        detailCard2.add(detailCard);
-//        add(detailCard2);
-        TambahObatController tambah = new TambahObatController(TableObat);
-        tambah.loadData();
+        System.out.println("tes : "+ TableObat.getSelectedRow());
+        RefreshObatController refresh = new RefreshObatController(TableObat);
+        refreshButton.addActionListener(refresh);
     }
 
     /**
