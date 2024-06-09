@@ -5,6 +5,7 @@
  */
 package GUI.PharmacistForm;
 
+import Controller.TambahObatController;
 import GUI.AdminForms.*;
 
 /**
@@ -33,7 +34,7 @@ public class TambahObatForm extends javax.swing.JPanel {
         PanelSearch = new GUI.PanelBorder();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        OldPasswordField = new ComponentGUI.JTextFieldCustom();
+        namaObatTF = new ComponentGUI.JTextFieldCustom();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -44,24 +45,24 @@ public class TambahObatForm extends javax.swing.JPanel {
         jLabel18 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        OldPasswordField1 = new ComponentGUI.JTextFieldCustom();
+        dosisTF = new ComponentGUI.JTextFieldCustom();
         jLabel7 = new javax.swing.JLabel();
-        OldPasswordField2 = new ComponentGUI.JTextFieldCustom();
+        kegunaanTF = new ComponentGUI.JTextFieldCustom();
         jLabel9 = new javax.swing.JLabel();
-        OldPasswordField3 = new ComponentGUI.JTextFieldCustom();
+        komposisiTF = new ComponentGUI.JTextFieldCustom();
         jLabel11 = new javax.swing.JLabel();
-        OldPasswordField4 = new ComponentGUI.JTextFieldCustom();
+        registrasiTF = new ComponentGUI.JTextFieldCustom();
         jLabel13 = new javax.swing.JLabel();
-        OldPasswordField5 = new ComponentGUI.JTextFieldCustom();
+        aturanPakaiTF = new ComponentGUI.JTextFieldCustom();
         jLabel15 = new javax.swing.JLabel();
-        OldPasswordField6 = new ComponentGUI.JTextFieldCustom();
+        penyimpananTF = new ComponentGUI.JTextFieldCustom();
         jLabel16 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        OldPasswordField7 = new ComponentGUI.JTextFieldCustom();
-        OldPasswordField8 = new ComponentGUI.JTextFieldCustom();
-        OldPasswordField9 = new ComponentGUI.JTextFieldCustom();
+        kadaluarsaTF = new ComponentGUI.JTextFieldCustom();
+        hargaTF = new ComponentGUI.JTextFieldCustom();
+        stokTF = new ComponentGUI.JTextFieldCustom();
         jLabel20 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        buttonTambah = new javax.swing.JButton();
 
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(984, 0));
@@ -91,10 +92,10 @@ public class TambahObatForm extends javax.swing.JPanel {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText(":");
 
-        OldPasswordField.setOpaque(false);
-        OldPasswordField.addActionListener(new java.awt.event.ActionListener() {
+        namaObatTF.setOpaque(false);
+        namaObatTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OldPasswordFieldActionPerformed(evt);
+                namaObatTFActionPerformed(evt);
             }
         });
 
@@ -138,10 +139,10 @@ public class TambahObatForm extends javax.swing.JPanel {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText(":");
 
-        OldPasswordField1.setOpaque(false);
-        OldPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        dosisTF.setOpaque(false);
+        dosisTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OldPasswordField1ActionPerformed(evt);
+                dosisTFActionPerformed(evt);
             }
         });
 
@@ -149,10 +150,10 @@ public class TambahObatForm extends javax.swing.JPanel {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText(":");
 
-        OldPasswordField2.setOpaque(false);
-        OldPasswordField2.addActionListener(new java.awt.event.ActionListener() {
+        kegunaanTF.setOpaque(false);
+        kegunaanTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OldPasswordField2ActionPerformed(evt);
+                kegunaanTFActionPerformed(evt);
             }
         });
 
@@ -160,10 +161,10 @@ public class TambahObatForm extends javax.swing.JPanel {
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText(":");
 
-        OldPasswordField3.setOpaque(false);
-        OldPasswordField3.addActionListener(new java.awt.event.ActionListener() {
+        komposisiTF.setOpaque(false);
+        komposisiTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OldPasswordField3ActionPerformed(evt);
+                komposisiTFActionPerformed(evt);
             }
         });
 
@@ -171,10 +172,10 @@ public class TambahObatForm extends javax.swing.JPanel {
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText(":");
 
-        OldPasswordField4.setOpaque(false);
-        OldPasswordField4.addActionListener(new java.awt.event.ActionListener() {
+        registrasiTF.setOpaque(false);
+        registrasiTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OldPasswordField4ActionPerformed(evt);
+                registrasiTFActionPerformed(evt);
             }
         });
 
@@ -182,10 +183,10 @@ public class TambahObatForm extends javax.swing.JPanel {
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText(":");
 
-        OldPasswordField5.setOpaque(false);
-        OldPasswordField5.addActionListener(new java.awt.event.ActionListener() {
+        aturanPakaiTF.setOpaque(false);
+        aturanPakaiTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OldPasswordField5ActionPerformed(evt);
+                aturanPakaiTFActionPerformed(evt);
             }
         });
 
@@ -193,10 +194,10 @@ public class TambahObatForm extends javax.swing.JPanel {
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setText(":");
 
-        OldPasswordField6.setOpaque(false);
-        OldPasswordField6.addActionListener(new java.awt.event.ActionListener() {
+        penyimpananTF.setOpaque(false);
+        penyimpananTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OldPasswordField6ActionPerformed(evt);
+                penyimpananTFActionPerformed(evt);
             }
         });
 
@@ -208,24 +209,24 @@ public class TambahObatForm extends javax.swing.JPanel {
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel19.setText(":");
 
-        OldPasswordField7.setOpaque(false);
-        OldPasswordField7.addActionListener(new java.awt.event.ActionListener() {
+        kadaluarsaTF.setOpaque(false);
+        kadaluarsaTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OldPasswordField7ActionPerformed(evt);
+                kadaluarsaTFActionPerformed(evt);
             }
         });
 
-        OldPasswordField8.setOpaque(false);
-        OldPasswordField8.addActionListener(new java.awt.event.ActionListener() {
+        hargaTF.setOpaque(false);
+        hargaTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OldPasswordField8ActionPerformed(evt);
+                hargaTFActionPerformed(evt);
             }
         });
 
-        OldPasswordField9.setOpaque(false);
-        OldPasswordField9.addActionListener(new java.awt.event.ActionListener() {
+        stokTF.setOpaque(false);
+        stokTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OldPasswordField9ActionPerformed(evt);
+                stokTFActionPerformed(evt);
             }
         });
 
@@ -233,9 +234,14 @@ public class TambahObatForm extends javax.swing.JPanel {
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel20.setText(":");
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setText("Tambah");
+        buttonTambah.setBackground(new java.awt.Color(255, 255, 255));
+        buttonTambah.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        buttonTambah.setText("Tambah");
+        buttonTambah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonTambahActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -261,13 +267,13 @@ public class TambahObatForm extends javax.swing.JPanel {
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(OldPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(dosisTF, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                             .addComponent(jLabel2)
                                             .addGap(89, 89, 89)
                                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(OldPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(namaObatTF, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(layout.createSequentialGroup()
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(jLabel6)
@@ -277,15 +283,15 @@ public class TambahObatForm extends javax.swing.JPanel {
                                                 .addGroup(layout.createSequentialGroup()
                                                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(OldPasswordField3, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(komposisiTF, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGroup(layout.createSequentialGroup()
                                                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(OldPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(kegunaanTF, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGroup(layout.createSequentialGroup()
                                                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(OldPasswordField4, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                                    .addComponent(registrasiTF, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel18)
@@ -294,31 +300,31 @@ public class TambahObatForm extends javax.swing.JPanel {
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING)
                                                 .addComponent(jLabel14))
-                                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(buttonTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                                 .addGroup(layout.createSequentialGroup()
                                                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(OldPasswordField5, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(aturanPakaiTF, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(OldPasswordField7, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(kadaluarsaTF, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addGroup(layout.createSequentialGroup()
                                                         .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(OldPasswordField8, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(hargaTF, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                     .addGroup(layout.createSequentialGroup()
                                                         .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(OldPasswordField6, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                        .addComponent(penyimpananTF, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(OldPasswordField9, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                                .addComponent(stokTF, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -330,119 +336,123 @@ public class TambahObatForm extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(OldPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2)
+                        .addComponent(namaObatTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(dosisTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(kegunaanTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(komposisiTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(registrasiTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel5)
-                        .addComponent(OldPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(kadaluarsaTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel12)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel7)
-                        .addComponent(OldPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(aturanPakaiTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel14)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel9)
-                        .addComponent(OldPasswordField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(penyimpananTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel17)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel11)
-                        .addComponent(OldPasswordField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(hargaTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel18)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel19)
-                    .addComponent(OldPasswordField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(OldPasswordField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(OldPasswordField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16)
-                    .addComponent(OldPasswordField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel18))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel20)
-                    .addComponent(OldPasswordField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel21))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(stokTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel21)))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addComponent(buttonTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void OldPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OldPasswordFieldActionPerformed
+    private void namaObatTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaObatTFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_OldPasswordFieldActionPerformed
+    }//GEN-LAST:event_namaObatTFActionPerformed
 
-    private void OldPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OldPasswordField1ActionPerformed
+    private void dosisTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dosisTFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_OldPasswordField1ActionPerformed
+    }//GEN-LAST:event_dosisTFActionPerformed
 
-    private void OldPasswordField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OldPasswordField2ActionPerformed
+    private void kegunaanTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kegunaanTFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_OldPasswordField2ActionPerformed
+    }//GEN-LAST:event_kegunaanTFActionPerformed
 
-    private void OldPasswordField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OldPasswordField3ActionPerformed
+    private void komposisiTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_komposisiTFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_OldPasswordField3ActionPerformed
+    }//GEN-LAST:event_komposisiTFActionPerformed
 
-    private void OldPasswordField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OldPasswordField4ActionPerformed
+    private void registrasiTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrasiTFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_OldPasswordField4ActionPerformed
+    }//GEN-LAST:event_registrasiTFActionPerformed
 
-    private void OldPasswordField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OldPasswordField5ActionPerformed
+    private void aturanPakaiTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aturanPakaiTFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_OldPasswordField5ActionPerformed
+    }//GEN-LAST:event_aturanPakaiTFActionPerformed
 
-    private void OldPasswordField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OldPasswordField6ActionPerformed
+    private void penyimpananTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_penyimpananTFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_OldPasswordField6ActionPerformed
+    }//GEN-LAST:event_penyimpananTFActionPerformed
 
-    private void OldPasswordField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OldPasswordField7ActionPerformed
+    private void kadaluarsaTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kadaluarsaTFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_OldPasswordField7ActionPerformed
+    }//GEN-LAST:event_kadaluarsaTFActionPerformed
 
-    private void OldPasswordField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OldPasswordField8ActionPerformed
+    private void hargaTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hargaTFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_OldPasswordField8ActionPerformed
+    }//GEN-LAST:event_hargaTFActionPerformed
 
-    private void OldPasswordField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OldPasswordField9ActionPerformed
+    private void stokTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stokTFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_OldPasswordField9ActionPerformed
+    }//GEN-LAST:event_stokTFActionPerformed
+
+    private void buttonTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahActionPerformed
+        TambahObatController controller = new TambahObatController(namaObatTF, dosisTF, kegunaanTF, komposisiTF, registrasiTF, kadaluarsaTF, aturanPakaiTF, penyimpananTF, hargaTF, stokTF);
+        buttonTambah.addActionListener(controller);
+    }//GEN-LAST:event_buttonTambahActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private ComponentGUI.JTextFieldCustom OldPasswordField;
-    private ComponentGUI.JTextFieldCustom OldPasswordField1;
-    private ComponentGUI.JTextFieldCustom OldPasswordField2;
-    private ComponentGUI.JTextFieldCustom OldPasswordField3;
-    private ComponentGUI.JTextFieldCustom OldPasswordField4;
-    private ComponentGUI.JTextFieldCustom OldPasswordField5;
-    private ComponentGUI.JTextFieldCustom OldPasswordField6;
-    private ComponentGUI.JTextFieldCustom OldPasswordField7;
-    private ComponentGUI.JTextFieldCustom OldPasswordField8;
-    private ComponentGUI.JTextFieldCustom OldPasswordField9;
     private GUI.PanelBorder PanelSearch;
-    private javax.swing.JButton jButton1;
+    private ComponentGUI.JTextFieldCustom aturanPakaiTF;
+    private javax.swing.JButton buttonTambah;
+    private ComponentGUI.JTextFieldCustom dosisTF;
+    private ComponentGUI.JTextFieldCustom hargaTF;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -464,5 +474,12 @@ public class TambahObatForm extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private ComponentGUI.JTextFieldCustom kadaluarsaTF;
+    private ComponentGUI.JTextFieldCustom kegunaanTF;
+    private ComponentGUI.JTextFieldCustom komposisiTF;
+    private ComponentGUI.JTextFieldCustom namaObatTF;
+    private ComponentGUI.JTextFieldCustom penyimpananTF;
+    private ComponentGUI.JTextFieldCustom registrasiTF;
+    private ComponentGUI.JTextFieldCustom stokTF;
     // End of variables declaration//GEN-END:variables
 }
