@@ -29,7 +29,7 @@ public class MainUser extends javax.swing.JFrame {
          menuUser.addEventMenuSelected(new SelectedMenu(){
             @Override
             public void selected(int index) {
-                System.out.println(index);
+                
                 if (index == 1) {
                     setForm(br);
                 } else if (index == 2) {
