@@ -24,18 +24,6 @@ public class Login extends javax.swing.JFrame {
             login.actionPerformed(null);
         }
     }
-    
-//    private void handleLogin() {
-//        // Check which role is selected and create LoginController accordingly
-//        if (role.isSelected(rolePasien.getModel()) || role.isSelected(roleDokter.getModel())) {
-//            String roleUser = role.getSelection().getActionCommand();
-//            LoginController login = new LoginController(username, password, roleUser, this);
-//            loginButton.addActionListener(login);
-//        } else {
-//            LoginController login = new LoginController(username, password, this);
-//            loginButton.addActionListener(login);
-//        }
-//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
