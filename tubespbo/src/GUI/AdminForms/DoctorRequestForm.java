@@ -5,6 +5,8 @@
  */
 package GUI.AdminForms;
 
+import Controller.AdminRequest;
+
 /**
  *
  * @author ASUS
@@ -16,6 +18,7 @@ public class DoctorRequestForm extends javax.swing.JPanel {
      */
     public DoctorRequestForm() {
         initComponents();
+        AdminRequest adminReq = new AdminRequest(requestList);
     }
 
     /**
@@ -30,7 +33,7 @@ public class DoctorRequestForm extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        requestList = new javax.swing.JList<>();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jList2 = new javax.swing.JList<>();
@@ -56,12 +59,12 @@ public class DoctorRequestForm extends javax.swing.JPanel {
         jSeparator1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(76, 184, 196), 3));
         jSeparator1.setPreferredSize(new java.awt.Dimension(5, 0));
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        requestList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(requestList);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -206,7 +209,6 @@ public class DoctorRequestForm extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JList<String> jList2;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
@@ -216,5 +218,6 @@ public class DoctorRequestForm extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JList<String> requestList;
     // End of variables declaration//GEN-END:variables
 }

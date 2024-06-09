@@ -68,7 +68,17 @@ public class Pasien extends Pengguna {
         String jamReservasi = reservasi.getJam_reservasi();
         String status = reservasi.getStatus();
         
-        String sqlString = "INSERT INTO Reservasi(`id_dokter`, `hari_reservasi`, `jam_reservasi`, `status`, `id_pasien`, `tanggal_reservasi`) VALUES ((select id_dokter from Dokter where nama_dokter = '" + namaDokter + "'), '" + hariReservasi + "', '" + jamReservasi + "', '" + status + "', (select id_pasien from Pasien where nama_pasien = '" + namaPasien + "'), '" + tanggalReservasi + "')";
+        String sqlString = "INSERT INTO Reservasi"
+                + "(`id_dokter`, `hari_reservasi`, "
+                + "`jam_reservasi`, `status`, `id_pasien`, "
+                + "`tanggal_reservasi`) "
+                + "VALUES ((select id_dokter from Dokter "
+                + "where nama_dokter = '" + namaDokter + "'), "
+                + "'" + hariReservasi + "', '" + jamReservasi 
+                + "', '" + status + "', "
+                + "(select id_pasien from Pasien "
+                + "where nama_pasien = '" + namaPasien + "'), "
+                + "'" + tanggalReservasi + "')";
         System.out.println(sqlString);
         Database db = new Database();
         db.connect();

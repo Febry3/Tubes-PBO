@@ -6,10 +6,10 @@
 package Model;
 
 import Utility.Database;
+import Utility.DateUtilities;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 
 public class HasilPengecekan extends Reservasi {
 
@@ -18,21 +18,21 @@ public class HasilPengecekan extends Reservasi {
     private String[] nama_penyakit;
     private String penyakit;
     private Obat[] daftar_obat;
-    private Date tanggal_pengecekan;
+    private String tanggal_pengecekan;
     private String catatan;
     private int id_pasien;
     private int id_dokter;
 
-    public HasilPengecekan(String nama_pasien, String no_telepon, String[] nama_penyakit, Obat[] daftar_obat, Date tanggal_pengecekan, String catatan) {
+    public HasilPengecekan(String nama_pasien, String no_telepon, String[] nama_penyakit, Obat[] daftar_obat, String hari_reservasi, String catatan) {
         this.nama_pasien = nama_pasien;
         this.no_telepon = no_telepon;
         this.nama_penyakit = nama_penyakit;
         this.daftar_obat = daftar_obat;
-        this.tanggal_pengecekan = tanggal_pengecekan;
+        this.tanggal_pengecekan = DateUtilities.dateAdditionFromNow(hari_reservasi);;
         this.catatan = catatan;
     }
-    
-    public HasilPengecekan(String namaPasien, String penyakit, String catatan, int id_reservasi, int id_pasien, int id_dokter){
+
+    public HasilPengecekan(String namaPasien, String penyakit, String catatan, int id_reservasi, int id_pasien, int id_dokter) {
         super(id_reservasi);
         this.nama_pasien = namaPasien;
         this.penyakit = penyakit;
@@ -41,17 +41,16 @@ public class HasilPengecekan extends Reservasi {
         this.id_pasien = id_pasien;
     }
 
-    public HasilPengecekan(int id_reservasi, int id_pasien, int id_dokter) {
+    public HasilPengecekan(int id_reservasi, int id_pasien, int id_dokter, String hari_reservasi) {
         super(id_reservasi);
         this.id_dokter = id_dokter;
         this.id_pasien = id_pasien;
+        this.tanggal_pengecekan = DateUtilities.dateFormatYYMMDD(hari_reservasi);;
     }
-    
-    public HasilPengecekan(){
-        
+
+    public HasilPengecekan() {
+
     }
-    
-    
 
     public String getNama_pasien() {
         return nama_pasien;
@@ -85,11 +84,11 @@ public class HasilPengecekan extends Reservasi {
         this.daftar_obat = daftar_obat;
     }
 
-    public Date getTanggal_pengecekan() {
+    public String getTanggal_pengecekan() {
         return tanggal_pengecekan;
     }
 
-    public void setTanggal_pengecekan(Date tanggal_pengecekan) {
+    public void setTanggal_pengecekan(String tanggal_pengecekan) {
         this.tanggal_pengecekan = tanggal_pengecekan;
     }
 
@@ -108,19 +107,25 @@ public class HasilPengecekan extends Reservasi {
     public int getId_dokter() {
         return id_dokter;
     }
-    
-    
 
-    public void input_checkUp(String nama_penyakit, String catatan, int idPasien, int idDokter, int idReservasi) throws SQLException {
+    public void input_checkUp(String nama_penyakit, String tanggal, String catatan, int idPasien, int idDokter, int idReservasi) throws SQLException {
         Database db = new Database();
-        String sql = "insert into HasilPengecekan (nama_penyakit, catatan,id_pasien, id_dokter, id_reservasi) "
-                + " values ('" + nama_penyakit + "', '" + catatan + "'," + idPasien + "," + idDokter + "," + idReservasi + ")";
+        String sql = "insert into HasilPengecekan "
+                + "(nama_penyakit, tanggal_pengecekan, catatan,id_pasien, id_dokter, id_reservasi) "
+                + " values "
+                + "('" + nama_penyakit
+                + "', '" + tanggal
+                + "', '" + catatan
+                + "'," + idPasien + ","
+                + idDokter + ","
+                + idReservasi + ")";
+        System.out.println(sql);
         db.query(sql);
     }
 
     public ResultSet showCheckUp(String nama, String tanggal, String nama_dokter) throws SQLException {
         Database db = new Database();
-        String sql = "select id_reservasi, id_pasien, id_dokter"
+        String sql = "select id_reservasi, id_pasien, id_dokter, tanggal_reservasi"
                 + " from Reservasi"
                 + " join Pasien using (id_pasien)"
                 + " join Dokter using (id_dokter)"
@@ -129,8 +134,8 @@ public class HasilPengecekan extends Reservasi {
                 + " AND"
                 + " nama_dokter = '" + nama_dokter + "' "
                 + " AND"
-                + " hari_reservasi = '" + tanggal + "' ";
-
+                + " tanggal_reservasi = '" + tanggal + "' ";
+        System.out.println(sql);
         return db.getData(sql);
 
     }

@@ -42,6 +42,7 @@ public class LaporanController implements ActionListener {
         db.connect();
         try {
             load_checkUp(namaPasien.getText(), tanggalCheckUp.getText());
+            JOptionPane.showMessageDialog(null,  tabel_checkUp.get(0).getId_dokter());
             store_checkUp(namaPasien.getText(),penyakit.getText(), catatan.getText());
 //          
 //            if (!tabel_checkUp.isEmpty()) {
@@ -60,20 +61,18 @@ public class LaporanController implements ActionListener {
         try {
             rs = checkUp.showCheckUp(nama, tanggal, getCurrentUsername());
             while (rs.next()) {
-                checkUp = new HasilPengecekan(rs.getInt("id_reservasi"), rs.getInt("id_pasien"), rs.getInt("id_dokter"));
+                checkUp = new HasilPengecekan(rs.getInt("id_reservasi"), rs.getInt("id_pasien"), rs.getInt("id_dokter"), rs.getString("tanggal_reservasi"));
             }
             tabel_checkUp.add(checkUp);
-            
-           
         } catch (SQLException ex) {
             Logger.getLogger(LaporanController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
 
-    public void store_checkUp(String pasien, String penyakit, String catatan) throws ParseException {
+    public void store_checkUp(String tanggal, String penyakit, String catatan) throws ParseException {
         try {
-            checkUp.input_checkUp(penyakit, catatan, tabel_checkUp.get(0).getId_reservasi(), tabel_checkUp.get(0).getId_pasien(), tabel_checkUp.get(0).getId_dokter());
+            checkUp.input_checkUp(penyakit, tabel_checkUp.get(0).getTanggal_pengecekan(), catatan, tabel_checkUp.get(0).getId_reservasi(), tabel_checkUp.get(0).getId_pasien(), tabel_checkUp.get(0).getId_dokter());
             resetText();
         } catch (SQLException ex) {
             Logger.getLogger(LaporanController.class.getName()).log(Level.SEVERE, null, ex);
