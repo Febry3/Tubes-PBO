@@ -29,7 +29,7 @@ public class ListDokterController implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         String namaDokter = (String) listDokter.getSelectedItem();
-        String sqlQuery = "select hari from Dokter join JadwalPraktek using (id_dokter) where nama_dokter = '" + namaDokter + "' and status = 'available'";
+        String sqlQuery = "select hari from Dokter join JadwalPraktek using (id_dokter) where nama_dokter = '" + namaDokter + "' and status = 'accepted'";
         System.out.println(sqlQuery);
         
         
