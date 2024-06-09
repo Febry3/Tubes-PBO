@@ -7,6 +7,7 @@ package GUI.PharmacistForm;
 
 import ComponentGUI.DetailCard;
 import ComponentGUI.Table;
+import Controller.DeleteObatController;
 import Controller.RefreshObatController;
 import Controller.TambahObatController;
 import Model.Obat;
@@ -20,6 +21,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -29,6 +32,7 @@ import javax.swing.table.DefaultTableModel;
 public class ManageObatForm extends javax.swing.JPanel {
 
     private DetailCard detailCard;
+    private String namaObat = "";
 
     public ManageObatForm() {
         initComponents();
@@ -36,9 +40,48 @@ public class ManageObatForm extends javax.swing.JPanel {
         TableScrollPanel.getViewport().setBackground(Color.WHITE);
         detailCard = new DetailCard();
 
-        System.out.println("tes : "+ TableObat.getSelectedRow());
+        // Refresh controller 
         RefreshObatController refresh = new RefreshObatController(TableObat);
         refreshButton.addActionListener(refresh);
+
+        // Delete controller 
+        deleteButton.addActionListener(evt -> handleDelete());
+
+        TableObat.getSelectionModel().addListSelectionListener(e -> {
+            if (!e.getValueIsAdjusting()) {
+                int selectedRow = TableObat.getSelectedRow();
+                if (selectedRow != -1) {
+                    namaObat = TableObat.getValueAt(selectedRow, 0).toString();
+                }
+            }
+        });
+    }
+
+    private void handleDelete() {
+        TableObat.getSelectionModel().addListSelectionListener(e -> {
+            if (!e.getValueIsAdjusting()) {
+                int selectedRow = TableObat.getSelectedRow();
+                if (selectedRow != -1) {
+                    namaObat = TableObat.getValueAt(selectedRow, 0).toString();
+                }
+            }
+        });
+        if (!namaObat.isEmpty()) {
+            DeleteObatController delete = new DeleteObatController(namaObat, TableObat);
+            delete.actionPerformed(null);
+            namaObat = "";
+        } else {
+            JOptionPane.showMessageDialog(null, "Silahkan pilih obat yang ingin dihapus");
+        }
+
+    }
+
+    public String getNamaObat() {
+        return namaObat;
+    }
+
+    public void setNamaObat(String namaObat) {
+        this.namaObat = namaObat;
     }
 
     /**
@@ -111,6 +154,11 @@ public class ManageObatForm extends javax.swing.JPanel {
                 "Nama Obat", "No Registrasi", "Stok", "Harga"
             }
         ));
+        TableObat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TableObatMouseClicked(evt);
+            }
+        });
         TableScrollPanel.setViewportView(TableObat);
 
         refreshButton.setBackground(new java.awt.Color(255, 255, 255));
@@ -127,6 +175,11 @@ public class ManageObatForm extends javax.swing.JPanel {
         editButton.setText("Edit");
         editButton.setBorder(null);
         editButton.setBorderPainted(false);
+        editButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                editButtonMouseClicked(evt);
+            }
+        });
         editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editButtonActionPerformed(evt);
@@ -210,12 +263,39 @@ public class ManageObatForm extends javax.swing.JPanel {
     }//GEN-LAST:event_refreshButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_deleteButtonActionPerformed
+
+    private void editButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editButtonMouseClicked
+//        TableObat.clearSelection();
+    }//GEN-LAST:event_editButtonMouseClicked
+
+    private void TableObatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableObatMouseClicked
+        namaObat = TableObat.getModel().getValueAt(TableObat.getSelectedRow(), 0).toString();
+
+//        TableObat.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+//            @Override
+//            public void valueChanged(ListSelectionEvent e) {
+//                if (!e.getValueIsAdjusting()) { // Ensure we don't capture intermediate selection changes
+//                    int selectedRow = TableObat.getSelectedRow();
+//                    setRowIndex(selectedRow);
+//                    setNamaObat(TableObat.getValueAt(selectedRow, 0).toString());
+//                    if (selectedRow != -1) {
+//                        // If a row is selected, perform your action here
+//                        namaObat = TableObat.getValueAt(selectedRow, 0).toString();
+//                        
+//                        System.out.println(TableObat.getValueAt(selectedRow, 0).toString());
+//                        System.out.println("Selected Row Index: " + selectedRow);
+//                    }
+//                }
+//            }
+//        }
+//        );
+    }//GEN-LAST:event_TableObatMouseClicked
 
     public void show_table() {
         try {

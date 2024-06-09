@@ -154,5 +154,12 @@ public class Obat {
         String sql = "SELECT * FROM Obat";
         return db.getData(sql);
     }
-
+    
+    public void deleteObat(String nama) throws SQLException {
+        Database db = new Database();
+        db.connect();
+        String sql = "DELETE from Obat where nama_obat = '" + nama + "'; ";
+        db.query(sql);
+        db.disconnect();
+    }
 }
