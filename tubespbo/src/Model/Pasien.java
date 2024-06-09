@@ -25,6 +25,7 @@ public class Pasien extends Pengguna {
         this.alamat = alamat;
     }
     
+    
     public Pasien(String nama_pengguna, String password){
         super(nama_pengguna, password);
     }
@@ -61,7 +62,7 @@ public class Pasien extends Pengguna {
         db.disconnect();
     }
 
-    public static void create_reservation(Reservasi reservasi) throws SQLException {
+    public void create_reservation(Reservasi reservasi) throws SQLException {
         String namaPasien = reservasi.getNama_pasien();
         String namaDokter = reservasi.getNama_dokter();
         String tanggalReservasi = reservasi.getTanggal_reservasi();

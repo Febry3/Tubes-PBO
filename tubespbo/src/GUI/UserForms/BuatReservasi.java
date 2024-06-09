@@ -27,8 +27,7 @@ public class BuatReservasi extends javax.swing.JPanel {
         reservasiController.loadData();
         reservasiButton.addActionListener(reservasiController);
         listDokter.addActionListener(listDokterController);
-        listHari.addActionListener(listHariController);
-        
+        listHari.addActionListener(listHariController);        
     }
 
     /**
