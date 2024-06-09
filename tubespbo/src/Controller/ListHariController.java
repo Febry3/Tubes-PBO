@@ -32,7 +32,7 @@ public class ListHariController implements ActionListener{
 
         String nama = (String) listDokter.getSelectedItem();
         String hari = (String) listHari.getSelectedItem();
-        String sqlQuery = "select jam from Dokter join JadwalPraktek using (id_dokter) where nama_dokter = '" + nama + "' and hari = '" + hari + "'";
+        String sqlQuery = "select jam from Dokter join JadwalPraktek using (id_dokter) where nama_dokter = '" + nama + "' and hari = '" + hari + "' and status = 'accepted'";
         System.out.println(sqlQuery);
         listJam.removeAllItems();
         try {
