@@ -22,13 +22,15 @@ public class JadwalPraktek {
     private String jam;
     private String Status;
     private int id_jadwal_praktek;
+    private int id_dokter;
 
-    public JadwalPraktek(String ruangan, String hari, String jam, String Status, int id_jadwal_praktek) {
+    public JadwalPraktek(String ruangan, String hari, String jam, String Status, int id_jadwal_praktek, int id_dokter) {
         this.ruangan = ruangan;
         this.hari = hari;
         this.jam = jam;
         this.Status = Status;
         this.id_jadwal_praktek = id_jadwal_praktek;
+        this.id_dokter = id_dokter;
     }
 
     public JadwalPraktek() {
@@ -74,10 +76,38 @@ public class JadwalPraktek {
         this.id_jadwal_praktek = id_jadwal_praktek;
     }
 
+    public int getId_dokter() {
+        return id_dokter;
+    }
+
+    public void setId_dokter(int id_dokter) {
+        this.id_dokter = id_dokter;
+    }
+
     public void pengajuanJadwal(String ubahstatus, int idJadwal) throws SQLException {
         Database db = new Database();
         String sql = "update JadwalPraktek set Status  ='" + ubahstatus
                 + "'where id_jadwal_praktek ='" + idJadwal + "'";
+        db.query(sql);
+    }
+
+    public void penerimaanJadwal(String ubahstatus, int idJadwal, Integer id_dokter) throws SQLException {
+        Database db = new Database();
+        String sql = "";
+        if (ubahstatus.equals("accepted")) {
+            sql = "update JadwalPraktek set Status  ='" + ubahstatus
+                    + "'where id_jadwal_praktek ='" + idJadwal + "'";
+        } else {
+            sql = "update JadwalPraktek set Status  ='" + ubahstatus
+                    + "', id_dokter = null"
+                    + " where id_jadwal_praktek ='" + idJadwal + "'";
+        }
+        db.query(sql);
+    }
+
+    public void listJadwalDokter(String ubahstatus, int idJadwal) throws SQLException {
+        Database db = new Database();
+        String sql = "select id_jadwal_praktek, id_dokter";
         db.query(sql);
     }
 

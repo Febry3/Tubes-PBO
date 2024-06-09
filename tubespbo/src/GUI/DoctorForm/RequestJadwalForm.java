@@ -140,7 +140,11 @@ public class RequestJadwalForm extends javax.swing.JPanel {
             String sql = "select * from JadwalPraktek";
             ResultSet resultset = db.getData(sql);
             while (resultset.next()) {
-                JadwalPraktek jadwal = new JadwalPraktek(resultset.getString("ruangan"), resultset.getString("hari"), resultset.getString("jam"), resultset.getString("Status"), resultset.getInt("id_jadwal_praktek"));
+                JadwalPraktek jadwal = new JadwalPraktek(resultset.getString("ruangan"),
+                        resultset.getString("hari"), resultset.getString("jam"),
+                        resultset.getString("Status"), resultset.getInt("id_jadwal_praktek"),
+                        resultset.getInt("id_dokter")
+                );
                 if (jadwal.getStatus().equals("available")) {
                     tabel_JadwalPraktek.add(jadwal);
                     tabel_nama.addElement("Ruangan : " + jadwal.getRuangan() + " /Hari : " + jadwal.getHari() + " /Jam : " + jadwal.getJam() + " /Status : " + jadwal.getStatus());
