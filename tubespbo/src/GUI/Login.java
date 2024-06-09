@@ -186,8 +186,7 @@ public class Login extends javax.swing.JFrame {
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         if (role.isSelected(rolePasien.getModel()) || role.isSelected(roleDokter.getModel())) {
             String roleUser = role.getSelection().getActionCommand();
-            LoginController login = new LoginController(username, password,
-            roleUser, this);
+            LoginController login = new LoginController(username, password,roleUser, this);
             loginButton.addActionListener(login);
         } else {
             LoginController login = new LoginController(username,password,this);
