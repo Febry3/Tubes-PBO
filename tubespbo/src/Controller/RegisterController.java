@@ -6,6 +6,7 @@
 package Controller;
 
 import ComponentGUI.JTextFieldCustom;
+import GUI.Login;
 import GUI.UserForms.MainUser;
 import Model.Pasien;
 import java.awt.event.ActionEvent;
@@ -46,8 +47,8 @@ public class RegisterController implements ActionListener {
                 pasien.register_akun();
                 resetText();
                 
-                MainUser mainUser = new MainUser();
-                mainUser.setVisible(true);
+                Login login = new Login();
+                login.setVisible(true);
                 
                 registerPage.dispose();
                 

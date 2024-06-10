@@ -14,9 +14,12 @@ import java.util.ArrayList;
 public class StringUtilities {
     public static String convertArrayToString(ArrayList<String> arr) {
         String result = "";
-        for (String word : arr) {
-            result += word + ", ";
+        if (arr.size() > 0) {
+            for (String word : arr) {
+                result += word + ", ";
+            }
+            return result.substring(0, result.length() - 2);
         }
-        return result.substring(0, result.length() - 2);
+        return result;
     }
 }
