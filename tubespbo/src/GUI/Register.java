@@ -58,7 +58,7 @@ public class Register extends javax.swing.JFrame {
             .addGroup(menuAdmin1Layout.createSequentialGroup()
                 .addGap(211, 211, 211)
                 .addComponent(jLabel3)
-                .addContainerGap(236, Short.MAX_VALUE))
+                .addContainerGap(221, Short.MAX_VALUE))
         );
         menuAdmin1Layout.setVerticalGroup(
             menuAdmin1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,7 +133,7 @@ public class Register extends javax.swing.JFrame {
                             .addComponent(namaTF, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(confirmPassTF, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(messageLabel))
-                        .addContainerGap(25, Short.MAX_VALUE))
+                        .addContainerGap(37, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, messageLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(daftarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
