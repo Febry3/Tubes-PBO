@@ -86,10 +86,11 @@ public class JadwalPraktek {
         this.id_jadwal_praktek = id_jadwal_praktek;
     }
 
-    public void pengajuanJadwal(String ubahstatus, int idJadwal) throws SQLException {
+    public void pengajuanJadwal(String ubahstatus, int idJadwal,String nama) throws SQLException {
         Database db = new Database();
-        String sql = "update JadwalPraktek set Status  ='" + ubahstatus
-                + "'where id_jadwal_praktek ='" + idJadwal + "'";
+        String sql = "update JadwalPraktek set Status  ='" + ubahstatus + "', id_dokter = "  + "(select id_dokter from Dokter where nama_dokter = '" + nama + "')"  
+                + " where id_jadwal_praktek =" + idJadwal + "";
+        System.out.println(sql);
         db.query(sql);
     }
 
