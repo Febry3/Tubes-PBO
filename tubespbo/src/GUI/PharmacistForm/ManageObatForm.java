@@ -46,6 +46,7 @@ public class ManageObatForm extends javax.swing.JPanel {
 
         // Delete controller 
         deleteButton.addActionListener(evt -> handleDelete());
+        editButton.addActionListener(evt -> handleEdit());
 
         TableObat.getSelectionModel().addListSelectionListener(e -> {
             if (!e.getValueIsAdjusting()) {
@@ -55,8 +56,28 @@ public class ManageObatForm extends javax.swing.JPanel {
                 }
             }
         });
+    
+        // Edit controller
+            
     }
-
+    private void handleEdit(){
+        TableObat.getSelectionModel().addListSelectionListener(e -> {
+            if (!e.getValueIsAdjusting()) {
+                int selectedRow = TableObat.getSelectedRow();
+                if (selectedRow != -1) {
+                    namaObat = TableObat.getValueAt(selectedRow, 0).toString();
+                }
+            }
+        });
+        if (!namaObat.isEmpty()) {
+            DialogEdit dialogEdit = new DialogEdit(namaObat);
+            dialogEdit.setSize(400, 300);
+            dialogEdit.setVisible(true);
+            namaObat = "";
+        } else {
+            JOptionPane.showMessageDialog(null, "Silahkan pilih obat yang ingin dihapus");
+        }
+    }
     private void handleDelete() {
         TableObat.getSelectionModel().addListSelectionListener(e -> {
             if (!e.getValueIsAdjusting()) {
@@ -226,7 +247,7 @@ public class ManageObatForm extends javax.swing.JPanel {
                             .addComponent(refreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TableScrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+                .addComponent(TableScrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -272,7 +293,7 @@ public class ManageObatForm extends javax.swing.JPanel {
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void editButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editButtonMouseClicked
-//        TableObat.clearSelection();
+
     }//GEN-LAST:event_editButtonMouseClicked
 
     private void TableObatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableObatMouseClicked

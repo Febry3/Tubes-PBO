@@ -170,4 +170,19 @@ public class Obat {
         db.query(sql);
         db.disconnect();
     }
+    
+    public Obat (String namaObat, int harga, int stock) {
+        this.nama_obat = namaObat;
+        this.harga = harga;
+        this.stock = stock;
+    }
+    
+    public void updateObat() throws SQLException{
+        String sqlQuery = "update Obat set harga = " + harga + ", stock = " + stock + " where nama_obat = '" + nama_obat + "'";
+        System.out.println(sqlQuery);
+        Database db = new Database();
+        db.connect();
+        db.query(sqlQuery);
+        db.disconnect();
+    }
 }
