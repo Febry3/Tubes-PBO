@@ -42,6 +42,7 @@ public class ArsipKunjunganController {
                 while (rsObat.next()){          
                     daftarObat.add(rsObat.getString(1));
                 }
+                
                 String rowData[] = {rs.getString("nama_pasien"), rs.getString("nama_dokter"), rs.getString("nama_penyakit"), StringUtilities.convertArrayToString(daftarObat), rs.getString("tanggal_reservasi"), rs.getString("catatan")};
                 tableModel.addRow(rowData);
                 dbO.disconnect();
