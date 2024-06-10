@@ -15,7 +15,7 @@ import java.sql.SQLException;
  * @author ASUS
  */
 public class Obat {
-
+    
     private String nama_obat;
     private String dosis;
     private String kegunaan;

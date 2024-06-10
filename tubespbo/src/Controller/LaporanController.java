@@ -30,7 +30,6 @@ public class LaporanController implements ActionListener {
     HasilPengecekan checkUp = new HasilPengecekan();
     Obat obat = new Obat();
 
-
     public LaporanController(JTextFieldCustom namaPasien, JTextFieldCustom tanggalCheckUp, JTextArea penyakit, JTextArea catatan, JTextArea daftarObat) {
         this.namaPasien = namaPasien;
         this.tanggalCheckUp = tanggalCheckUp;
@@ -45,20 +44,26 @@ public class LaporanController implements ActionListener {
         db.connect();
         try {
 
-            if(load_Obat(daftarObat.getText())){
+            if (load_Obat(daftarObat.getText())) {
+
                 load_checkUp(namaPasien.getText(), tanggalCheckUp.getText());
-                store_checkUp(namaPasien.getText(),penyakit.getText(), catatan.getText());
+                store_checkUp(namaPasien.getText(), penyakit.getText(), catatan.getText());
+                store_obatPasien(infoObat.get(0).getNama_obat(), tabel_checkUp.get(0).getId_reservasi());
+
+                System.out.println("id_pasien : " + tabel_checkUp.get(0).getId_pasien());
                 JOptionPane.showMessageDialog(null, "Data check Up berhasil di inputkan");
-            }else{
-                 JOptionPane.showMessageDialog(null, "obat tidak dtemukan");
+            } else {
+                JOptionPane.showMessageDialog(null, "obat tidak dtemukan");
             }
 
         } catch (ParseException ex) {
             Logger.getLogger(LaporanController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(LaporanController.class.getName()).log(Level.SEVERE, null, ex);
         }
         resetText();
     }
-    
+
     public void load_checkUp(String nama, String tanggal) throws ParseException {
 
         Database db = new Database();
@@ -68,41 +73,48 @@ public class LaporanController implements ActionListener {
                 checkUp = new HasilPengecekan(rs.getInt("id_reservasi"), rs.getInt("id_pasien"), rs.getInt("id_dokter"), rs.getString("tanggal_reservasi"));
                 tabel_checkUp.add(checkUp);
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(LaporanController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     public void store_checkUp(String tanggal, String penyakit, String catatan) throws ParseException {
         try {
-            checkUp.input_checkUp(penyakit, catatan, tabel_checkUp.get(0).getId_reservasi(), tabel_checkUp.get(0).getId_pasien(), tabel_checkUp.get(0).getId_dokter());
+            checkUp.input_checkUp(penyakit, catatan, tabel_checkUp.get(0).getId_pasien(), tabel_checkUp.get(0).getId_dokter(), tabel_checkUp.get(0).getId_reservasi());
             resetText();
         } catch (SQLException ex) {
             Logger.getLogger(LaporanController.class.getName()).log(Level.SEVERE, null, ex);
         }
-         resetText();
+        resetText();
 
     }
-    
+
     public boolean load_Obat(String nama_obat) throws ParseException {
         boolean hasil = false;
         try {
             rs = obat.showObat(nama_obat);
             if (rs.next()) {
-//                obat = new Obat(rs.getString("nama_obat"));
-//                infoObat.add(obat);
+                obat = new Obat(rs.getString("nama_obat"));
+                infoObat.add(obat);
                 hasil = true;
-            }else{
+            } else {
                 daftarObat.setText("");
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "obat tidak dtemukan");
-  
-          
-        }   
+
+        }
         return hasil;
+    }
+
+    public void store_obatPasien(String namaObat, int id_reservasi) throws SQLException {
+        Database db = new Database();
+        String sql = "INSERT INTO `ObatPasien`(`id_obat`, `id_hasil_pengecekan`) VALUES ((select id_obat from Obat where nama_obat = '" + namaObat + "'), (select id_reservasi from Reservasi where id_reservasi = " + id_reservasi + "))";
+        System.out.println(sql);
+        db.query(sql);
+
     }
 
     private void resetText() {
