@@ -143,7 +143,7 @@ public class HasilPengecekan extends Reservasi {
     }
     
     public ResultSet getDaftarPengecekkan() {
-        String sqlQuery = "select id_hasil_pengecekan, nama_penyakit, catatan, nama_pasien, nama_dokter, tanggal_reservasi from HasilPengecekan join Dokter using (id_dokter) join Pasien using (id_pasien) join Reservasi using (id_reservasi) where nama_pasien = '" + nama_pasien + "'";
+        String sqlQuery = "select id_hasil_pengecekan, nama_penyakit, catatan, nama_pasien, nama_dokter, tanggal_reservasi, nama_obat from HasilPengecekan join Dokter using (id_dokter) join Pasien using (id_pasien) join Reservasi using (id_reservasi) join ObatPasien using (id_hasil_pengecekan) join Obat using (id_obat) where nama_pasien = '" + nama_pasien + "'";
         Database db = new Database();
         return db.getData(sqlQuery);
     }

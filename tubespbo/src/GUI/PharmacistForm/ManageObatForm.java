@@ -276,7 +276,7 @@ public class ManageObatForm extends javax.swing.JPanel {
                             .addComponent(refreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TableScrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
+                .addComponent(TableScrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -314,27 +314,15 @@ public class ManageObatForm extends javax.swing.JPanel {
         jLabel10.setText(":");
         jLabel10.setPreferredSize(new java.awt.Dimension(5, 15));
 
-        dosisLB.setText("jLabel5");
-
-        kegunaanLB.setText("jLabel5");
-
-        komposisiLB.setText("jLabel5");
-
         obatLB.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         obatLB.setText("Nama Obat");
-
-        kadaluarsaLB.setText("jLabel5");
 
         LabelDosis.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         LabelDosis.setText("Dosis  ");
 
-        aturanPakaiLB.setText("jLabel5");
-
         labelKegunaan.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         labelKegunaan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelKegunaan.setText("Kegunaan  ");
-
-        penyimpananLB.setText("jLabel5");
 
         labelKomposisi.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         labelKomposisi.setText("Komposisi");
@@ -342,14 +330,8 @@ public class ManageObatForm extends javax.swing.JPanel {
         labelNoRegistrasi.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         labelNoRegistrasi.setText("No Registrasi ");
 
-        noRegistrasiLB.setText("jLabel5");
-
-        hargaLB.setText("jLabel5");
-
         labelKadaluarsa.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         labelKadaluarsa.setText("Kadaluarsa");
-
-        stokLB.setText("jLabel5");
 
         jLabel5.setText(":");
 
@@ -410,7 +392,7 @@ public class ManageObatForm extends javax.swing.JPanel {
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(stokLB)
-                        .addContainerGap(104, Short.MAX_VALUE))
+                        .addContainerGap(186, Short.MAX_VALUE))
                     .addGroup(panelBorder1Layout.createSequentialGroup()
                         .addComponent(labelNoRegistrasi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)

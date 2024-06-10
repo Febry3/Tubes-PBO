@@ -29,25 +29,20 @@ public class ArsipKunjunganController {
         ArrayList<String> daftarObat = new ArrayList<>();
         HasilPengecekan arsipKunjungan = new HasilPengecekan(CurrentUser.username);
         DefaultTableModel tableModel = (DefaultTableModel) tableArsip.getModel();
+        String sqlQuery = "select id_hasil_pengecekan, nama_penyakit, catatan, nama_pasien, nama_dokter, tanggal_reservasi, nama_obat from HasilPengecekan join Dokter using (id_dokter) join Pasien using (id_pasien) join Reservasi using (id_reservasi) join ObatPasien using (id_hasil_pengecekan) join Obat using (id_obat) where nama_pasien = '" + CurrentUser.username + "'";
+        System.out.println(sqlQuery);
         try {
             Database db = new Database();
             db.connect();
-            ResultSet rs = arsipKunjungan.getDaftarPengecekkan();
+            ResultSet rs = db.getData(sqlQuery);
             
             while (rs.next()){
-                String sqlQuery = "select nama_obat from ObatPasien join Obat using (id_obat) where id_hasil_pengecekan = " + rs.getInt(1);
-                Database dbO = new Database();
-                dbO.connect();
-                ResultSet rsObat = dbO.getData(sqlQuery);
-                while (rsObat.next()){          
-                    daftarObat.add(rsObat.getString(1));
-                }
-                
-                String rowData[] = {rs.getString("nama_pasien"), rs.getString("nama_dokter"), rs.getString("nama_penyakit"), StringUtilities.convertArrayToString(daftarObat), rs.getString("tanggal_reservasi"), rs.getString("catatan")};
+                System.out.println(rs.getString("nama_pasien"));
+                String rowData[] = {rs.getString("nama_pasien"), rs.getString("nama_dokter"), rs.getString("nama_penyakit"), rs.getString("nama_obat"), rs.getString("tanggal_reservasi"), rs.getString("catatan")};
                 tableModel.addRow(rowData);
-                dbO.disconnect();
+              
             }
-            db.disconnect();
+            
         } catch (SQLException er) {
             System.out.println("Err Load Arsip: " + er.getMessage());
         }

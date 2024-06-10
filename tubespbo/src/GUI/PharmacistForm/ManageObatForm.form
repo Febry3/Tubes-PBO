@@ -115,7 +115,7 @@
                       </Group>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="TableScrollPanel" pref="335" max="32767" attributes="0"/>
+                  <Component id="TableScrollPanel" pref="352" max="32767" attributes="0"/>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -322,7 +322,7 @@
                           <Component id="jLabel9" min="-2" pref="15" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="stokLB" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="104" max="32767" attributes="0"/>
+                          <EmptySpace pref="186" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="labelNoRegistrasi" max="32767" attributes="0"/>
@@ -473,19 +473,10 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="dosisLB">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel5"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="kegunaanLB">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel5"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="komposisiLB">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel5"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="obatLB">
           <Properties>
@@ -496,9 +487,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="kadaluarsaLB">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel5"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="LabelDosis">
           <Properties>
@@ -509,9 +497,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="aturanPakaiLB">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel5"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelKegunaan">
           <Properties>
@@ -523,9 +508,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="penyimpananLB">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel5"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelKomposisi">
           <Properties>
@@ -544,14 +526,8 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="noRegistrasiLB">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel5"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="hargaLB">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel5"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelKadaluarsa">
           <Properties>
@@ -562,9 +538,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="stokLB">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel5"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>

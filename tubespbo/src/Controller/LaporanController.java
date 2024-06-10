@@ -48,7 +48,7 @@ public class LaporanController implements ActionListener {
 
                 load_checkUp(namaPasien.getText(), tanggalCheckUp.getText());
                 store_checkUp(namaPasien.getText(), penyakit.getText(), catatan.getText());
-                store_obatPasien(infoObat.get(0).getNama_obat(), tabel_checkUp.get(0).getId_reservasi());
+                store_obatPasien(infoObat.get(0).getNama_obat(), tabel_checkUp.get(0).getId_dokter(), tabel_checkUp.get(0).getId_pasien());
 
                 System.out.println("id_pasien : " + tabel_checkUp.get(0).getId_pasien());
                 JOptionPane.showMessageDialog(null, "Data check Up berhasil di inputkan");
@@ -109,9 +109,11 @@ public class LaporanController implements ActionListener {
         return hasil;
     }
 
-    public void store_obatPasien(String namaObat, int id_reservasi) throws SQLException {
+    public void store_obatPasien(String namaObat, int id_dokter, int id_pasien) throws SQLException {
         Database db = new Database();
-        String sql = "INSERT INTO `ObatPasien`(`id_obat`, `id_hasil_pengecekan`) VALUES ((select id_obat from Obat where nama_obat = '" + namaObat + "'), (select id_reservasi from Reservasi where id_reservasi = " + id_reservasi + "))";
+        String sql = "INSERT INTO `ObatPasien`(`id_obat`, `id_hasil_pengecekan`) VALUES ((select id_obat from Obat where nama_obat = '" 
+                + namaObat + "'), (select id_hasil_pengecekan from HasilPengecekan "
+                + "where id_dokter = " + id_dokter + " and id_pasien = " + id_pasien  + "))";
         System.out.println(sql);
         db.query(sql);
 
