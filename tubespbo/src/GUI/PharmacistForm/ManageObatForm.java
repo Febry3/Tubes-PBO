@@ -53,14 +53,15 @@ public class ManageObatForm extends javax.swing.JPanel {
                 int selectedRow = TableObat.getSelectedRow();
                 if (selectedRow != -1) {
                     namaObat = TableObat.getValueAt(selectedRow, 0).toString();
+                    tampilkanDetailObat(namaObat);
                 }
             }
         });
-    
+
         // Edit controller
-            
     }
-    private void handleEdit(){
+
+    private void handleEdit() {
         TableObat.getSelectionModel().addListSelectionListener(e -> {
             if (!e.getValueIsAdjusting()) {
                 int selectedRow = TableObat.getSelectedRow();
@@ -78,6 +79,7 @@ public class ManageObatForm extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Silahkan pilih obat yang ingin dihapus");
         }
     }
+
     private void handleDelete() {
         TableObat.getSelectionModel().addListSelectionListener(e -> {
             if (!e.getValueIsAdjusting()) {
@@ -124,7 +126,34 @@ public class ManageObatForm extends javax.swing.JPanel {
         editButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
         panelBorder1 = new GUI.PanelBorder();
-        detailCard2 = new ComponentGUI.DetailCard();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        labelAturanPakai = new javax.swing.JLabel();
+        labelPetunjukPenyimpnan = new javax.swing.JLabel();
+        labelHarga = new javax.swing.JLabel();
+        labelStok = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        dosisLB = new javax.swing.JLabel();
+        kegunaanLB = new javax.swing.JLabel();
+        komposisiLB = new javax.swing.JLabel();
+        obatLB = new javax.swing.JLabel();
+        kadaluarsaLB = new javax.swing.JLabel();
+        LabelDosis = new javax.swing.JLabel();
+        aturanPakaiLB = new javax.swing.JLabel();
+        labelKegunaan = new javax.swing.JLabel();
+        penyimpananLB = new javax.swing.JLabel();
+        labelKomposisi = new javax.swing.JLabel();
+        labelNoRegistrasi = new javax.swing.JLabel();
+        noRegistrasiLB = new javax.swing.JLabel();
+        hargaLB = new javax.swing.JLabel();
+        labelKadaluarsa = new javax.swing.JLabel();
+        stokLB = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         jRadioButton1.setText("jRadioButton1");
 
@@ -247,15 +276,198 @@ public class ManageObatForm extends javax.swing.JPanel {
                             .addComponent(refreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TableScrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
+                .addComponent(TableScrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         panelBorder1.setBackground(new java.awt.Color(204, 204, 204));
         panelBorder1.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 15));
         panelBorder1.setForeground(new java.awt.Color(255, 255, 255));
-        panelBorder1.setLayout(new java.awt.BorderLayout());
-        panelBorder1.add(detailCard2, java.awt.BorderLayout.CENTER);
+        panelBorder1.setPreferredSize(new java.awt.Dimension(925, 229));
+
+        jLabel2.setText(":");
+
+        jLabel3.setText(":");
+
+        jLabel4.setText(":");
+
+        labelAturanPakai.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        labelAturanPakai.setText("Aturan Pakai");
+
+        labelPetunjukPenyimpnan.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        labelPetunjukPenyimpnan.setText("Penyimpanan");
+
+        labelHarga.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        labelHarga.setText("Harga");
+
+        labelStok.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        labelStok.setText("Stok");
+
+        jLabel6.setText(":");
+
+        jLabel7.setText(":");
+
+        jLabel8.setText(":");
+
+        jLabel9.setText(":");
+
+        jLabel10.setText(":");
+        jLabel10.setPreferredSize(new java.awt.Dimension(5, 15));
+
+        dosisLB.setText("jLabel5");
+
+        kegunaanLB.setText("jLabel5");
+
+        komposisiLB.setText("jLabel5");
+
+        obatLB.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        obatLB.setText("Nama Obat");
+
+        kadaluarsaLB.setText("jLabel5");
+
+        LabelDosis.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        LabelDosis.setText("Dosis  ");
+
+        aturanPakaiLB.setText("jLabel5");
+
+        labelKegunaan.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        labelKegunaan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelKegunaan.setText("Kegunaan  ");
+
+        penyimpananLB.setText("jLabel5");
+
+        labelKomposisi.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        labelKomposisi.setText("Komposisi");
+
+        labelNoRegistrasi.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        labelNoRegistrasi.setText("No Registrasi ");
+
+        noRegistrasiLB.setText("jLabel5");
+
+        hargaLB.setText("jLabel5");
+
+        labelKadaluarsa.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        labelKadaluarsa.setText("Kadaluarsa");
+
+        stokLB.setText("jLabel5");
+
+        jLabel5.setText(":");
+
+        javax.swing.GroupLayout panelBorder1Layout = new javax.swing.GroupLayout(panelBorder1);
+        panelBorder1.setLayout(panelBorder1Layout);
+        panelBorder1Layout.setHorizontalGroup(
+            panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBorder1Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(panelBorder1Layout.createSequentialGroup()
+                            .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(panelBorder1Layout.createSequentialGroup()
+                                    .addComponent(labelKadaluarsa)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(panelBorder1Layout.createSequentialGroup()
+                                    .addComponent(LabelDosis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGap(20, 20, 20)))
+                            .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 15, Short.MAX_VALUE)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelBorder1Layout.createSequentialGroup()
+                            .addComponent(labelAturanPakai)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panelBorder1Layout.createSequentialGroup()
+                            .addComponent(labelPetunjukPenyimpnan)
+                            .addGap(18, 18, 18)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(labelKegunaan)
+                    .addComponent(labelKomposisi, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dosisLB)
+                    .addComponent(kegunaanLB)
+                    .addComponent(aturanPakaiLB)
+                    .addComponent(penyimpananLB)
+                    .addComponent(komposisiLB)
+                    .addComponent(kadaluarsaLB))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(panelBorder1Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(obatLB, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(149, 149, 149)
+                .addComponent(labelHarga)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelBorder1Layout.createSequentialGroup()
+                        .addComponent(hargaLB)
+                        .addGap(20, 20, 20)
+                        .addComponent(labelStok)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(stokLB)
+                        .addContainerGap(104, Short.MAX_VALUE))
+                    .addGroup(panelBorder1Layout.createSequentialGroup()
+                        .addComponent(labelNoRegistrasi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(noRegistrasiLB)
+                        .addGap(112, 112, 112))))
+        );
+        panelBorder1Layout.setVerticalGroup(
+            panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBorder1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(obatLB)
+                    .addComponent(labelNoRegistrasi)
+                    .addComponent(jLabel3)
+                    .addComponent(noRegistrasiLB))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LabelDosis)
+                    .addComponent(jLabel5)
+                    .addComponent(dosisLB))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelKegunaan)
+                    .addComponent(jLabel2)
+                    .addComponent(kegunaanLB))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelKomposisi)
+                    .addComponent(jLabel4)
+                    .addComponent(komposisiLB))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelKadaluarsa)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(kadaluarsaLB))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(labelAturanPakai)
+                    .addComponent(aturanPakaiLB))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelPetunjukPenyimpnan)
+                    .addComponent(jLabel7)
+                    .addComponent(penyimpananLB))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelHarga)
+                    .addComponent(jLabel8)
+                    .addComponent(labelStok)
+                    .addComponent(jLabel9)
+                    .addComponent(hargaLB)
+                    .addComponent(stokLB))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -265,7 +477,7 @@ public class ManageObatForm extends javax.swing.JPanel {
             .addComponent(PanelDaftarObat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelBorder1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelBorder1, javax.swing.GroupLayout.DEFAULT_SIZE, 960, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -319,34 +531,46 @@ public class ManageObatForm extends javax.swing.JPanel {
 //        );
     }//GEN-LAST:event_TableObatMouseClicked
 
-    public void show_table() {
-        try {
-            Database db = new Database();
-            db.connect();
-            String sql = "select * from Obat";
-            ResultSet rs = db.getData(sql);
-            DefaultTableModel table = (DefaultTableModel) TableObat.getModel();
-
-            table.setRowCount(0);
-            while (rs.next()) {
-                Object[] rowData = {rs.getString("nama_obat"), rs.getString("no_registrasi"), rs.getInt("stock"), rs.getInt("harga")};
-                table.addRow(rowData);
-            }
-        } catch (SQLException e) {
-            Logger.getLogger(ManageObatForm.class.getName()).log(Level.SEVERE, null, e);
-        }
-        TableObat.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                int selectedRow = TableObat.getSelectedRow();
-                if (selectedRow != -1) {
-                    String namaObat = (String) TableObat.getValueAt(selectedRow, 0);
-                    tampilkanDetailObat(namaObat);
-                }
-            }
-        });
+//    public void show_table() {
+//        try {
+//            Database db = new Database();
+//            db.connect();
+//            String sql = "select * from Obat";
+//            ResultSet rs = db.getData(sql);
+//            DefaultTableModel table = (DefaultTableModel) TableObat.getModel();
+//
+//            table.setRowCount(0);
+//            while (rs.next()) {
+//                Object[] rowData = {rs.getString("nama_obat"), rs.getString("no_registrasi"), rs.getInt("stock"), rs.getInt("harga")};
+//                table.addRow(rowData);
+//            }
+//        } catch (SQLException e) {
+//            Logger.getLogger(ManageObatForm.class.getName()).log(Level.SEVERE, null, e);
+//        }
+//        TableObat.addMouseListener(new MouseAdapter() {
+//            @Override
+//            public void mouseClicked(MouseEvent e) {
+//                int selectedRow = TableObat.getSelectedRow();
+//                if (selectedRow != -1) {
+//                    String namaObat = (String) TableObat.getValueAt(selectedRow, 0);
+//                    tampilkanDetailObat(namaObat);
+//                }
+//            }
+//        });
+//    }
+    public void setObat(Obat obat) {
+        obatLB.setText(obat.getNama_obat());
+        dosisLB.setText(obat.getDosis());
+        kegunaanLB.setText(obat.getKegunaan());
+        komposisiLB.setText(obat.getKomposisi());
+        noRegistrasiLB.setText(obat.getNo_registrasi());
+        kadaluarsaLB.setText(obat.getKadaluarsa().toString());
+        aturanPakaiLB.setText(obat.getAturan_pakai());
+        penyimpananLB.setText(obat.getPetunjuk_penyimpanan());
+        hargaLB.setText(String.valueOf(obat.getHarga()));
+        stokLB.setText(String.valueOf(obat.getStock()));
     }
-
+    
     public void tampilkanDetailObat(String namaObat) {
         try {
             Database db = new Database();
@@ -368,7 +592,7 @@ public class ManageObatForm extends javax.swing.JPanel {
                         rs.getInt("stock")
                 );
 
-                detailCard.setObat(obat);
+                setObat(obat);
             } else {
                 JOptionPane.showMessageDialog(null, "Data obat tidak ditemukan.");
             }
@@ -382,16 +606,43 @@ public class ManageObatForm extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LabelDosis;
     private GUI.PanelBorder PanelDaftarObat;
     private GUI.PanelBorder PanelSearch;
     private ComponentGUI.Table TableObat;
     private javax.swing.JScrollPane TableScrollPanel;
+    private javax.swing.JLabel aturanPakaiLB;
     private javax.swing.JButton deleteButton;
-    private ComponentGUI.DetailCard detailCard2;
+    private javax.swing.JLabel dosisLB;
     private javax.swing.JButton editButton;
+    private javax.swing.JLabel hargaLB;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JLabel kadaluarsaLB;
+    private javax.swing.JLabel kegunaanLB;
+    private javax.swing.JLabel komposisiLB;
+    private javax.swing.JLabel labelAturanPakai;
+    private javax.swing.JLabel labelHarga;
+    private javax.swing.JLabel labelKadaluarsa;
+    private javax.swing.JLabel labelKegunaan;
+    private javax.swing.JLabel labelKomposisi;
+    private javax.swing.JLabel labelNoRegistrasi;
+    private javax.swing.JLabel labelPetunjukPenyimpnan;
+    private javax.swing.JLabel labelStok;
+    private javax.swing.JLabel noRegistrasiLB;
+    private javax.swing.JLabel obatLB;
     private GUI.PanelBorder panelBorder1;
+    private javax.swing.JLabel penyimpananLB;
     private javax.swing.JButton refreshButton;
+    private javax.swing.JLabel stokLB;
     // End of variables declaration//GEN-END:variables
 }

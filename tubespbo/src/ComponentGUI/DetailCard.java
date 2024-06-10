@@ -17,18 +17,7 @@ public class DetailCard extends javax.swing.JPanel {
         setOpaque(false);
     }
 
-    public void setObat(Obat obat) {
-        obatLB.setText(obat.getNama_obat());
-        dosisLB.setText(obat.getDosis());
-        kegunaanLB.setText(obat.getKegunaan());
-        komposisiLB.setText(obat.getKomposisi());
-        noRegistrasiLB.setText(obat.getNo_registrasi());
-        kadaluarsaLB.setText(obat.getKadaluarsa().toString());
-        aturanPakaiLB.setText(obat.getAturan_pakai());
-        penyimpananLB.setText(obat.getPetunjuk_penyimpanan());
-        hargaLB.setText(String.valueOf(obat.getHarga()));
-        stokLB.setText(String.valueOf(obat.getStock()));
-    }
+    
 
     @Override
     protected void paintComponent(Graphics grphcs) {
