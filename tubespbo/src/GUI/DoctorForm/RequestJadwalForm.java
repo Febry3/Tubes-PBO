@@ -5,6 +5,7 @@
  */
 package GUI.DoctorForm;
 
+import static Controller.CurrentUser.getCurrentUsername;
 import Model.JadwalPraktek;
 import Utility.Database;
 import java.sql.ResultSet;
@@ -120,7 +121,7 @@ public class RequestJadwalForm extends javax.swing.JPanel {
 
         try {
             if (tabel_JadwalPraktek.get(indexJadwal).getStatus().equals("available")) {
-                jadwal.pengajuanJadwal("pending", tabel_JadwalPraktek.get(indexJadwal).getId_jadwal_praktek());
+                jadwal.pengajuanJadwal("pending", tabel_JadwalPraktek.get(indexJadwal).getId_jadwal_praktek(),getCurrentUsername());
                 JOptionPane.showMessageDialog(null, "Pengajuan jadwal berhasil");
             } else {
                 JOptionPane.showMessageDialog(null, "Status sudah pending");
