@@ -202,7 +202,7 @@ public class ListJadwalForm extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(43, 43, 43)
                 .addComponent(panelJadwalPraktek2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

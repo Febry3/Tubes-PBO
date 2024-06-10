@@ -22,18 +22,29 @@ public class JadwalPraktek {
     private String jam;
     private String Status;
     private int id_jadwal_praktek;
+     private int id_dokter;
 
-    public JadwalPraktek(String ruangan, String hari, String jam, String Status, int id_jadwal_praktek) {
+    public JadwalPraktek(String ruangan, String hari, String jam, String Status, int id_jadwal_praktek,int id_dokter) {
         this.ruangan = ruangan;
         this.hari = hari;
         this.jam = jam;
         this.Status = Status;
         this.id_jadwal_praktek = id_jadwal_praktek;
+        this.id_dokter = id_dokter;
     }
 
     public JadwalPraktek() {
     }
 
+    
+    public int getId_dokter() {
+        return id_dokter;
+    }
+
+    public void setId_dokter(int id_dokter) {
+        this.id_dokter = id_dokter;
+    }
+    
     public String getStatus() {
         return Status;
     }

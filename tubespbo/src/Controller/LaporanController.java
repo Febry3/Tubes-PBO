@@ -3,6 +3,7 @@ package Controller;
 import ComponentGUI.JTextFieldCustom;
 import static Controller.CurrentUser.getCurrentUsername;
 import Model.HasilPengecekan;
+import Model.Obat;
 import Utility.Database;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,10 +24,12 @@ public class LaporanController implements ActionListener {
     private JTextArea catatan = new JTextArea();
     private JTextArea daftarObat = new JTextArea();
     private ArrayList<HasilPengecekan> tabel_checkUp = new ArrayList();
-    ArrayList<String> infoObat = new ArrayList();
+    ArrayList<Obat> infoObat = new ArrayList();
     String[] listObat = daftarObat.getText().split(",\\s*");
     ResultSet rs;
     HasilPengecekan checkUp = new HasilPengecekan();
+    Obat obat = new Obat();
+
 
     public LaporanController(JTextFieldCustom namaPasien, JTextFieldCustom tanggalCheckUp, JTextArea penyakit, JTextArea catatan, JTextArea daftarObat) {
         this.namaPasien = namaPasien;
@@ -44,6 +47,7 @@ public class LaporanController implements ActionListener {
             load_checkUp(namaPasien.getText(), tanggalCheckUp.getText());
             JOptionPane.showMessageDialog(null,  tabel_checkUp.get(0).getId_dokter());
             store_checkUp(namaPasien.getText(),penyakit.getText(), catatan.getText());
+            load_Obat(daftarObat.getText());
 //          
 //            if (!tabel_checkUp.isEmpty()) {
 //               
@@ -72,13 +76,30 @@ public class LaporanController implements ActionListener {
 
     public void store_checkUp(String tanggal, String penyakit, String catatan) throws ParseException {
         try {
-            checkUp.input_checkUp(penyakit, tabel_checkUp.get(0).getTanggal_pengecekan(), catatan, tabel_checkUp.get(0).getId_reservasi(), tabel_checkUp.get(0).getId_pasien(), tabel_checkUp.get(0).getId_dokter());
+            checkUp.input_checkUp(penyakit, catatan, tabel_checkUp.get(0).getId_reservasi(), tabel_checkUp.get(0).getId_pasien(), tabel_checkUp.get(0).getId_dokter());
             resetText();
         } catch (SQLException ex) {
             Logger.getLogger(LaporanController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
 
+    }
+    
+    public void load_Obat(String nama_obat) throws ParseException {
+
+        Database db = new Database();
+        try {
+            rs = obat.showObat(nama_obat);
+            while (rs.next()) {
+                    obat = new Obat(rs.getString("nama_obat"));
+            }
+           infoObat.add(obat);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(LaporanController.class.getName()).log(Level.SEVERE, null, ex);
+             JOptionPane.showMessageDialog(null, "obat tidak dtemukan");
+        }
+        resetText();
     }
 
     private void resetText() {

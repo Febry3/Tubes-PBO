@@ -30,6 +30,11 @@ public class Obat  {
     public Obat(){ 
        
     }
+
+    public Obat(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
     public String getNama_obat() {
         return nama_obat;
     }
@@ -114,8 +119,8 @@ public class Obat  {
         String sql = "select nama_obat "
                 + "from Obat" 
                 + " where "
-                + " namaObat = '" + obat + "' ";
+                + " nama_obat = '" + obat + "' ";
         return db.getData(sql);
     }
-    
+     
 }

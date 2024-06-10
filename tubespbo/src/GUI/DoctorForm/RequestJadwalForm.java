@@ -106,7 +106,7 @@ public class RequestJadwalForm extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
                 .addComponent(buttonAjukan)
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -140,8 +140,8 @@ public class RequestJadwalForm extends javax.swing.JPanel {
             String sql = "select * from JadwalPraktek";
             ResultSet resultset = db.getData(sql);
             while (resultset.next()) {
-                JadwalPraktek jadwal = new JadwalPraktek(resultset.getString("ruangan"), resultset.getString("hari"), resultset.getString("jam"), resultset.getString("Status"), resultset.getInt("id_jadwal_praktek"));
-                if (jadwal.getStatus().equals("available")) {
+                JadwalPraktek jadwal = new JadwalPraktek(resultset.getString("ruangan"), resultset.getString("hari"), resultset.getString("jam"), resultset.getString("Status"), resultset.getInt("id_jadwal_praktek"), resultset.getInt("id_dokter"));
+                if (jadwal.getStatus().equals("available") && jadwal.getId_dokter() == 0) {
                     tabel_JadwalPraktek.add(jadwal);
                     tabel_nama.addElement("Ruangan : " + jadwal.getRuangan() + " /Hari : " + jadwal.getHari() + " /Jam : " + jadwal.getJam() + " /Status : " + jadwal.getStatus());
                 }

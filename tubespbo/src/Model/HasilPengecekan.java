@@ -108,13 +108,12 @@ public class HasilPengecekan extends Reservasi {
         return id_dokter;
     }
 
-    public void input_checkUp(String nama_penyakit, String tanggal, String catatan, int idPasien, int idDokter, int idReservasi) throws SQLException {
+    public void input_checkUp(String nama_penyakit, String catatan, int idPasien, int idDokter, int idReservasi) throws SQLException {
         Database db = new Database();
         String sql = "insert into HasilPengecekan "
-                + "(nama_penyakit, tanggal_pengecekan, catatan,id_pasien, id_dokter, id_reservasi) "
+                + "(nama_penyakit, catatan,id_pasien, id_dokter, id_reservasi) "
                 + " values "
                 + "('" + nama_penyakit
-                + "', '" + tanggal
                 + "', '" + catatan
                 + "'," + idPasien + ","
                 + idDokter + ","
