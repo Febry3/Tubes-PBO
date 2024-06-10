@@ -1,6 +1,6 @@
-
 package GUI.DoctorForm;
 
+import GUI.Login;
 import MenuModel.SelectedMenu;
 import java.awt.Color;
 import javax.swing.JComponent;
@@ -13,18 +13,18 @@ public class MainDoctor extends javax.swing.JFrame {
     private InitForm init;
     private ListJadwalForm lj;
     private RequestJadwalForm rj;
+    private Login login;
 
-    
     public MainDoctor() {
         bl = new BuatLaporanForm();
         cp = new ChangePasswordForm();
         init = new InitForm();
         lj = new ListJadwalForm();
         rj = new RequestJadwalForm();
+        login = new Login();
 
-        
         initComponents();
-         menuDokter.addEventMenuSelected(new SelectedMenu(){
+        menuDokter.addEventMenuSelected(new SelectedMenu() {
             @Override
             public void selected(int index) {
                 if (index == 2) {
@@ -36,21 +36,21 @@ public class MainDoctor extends javax.swing.JFrame {
                 } else if (index == 9) {
                     setForm(cp);
                 } else if (index == 10) {
-                    setForm(init);
-                } 
+                    dispose();
+                    login.setVisible(true);
+                }
             }
         });
         setForm(init);
         //setBackground(new Color(0,0,0,0));
     }
-    
+
     private void setForm(JComponent com) {
-        MainPanel.removeAll();  
+        MainPanel.removeAll();
         MainPanel.add(com);
         MainPanel.repaint();
         MainPanel.revalidate();
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

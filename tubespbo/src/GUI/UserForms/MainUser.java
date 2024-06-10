@@ -5,6 +5,7 @@
  */
 package GUI.UserForms;
 
+import GUI.Login;
 import MenuModel.SelectedMenu;
 import java.awt.Color;
 import javax.swing.JComponent;
@@ -19,17 +20,20 @@ public class MainUser extends javax.swing.JFrame {
     private BuatReservasi br;
     private ArsipKunjungan ak;
     private ChangePasswordForm gp;
+    private Login login;
+
     public MainUser() {
         initComponents();
         init = new InitForm();
         br = new BuatReservasi();
         ak = new ArsipKunjungan();
         gp = new ChangePasswordForm();
+        login = new Login();
 
-         menuUser.addEventMenuSelected(new SelectedMenu(){
+        menuUser.addEventMenuSelected(new SelectedMenu() {
             @Override
             public void selected(int index) {
-                
+
                 if (index == 1) {
                     setForm(br);
                 } else if (index == 2) {
@@ -37,7 +41,8 @@ public class MainUser extends javax.swing.JFrame {
                 } else if (index == 5) {
                     setForm(gp);
                 } else if (index == 6) {
-                    setForm(init);
+                    dispose();
+                    login.setVisible(true);
                 }
             }
         });
@@ -45,8 +50,9 @@ public class MainUser extends javax.swing.JFrame {
 
         //setBackground(new Color(0,0,0,0));
     }
+
     private void setForm(JComponent com) {
-        MainPanel.removeAll();  
+        MainPanel.removeAll();
         MainPanel.add(com);
         MainPanel.repaint();
         MainPanel.revalidate();

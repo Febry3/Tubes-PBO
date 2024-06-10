@@ -4,6 +4,7 @@ import ComponentGUI.Table;
 import Controller.TambahObatController;
 import GUI.AdminForms.ChangePasswordForm;
 import GUI.AdminForms.InitForm;
+import GUI.Login;
 import MenuModel.SelectedMenu;
 import java.awt.Color;
 import javax.swing.JComponent;
@@ -15,6 +16,7 @@ public class MainPharmacist extends javax.swing.JFrame {
     private ChangePasswordForm cp;
     private ManageObatForm mo;
     private TambahObatForm to;
+    private Login login;
 
     ManageObatForm manageObatForm = new ManageObatForm();
     Table table = manageObatForm.getTableObat();
@@ -24,6 +26,7 @@ public class MainPharmacist extends javax.swing.JFrame {
         init = new InitForm();
         mo = new ManageObatForm();
         to = new TambahObatForm();
+        login = new Login();
 
         initComponents();
         menuPharmacist.addEventMenuSelected(new SelectedMenu() {
@@ -37,7 +40,8 @@ public class MainPharmacist extends javax.swing.JFrame {
                 } else if (index == 6) {
                     setForm(cp);
                 } else if (index == 7) {
-                    setForm(init);
+                    dispose();
+                    login.setVisible(true);
                 }
             }
         });
