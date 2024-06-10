@@ -1,27 +1,32 @@
-
 package GUI.PharmacistForm;
 
+import ComponentGUI.Table;
+import Controller.TambahObatController;
 import GUI.AdminForms.ChangePasswordForm;
 import GUI.AdminForms.InitForm;
 import MenuModel.SelectedMenu;
 import java.awt.Color;
 import javax.swing.JComponent;
+import javax.swing.JTable;
 
 public class MainPharmacist extends javax.swing.JFrame {
-    
+
     private InitForm init;
     private ChangePasswordForm cp;
     private ManageObatForm mo;
     private TambahObatForm to;
-    
+
+    ManageObatForm manageObatForm = new ManageObatForm();
+    Table table = manageObatForm.getTableObat();
+
     public MainPharmacist() {
         cp = new ChangePasswordForm();
         init = new InitForm();
         mo = new ManageObatForm();
         to = new TambahObatForm();
-        
+
         initComponents();
-        menuPharmacist.addEventMenuSelected(new SelectedMenu(){
+        menuPharmacist.addEventMenuSelected(new SelectedMenu() {
             @Override
             public void selected(int index) {
                 System.out.println(index);
@@ -35,14 +40,14 @@ public class MainPharmacist extends javax.swing.JFrame {
                     setForm(init);
                 }
             }
-        });   
-        
+        });
+
         setForm(init);
         //setBackground(new Color(0,0,0,0));
     }
-    
-     private void setForm(JComponent com) {
-        MainPanel.removeAll();  
+
+    private void setForm(JComponent com) {
+        MainPanel.removeAll();
         MainPanel.add(com);
         MainPanel.repaint();
         MainPanel.revalidate();

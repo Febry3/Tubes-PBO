@@ -7,7 +7,6 @@ package Model;
 
 import Utility.Database;
 import Utility.DateUtilities;
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -46,6 +45,10 @@ public class HasilPengecekan extends Reservasi {
         this.id_dokter = id_dokter;
         this.id_pasien = id_pasien;
         this.tanggal_pengecekan = DateUtilities.dateFormatYYMMDD(hari_reservasi);;
+    }
+    
+    public HasilPengecekan(String nama_pasien){
+        this.nama_pasien = nama_pasien;
     }
 
     public HasilPengecekan() {
@@ -138,5 +141,10 @@ public class HasilPengecekan extends Reservasi {
         return db.getData(sql);
 
     }
-
+    
+    public ResultSet getDaftarPengecekkan() {
+        String sqlQuery = "select id_hasil_pengecekan, nama_penyakit, catatan, nama_pasien, nama_dokter, tanggal_reservasi from HasilPengecekan join Dokter using (id_dokter) join Pasien using (id_pasien) join Reservasi using (id_reservasi) where nama_pasien = '" + nama_pasien + "'";
+        Database db = new Database();
+        return db.getData(sqlQuery);
+    }
 }

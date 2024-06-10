@@ -18,7 +18,7 @@ public class Table extends JTable {
             @Override
             public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
                 TableHeader header = new TableHeader(value + "");
-                if (column == 5) {
+                if (column == 6) {
                     header.setHorizontalAlignment(JLabel.CENTER);
                 }
                 return header;
@@ -31,7 +31,7 @@ public class Table extends JTable {
             public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
                 TableHeader header = new TableHeader(value + "");
               
-                if (column != 5) {
+                if (column != 6) {
                     Component com = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
                     com.setBackground(Color.WHITE);
                     setBorder(noFocusBorder);
